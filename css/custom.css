@@ -1,0 +1,28 @@
+.cusdis-container {
+  margin-top: 4em;
+  width: 100%;
+}
+.cusdis-container #cusdis_thread {
+  max-height: none;
+  overflow: visible;
+}
+.cusdis-container #cusdis_thread iframe {
+  width: 100% !important;
+  height: auto !important;
+  min-height: 1200px;
+  max-height: none !important;
+}
+.post-wrap {
+  overflow: visible;
+}
+.container {
+  overflow: visible;
+}
+@media screen and (max-width: 767px) {
+  .cusdis-container {
+    margin-top: 1em;
+  }
+  .post-comments {
+    display: block !important;
+  }
+}
