@@ -577,13 +577,15 @@ header label {
 }
 .intro .avatar {
   padding: 10px;
+  position: relative;
+  overflow: hidden;
 }
 .intro .avatar img {
   width: 128px;
   height: auto;
   display: inline-block;
   -webkit-border-radius: 100%;
-  border-radius: 100%;
+  border-radius: 60%;
   -webkit-box-shadow: 0 0 0 0.3618em rgba(0,0,0,0.05);
   box-shadow: 0 0 0 0.3618em rgba(0,0,0,0.05);
   margin: 0 auto;
@@ -606,6 +608,37 @@ header label {
   font-size: 2em;
   font-weight: normal;
 }
+.description-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1em;
+}
+.description {
+  cursor: pointer;
+}
+.hidden-description {
+  display: inline-flex;
+  align-items: center;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 300px;
+  padding: 5px;
+  background-color: #6c6f68;
+  color: #fff;
+  border-radius: 5px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out, visibility 0.3s;
+  z-index: 1;
+}
+.description-wrapper:hover .hidden-description {
+  opacity: 1;
+  visibility: visible;
+  animation: sparkle 1s infinite alternate;
+}
 .links a {
   padding: 0 5px;
 }
@@ -614,6 +647,48 @@ header label {
 }
 .links .iconfont {
   font-size: 2em;
+}
+.easter-egg {
+  display: inline-block;
+  font-size: 1.5em;
+  cursor: pointer;
+  transition: transform 1.2s ease;
+}
+.easter-egg:hover {
+  transform: scale(1.3);
+  transition: transform 0.4s ease;
+}
+@-moz-keyframes sparkle {
+  0% {
+    text-shadow: 0 0 4px rgba(255,255,255,0.5);
+  }
+  100% {
+    text-shadow: 0 0 8px rgba(255,255,255,0.8), 0 0 12px rgba(255,255,255,0.6);
+  }
+}
+@-webkit-keyframes sparkle {
+  0% {
+    text-shadow: 0 0 4px rgba(255,255,255,0.5);
+  }
+  100% {
+    text-shadow: 0 0 8px rgba(255,255,255,0.8), 0 0 12px rgba(255,255,255,0.6);
+  }
+}
+@-o-keyframes sparkle {
+  0% {
+    text-shadow: 0 0 4px rgba(255,255,255,0.5);
+  }
+  100% {
+    text-shadow: 0 0 8px rgba(255,255,255,0.8), 0 0 12px rgba(255,255,255,0.6);
+  }
+}
+@keyframes sparkle {
+  0% {
+    text-shadow: 0 0 4px rgba(255,255,255,0.5);
+  }
+  100% {
+    text-shadow: 0 0 8px rgba(255,255,255,0.8), 0 0 12px rgba(255,255,255,0.6);
+  }
 }
 .post-wrap {
   position: relative;
