@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+    <meta charset="utf8" >
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" >
+    <title>
+      
+        有趣的網站 | Owen Hsiao
+      
+    </title>
+    <meta name="description" content="" >
+    <meta name="keywords" content="" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" >
+    
+      <link rel="apple-touch-icon"
+            sizes="180x180"
+            href="/blog/images/apple-touch-icon.png" >
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/blog/images/favicon-32x32.png" >
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/blog/images/favicon-16x16.png" >
+    
+    
+      <link rel="mask-icon"
+            href="/blog/images/logo.svg"
+            color="" >
+    
+    
+    
+    <link rel="stylesheet"
+          type="text/css"
+          href='/blog/css/layout.css' >
+    
+    
+  <link rel="stylesheet" type="text/css" href="/blog/css/post.css">
+  
+  <style>
+    /* Post 頁面專用白色 nav 樣式 */
+    .nav {
+      background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 15%, rgba(255, 255, 255, 0.7) 30%, rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 1) 70%, rgba(255, 255, 255, 1) 100%) !important;
+    }
+    
+    /* Post 頁面的 nav 文字顏色調整 */
+    .nav-menu-item {
+      color: #333 !important;
+    }
+    
+    .nav-menu-item:hover {
+      color: #000 !important;
+    }
+    
+    .lang-switch {
+      color: #333 !important;
+      border-color: #333 !important;
+    }
+    
+    .lang-switch:hover {
+      background: #333 !important;
+      color: white !important;
+    }
+    
+    /* 手機版 nav 按鈕顏色 */
+    .nav-btn::before, 
+    .nav-btn::after {
+      background: #333 !important;
+    }
+    
+    /* 手機版 nav 和菜單樣式 */
+    @media screen and (max-width: 1023px) {
+      .nav {
+        background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 15%, rgba(255, 255, 255, 0.7) 30%, rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 1) 70%, rgba(255, 255, 255, 1) 100%) !important;
+      }
+      
+      .nav-menu {
+        background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 15%, rgba(255, 255, 255, 0.7) 30%, rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 1) 70%, rgba(255, 255, 255, 1) 100%) !important;
+      }
+    }
+  </style>
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JPFR7PFSPP"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-JPFR7PFSPP');
+    </script>
+  <meta name="generator" content="Hexo 7.3.0">
+
+<script type="application/ld+json" id="hexo-seo-schema">[
+  {
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "url": "https://gba3124.github.io/blog",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "@id": "https://developers.google.com/search/docs/advanced/structured-data/sitelinks-searchbox",
+      "target": "/search{search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+]</script>
+
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" ></head>
+  <body>
+    
+      <div id="search-mask" style="display:none">
+  <div class="search-main" id="search-main">
+    <div class="search__head">
+      <div class="search-form">
+        <svg t="1706347533072"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="7828"
+             width="20"
+             height="20">
+          <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="#000000" p-id="7829">
+          </path>
+        </svg>
+        <input id="search-input" placeholder="搜尋...">
+        <svg t="1706361500528"
+             id="search-clear"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="4351"
+             width="20"
+             height="20">
+          <path d="M512 562.688l-264.2944 264.2944-50.688-50.688L461.312 512 197.0176 247.7056l50.688-50.688L512 461.312l264.2944-264.2944 50.688 50.688L562.688 512l264.2944 264.2944-50.688 50.688L512 562.688z" fill="#00" p-id="4352">
+          </path>
+        </svg>
+      </div>
+    </div>
+    <div class="search__body" id="search-result"></div>
+    <div class="search__foot"></div>
+  </div>
+</div>
+<script>
+window.TRANQUILITY_I18N = {
+  search: {
+    empty: "找不到關於 undefined 的結果",
+    hits: "找到 undefined 個關於 undefined 的結果",
+    hits_time: "找到 undefined 個結果（用時 undefined 毫秒）"
+  },
+  post: {
+    untitled: "無標題"
+  }
+};
+</script>
+
+    
+    
+    
+    <div class=head>
+      <div class="nav">
+        <a href='/blog/zh-tw/' class="nav-logo">
+          <img alt="logo" height="60px" width="60px" src="/blog/images/logo.svg" >
+        </a>
+        <input id="navBtn" type="checkbox" >
+        <div class="nav-right">
+          
+            <div class="search-outer">
+  <div class="search" id="search-btn">
+    <svg t="1706347533072"
+         class="icon"
+         viewBox="0 0 1024 1024"
+         version="1.1"
+         xmlns="http://www.w3.org/2000/svg"
+         p-id="7828"
+         width="20"
+         height="20">
+      <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="#000000" p-id="7829">
+      </path>
+    </svg>
+    <span>Search</span>
+    <span class="search-shortcut-key">Ctrl K</span>
+  </div>
+</div>
+
+          
+          <div class="nav-menu">
+            
+              
+                <a class="nav-menu-item" href="/blog/zh-tw/posts">文章</a>
+              
+                <a class="nav-menu-item" href="/blog/zh-tw/thoughts">想法</a>
+              
+                <a class="nav-menu-item" href="/blog/zh-tw/products">我的產品</a>
+              
+            
+            
+          </div>
+          <button class="lang-switch" onclick="switchLanguage()">
+            <i class="fa-solid fa-language"></i>
+            <span>English</span>
+          </button>
+        </div>
+        <label class="nav-btn" for="navBtn"></label>
+      </div>
+    </div>
+    
+    
+    <div class="body">
+      
+  <article class="post-content">
+    <div class="post-inner">
+      <div class="post-content__head">
+        <div class="post-title">有趣的網站</div>
+        <div class="post-info">
+          
+  <a href="/blog/zh-tw/tags/website/" class="post-tag">website</a><a href="/blog/zh-tw/tags/collection/" class="post-tag">collection</a>
+
+
+          <span class="post-date">2025-03-20</span>
+        </div>
+      </div>
+      
+      <div class="post-content__body">
+        <h1 id="我覺得有趣的網站"><a href="#我覺得有趣的網站" class="headerlink" title="我覺得有趣的網站"></a>我覺得有趣的網站</h1><p><a target="_blank" rel="nofollow noopener noreferer noreferrer external" href="https://leanrada.com/" hexo-seo="true" alt="有趣的網站" title="有趣的網站">leanrada</a></p>
+<p><a target="_blank" rel="nofollow noopener noreferer noreferrer external" href="https://github.com/codecrafters-io/build-your-own-x?tab=readme-ov-file" hexo-seo="true" alt="有趣的網站" title="有趣的網站">build-your-own-x</a></p>
+<h1 id="好的影片"><a href="#好的影片" class="headerlink" title="好的影片"></a>好的影片</h1><p><a target="_blank" rel="nofollow noopener noreferer noreferrer external" href="https://www.youtube.com/watch?v=klxbXfwjDtI" hexo-seo="true" alt="有趣的網站" title="有趣的網站">https://www.youtube.com/watch?v=klxbXfwjDtI</a></p>
+<h2 id="今日思考"><a href="#今日思考" class="headerlink" title="今日思考"></a>今日思考</h2><p>軟體開發的旅程不僅僅是寫程式而已，它還包含：</p>
+<ul>
+<li>解決問題的能力</li>
+<li>創意思考</li>
+<li>持續學習</li>
+<li>打造有意義的解決方案</li>
+</ul>
+<h2 id="近期啟發"><a href="#近期啟發" class="headerlink" title="近期啟發"></a>近期啟發</h2><blockquote>
+<p>“預測未來最好的方式就是創造它。” - Alan Kay</p>
+</blockquote>
+<p>這句話提醒著我們，身為開發者和創作者，我們有能力透過自己的工作和想法來塑造未來。</p>
+<h2 id="隨筆紀錄"><a href="#隨筆紀錄" class="headerlink" title="隨筆紀錄"></a>隨筆紀錄</h2><ol>
+<li>休息的重要性</li>
+<li>在完美和進度之間找到平衡</li>
+<li>學習新事物的樂趣</li>
+<li>每日小進步的影響力</li>
+</ol>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>這些零散的想法乍看之下可能沒有連結，但往往能帶來有趣的見解和新的視角。有時候，最具創新性的解決方案就來自於這些隨意的思考。</p>
+<p>期待在這個空間分享更多想法！</p>
+
+      </div>
+    </div>
+    
+      <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script>
+      <script>
+        if (window.mermaid) {
+          mermaid.initialize({"startOnload":true});
+        }
+      </script>
+    
+  </article>
+  <div class="post__foot">
+    
+      <div class="like-author">
+  <input type="checkbox" id="likeCode" >
+  <div class="author-face">
+    <img height="100px"
+         width="100px"
+         id="front-face"
+         alt="author face"
+         src="/blog/images/reward/avatar.png" >
+    <a href="https://buymeacoffee.com/gba3124" target="_blank" rel="nofollow noopener noreferer noreferrer external" hexo-seo="true" alt="有趣的網站" title="有趣的網站">
+        <img height="100px"
+            width="100px"
+            id="back-face"
+            alt="like code"
+            src="/blog/images/reward/bmc_qr.png" >
+    </a>
+  </div>
+  <div class="like-text">感謝您的支持與鼓勵</div>
+  <label for="likeCode" class="like-btn">
+    <svg viewBox="0 0 1024 1024"
+         width="20px"
+         style="margin-right: 10px"
+         height="20px">
+      <path d="M466.88 908.96L113.824 563.296a270.08 270.08 0 0 1 0-387.392c108.8-106.56 284.896-106.56 393.696 0 1.504 1.472 2.976 2.944 4.448 4.48 1.472-1.536 2.944-3.008 4.448-4.48 108.8-106.56 284.896-106.56 393.696 0a269.952 269.952 0 0 1 34.016 347.072l-387.392 385.6a64 64 0 0 1-89.92 0.384z" p-id="13650" fill="#ee4242" ></path>
+    </svg>
+    支持我
+  </label>
+</div>
+
+    
+    <div class="post-nav">
+  
+    <a class="post-nav-item-left" href="/blog/zh-tw/2025/03/20/zh-tw/draft/demo/">
+      <div class="text-align">
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" ></path>
+        </svg>
+        <span class="text-small">上一篇</span>
+      </div>
+      <div>隨想範例</div>
+    </a>
+  
+  <div class="vhr"></div>
+  
+    <a class="post-nav-item-right" href="/blog/zh-tw/2025/03/20/zh-tw/thoughts/belief/">
+      <div class="text-align">
+        <span class="text-small">下一篇</span>
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             transform="scale(-1,-1)"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" ></path>
+        </svg>
+      </div>
+      人生信條
+    </a>
+  
+</div>
+
+    
+    
+  </div>
+
+    </div>
+    <div class="foot">
+  <div class="footer-bg">
+    <div class="footer-threads" id="footer-threads"></div>
+    
+    <div id="footer-dock-container"></div>
+  </div>
+  <div class="footer-blur-layer"></div>
+</div>
+
+
+<div class="footer-copyright-section">
+  <div class="foot-inner">
+    <div class="copyright">
+      <svg width="16" height="16" viewBox="0 0 725 725">
+        <path fill-rule="evenodd" fill="currentColor" d="M145.870,236.632 L396.955,103.578 L431.292,419.44 L156.600,522.53 L145.870,236.632 Z" ></path>
+        <path fill-rule="evenodd" fill="currentColor" d="M396.955,103.578 L564.345,234.486 L611.558,513.469 L431.292,419.44 L396.955,103.578 Z" ></path>
+        <path fill-rule="evenodd" fill="currentColor" d="M431.292,419.44 L611.558,513.469 L358.327,595.18 L156.600,522.53 L431.292,419.44 Z" ></path>
+      </svg>
+      <span>由 <a target="_blank" rel="nofollow noopener noreferer noreferrer external" href="https://hexo.io/" hexo-seo="true" alt="有趣的網站" title="有趣的網站">Hexo</a> 驅動 · 主題 <a target="_blank" rel="nofollow noopener noreferer noreferrer external" href="https://github.com/hooozen/hexo-theme-tranquility" hexo-seo="true" alt="有趣的網站" title="有趣的網站">Tranquility</a></span>
+      <span>© 2025 <a href="https://gba3124.github.io/blog" rel="internal follow bookmark" hexo-seo="true" alt="有趣的網站" title="有趣的網站">Owen Hsiao</a></span>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  window.themeConfig = {
+    social: [{"name":"GitHub","icon":"/images/logo-github.svg","url":"https://github.com/gba3124"},{"name":"LinkedIn","icon":"/images/logo-linkedin.png","url":"https://www.linkedin.com/in/owen-hsiao-875b50217"},{"name":"Facebook","icon":"/images/logo-facebook.png","url":"https://web.facebook.com/profile.php?id=100000464468024"}],
+    contacts: [{"name":"gba3124@gmail.com","icon":"/images/icon/icon-email.svg","url":"mailto:gba3124@gmail.com"}],
+    links: [{"name":"我的 GitHub","url":"https://github.com/gba3124"}],
+    lang: {
+      social: '帳號',
+      contact: '聯繫',
+      friends: '朋友'
+    }
+  };
+</script>
+
+    
+      <script src="https://unpkg.com/js-polyfills@0.1.43/es6.js"></script>
+      <script src="/blog/js/mathjax-config.js"></script>
+      <script id="MathJax-script"
+              async
+              src="https://www.unpkg.com/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+    
+    
+      <script src="/blog/js/search.js"></script>
+      <script>searchInitialize("/blog/search.json")</script>
+    
+    <script src="/blog/js/copy-code.js"></script>
+    <script src="/blog/js/language-switch.js"></script>
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="/blog/js/threads-footer.js"></script>
+    
+    
+    <script src="/blog/js/footer-dock.js"></script>
+    
+    
+  
+
+  </body>
+</html>

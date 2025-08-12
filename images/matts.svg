@@ -1,0 +1,70 @@
+<svg width="100" height="100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="mandalaPattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+      <!-- Center circle -->
+      <circle cx="50" cy="50" r="4" fill="#8B3A3A" fill-opacity="0.25"/>
+      <circle cx="50" cy="50" r="2" fill="#722F2F" fill-opacity="0.3"/>
+      
+      <!-- Inner flower petals -->
+      <g transform="translate(50 50)">
+        <!-- Layer 1 - smallest -->
+        <g id="petal1">
+          <path d="M0,-4 C3,-8 5,-12 0,-15 C-5,-12 -3,-8 0,-4 Z" 
+                fill="#8B3A3A" fill-opacity="0.2"/>
+        </g>
+        <!-- Layer 2 - medium -->
+        <g id="petal2">
+          <path d="M0,-8 C6,-15 8,-20 0,-25 C-8,-20 -6,-15 0,-8 Z" 
+                fill="#722F2F" fill-opacity="0.15"/>
+        </g>
+        <!-- Layer 3 - largest -->
+        <g id="petal3">
+          <path d="M0,-15 C10,-25 12,-32 0,-38 C-12,-32 -10,-25 0,-15 Z" 
+                fill="#8B3A3A" fill-opacity="0.1"/>
+        </g>
+        
+        <!-- Rotate all layers for symmetry -->
+        <use href="#petal1" transform="rotate(45)"/>
+        <use href="#petal1" transform="rotate(90)"/>
+        <use href="#petal1" transform="rotate(135)"/>
+        <use href="#petal1" transform="rotate(180)"/>
+        <use href="#petal1" transform="rotate(225)"/>
+        <use href="#petal1" transform="rotate(270)"/>
+        <use href="#petal1" transform="rotate(315)"/>
+        
+        <use href="#petal2" transform="rotate(45)"/>
+        <use href="#petal2" transform="rotate(90)"/>
+        <use href="#petal2" transform="rotate(135)"/>
+        <use href="#petal2" transform="rotate(180)"/>
+        <use href="#petal2" transform="rotate(225)"/>
+        <use href="#petal2" transform="rotate(270)"/>
+        <use href="#petal2" transform="rotate(315)"/>
+        
+        <use href="#petal3" transform="rotate(45)"/>
+        <use href="#petal3" transform="rotate(90)"/>
+        <use href="#petal3" transform="rotate(135)"/>
+        <use href="#petal3" transform="rotate(180)"/>
+        <use href="#petal3" transform="rotate(225)"/>
+        <use href="#petal3" transform="rotate(270)"/>
+        <use href="#petal3" transform="rotate(315)"/>
+      </g>
+      
+      <!-- Decorative dots between petals -->
+      <g transform="translate(50 50)">
+        <g id="dot">
+          <circle cx="0" cy="-42" r="1.5" fill="#8B3A3A" fill-opacity="0.15"/>
+        </g>
+        <use href="#dot" transform="rotate(45)"/>
+        <use href="#dot" transform="rotate(90)"/>
+        <use href="#dot" transform="rotate(135)"/>
+        <use href="#dot" transform="rotate(180)"/>
+        <use href="#dot" transform="rotate(225)"/>
+        <use href="#dot" transform="rotate(270)"/>
+        <use href="#dot" transform="rotate(315)"/>
+      </g>
+    </pattern>
+  </defs>
+  
+  <!-- Background with mandala pattern -->
+  <rect x="0" y="0" width="100" height="100" fill="url(#mandalaPattern)"/>
+</svg>

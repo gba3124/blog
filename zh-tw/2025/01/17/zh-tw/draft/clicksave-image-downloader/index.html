@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+    <meta charset="utf8" >
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" >
+    <title>
+      
+        我如何開發出 Chrome 擴展 | Owen Hsiao
+      
+    </title>
+    <meta name="description" content="" >
+    <meta name="keywords" content="" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" >
+    
+      <link rel="apple-touch-icon"
+            sizes="180x180"
+            href="/blog/images/apple-touch-icon.png" >
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/blog/images/favicon-32x32.png" >
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/blog/images/favicon-16x16.png" >
+    
+    
+      <link rel="mask-icon"
+            href="/blog/images/logo.svg"
+            color="" >
+    
+    
+    
+    <link rel="stylesheet"
+          type="text/css"
+          href='/blog/css/layout.css' >
+    
+    
+  <link rel="stylesheet" type="text/css" href="/blog/css/post.css">
+  
+  <style>
+    /* Post 頁面專用白色 nav 樣式 */
+    .nav {
+      background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 15%, rgba(255, 255, 255, 0.7) 30%, rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 1) 70%, rgba(255, 255, 255, 1) 100%) !important;
+    }
+    
+    /* Post 頁面的 nav 文字顏色調整 */
+    .nav-menu-item {
+      color: #333 !important;
+    }
+    
+    .nav-menu-item:hover {
+      color: #000 !important;
+    }
+    
+    .lang-switch {
+      color: #333 !important;
+      border-color: #333 !important;
+    }
+    
+    .lang-switch:hover {
+      background: #333 !important;
+      color: white !important;
+    }
+    
+    /* 手機版 nav 按鈕顏色 */
+    .nav-btn::before, 
+    .nav-btn::after {
+      background: #333 !important;
+    }
+    
+    /* 手機版 nav 和菜單樣式 */
+    @media screen and (max-width: 1023px) {
+      .nav {
+        background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 15%, rgba(255, 255, 255, 0.7) 30%, rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 1) 70%, rgba(255, 255, 255, 1) 100%) !important;
+      }
+      
+      .nav-menu {
+        background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 15%, rgba(255, 255, 255, 0.7) 30%, rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 1) 70%, rgba(255, 255, 255, 1) 100%) !important;
+      }
+    }
+  </style>
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JPFR7PFSPP"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-JPFR7PFSPP');
+    </script>
+  <meta name="generator" content="Hexo 7.3.0">
+
+<script type="application/ld+json" id="hexo-seo-schema">[
+  {
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "url": "https://gba3124.github.io/blog",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "@id": "https://developers.google.com/search/docs/advanced/structured-data/sitelinks-searchbox",
+      "target": "/search{search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+]</script>
+
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" ></head>
+  <body>
+    
+      <div id="search-mask" style="display:none">
+  <div class="search-main" id="search-main">
+    <div class="search__head">
+      <div class="search-form">
+        <svg t="1706347533072"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="7828"
+             width="20"
+             height="20">
+          <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="#000000" p-id="7829">
+          </path>
+        </svg>
+        <input id="search-input" placeholder="搜尋...">
+        <svg t="1706361500528"
+             id="search-clear"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="4351"
+             width="20"
+             height="20">
+          <path d="M512 562.688l-264.2944 264.2944-50.688-50.688L461.312 512 197.0176 247.7056l50.688-50.688L512 461.312l264.2944-264.2944 50.688 50.688L562.688 512l264.2944 264.2944-50.688 50.688L512 562.688z" fill="#00" p-id="4352">
+          </path>
+        </svg>
+      </div>
+    </div>
+    <div class="search__body" id="search-result"></div>
+    <div class="search__foot"></div>
+  </div>
+</div>
+<script>
+window.TRANQUILITY_I18N = {
+  search: {
+    empty: "找不到關於 undefined 的結果",
+    hits: "找到 undefined 個關於 undefined 的結果",
+    hits_time: "找到 undefined 個結果（用時 undefined 毫秒）"
+  },
+  post: {
+    untitled: "無標題"
+  }
+};
+</script>
+
+    
+    
+    
+    <div class=head>
+      <div class="nav">
+        <a href='/blog/zh-tw/' class="nav-logo">
+          <img alt="logo" height="60px" width="60px" src="/blog/images/logo.svg" >
+        </a>
+        <input id="navBtn" type="checkbox" >
+        <div class="nav-right">
+          
+            <div class="search-outer">
+  <div class="search" id="search-btn">
+    <svg t="1706347533072"
+         class="icon"
+         viewBox="0 0 1024 1024"
+         version="1.1"
+         xmlns="http://www.w3.org/2000/svg"
+         p-id="7828"
+         width="20"
+         height="20">
+      <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="#000000" p-id="7829">
+      </path>
+    </svg>
+    <span>Search</span>
+    <span class="search-shortcut-key">Ctrl K</span>
+  </div>
+</div>
+
+          
+          <div class="nav-menu">
+            
+              
+                <a class="nav-menu-item" href="/blog/zh-tw/posts">文章</a>
+              
+                <a class="nav-menu-item" href="/blog/zh-tw/thoughts">想法</a>
+              
+                <a class="nav-menu-item" href="/blog/zh-tw/products">我的產品</a>
+              
+            
+            
+          </div>
+          <button class="lang-switch" onclick="switchLanguage()">
+            <i class="fa-solid fa-language"></i>
+            <span>English</span>
+          </button>
+        </div>
+        <label class="nav-btn" for="navBtn"></label>
+      </div>
+    </div>
+    
+    
+    <div class="body">
+      
+  <article class="post-content">
+    <div class="post-inner">
+      <div class="post-content__head">
+        <div class="post-title">我如何開發出 Chrome 擴展</div>
+        <div class="post-info">
+          
+  <a href="/blog/zh-tw/tags/Chrome%E6%93%B4%E5%B1%95/" class="post-tag">Chrome擴展</a><a href="/blog/zh-tw/tags/%E5%9C%96%E7%89%87%E4%B8%8B%E8%BC%89/" class="post-tag">圖片下載</a><a href="/blog/zh-tw/tags/%E7%94%9F%E7%94%A2%E5%8A%9B%E5%B7%A5%E5%85%B7/" class="post-tag">生產力工具</a><a href="/blog/zh-tw/tags/%E5%89%8D%E7%AB%AF%E9%96%8B%E7%99%BC/" class="post-tag">前端開發</a><a href="/blog/zh-tw/tags/JavaScript/" class="post-tag">JavaScript</a>
+
+
+          <span class="post-date">2025-01-17</span>
+        </div>
+      </div>
+      
+      <div class="post-content__body">
+        <p>這是一個關於如何從一個簡單的想法出發，最終開發出一個日均千次圖片下載點擊的 Chrome 擴展的故事。在這個過程中，我遇到了許多技術挑戰，也學到了很多關於產品開發和用戶體驗的寶貴經驗。</p>
+<span id="more"></span>
+
+<h2 id="一切都始於一個微小的煩惱"><a href="#一切都始於一個微小的煩惱" class="headerlink" title="一切都始於一個微小的煩惱"></a>一切都始於一個微小的煩惱</h2><p>你有沒有過這樣的經歷：在瀏覽 Instagram 或 Pinterest 時看到一張美麗的圖片，想要保存下來，卻發現需要右鍵、選擇「另存圖片」、等待彈窗、選擇路徑… 整個過程繁瑣到讓人失去耐心？</p>
+<p>這正是我去年在整理設計靈感時遇到的問題。作為一個開發者，我的第一反應是：「一定有更好的方法。」</p>
+<p>當時我正在為一個設計項目收集素材，需要從各個網站下載大量圖片。每次右鍵保存的操作讓我倍感煩躁，特別是當我發現下載的圖片解析度經常不是最高的版本時。</p>
+<p>「為什麼不能像手機 App 那樣，長按就能保存圖片呢？」我想著。</p>
+<h2 id="從想法到第一行代碼"><a href="#從想法到第一行代碼" class="headerlink" title="從想法到第一行代碼"></a>從想法到第一行代碼</h2><p>週末的下午，我決定動手解決這個問題。最初的想法很簡單：做一個 Chrome 擴展，讓用戶可以通過懸停和點擊來快速保存圖片。</p>
+<p>我把這個想法分享給了我的朋友 Felix Falkenberg（<a target="_blank" rel="nofollow noopener noreferer noreferrer external" href="https://github.com/ffalkenberg" hexo-seo="true" alt="我如何開發出 Chrome 擴展" title="我如何開發出 Chrome 擴展">@ffalkenberg</a>），一位 ML Engineer 和 DevOps 專家。作為數字游牧者的他對效率工具有著敏銳的嗅覺，立刻就認識到了這個想法的潛力。</p>
+<p>「這確實是個痛點，」Felix 說，「我們可以一起做這個項目，正好我們都沒有上架過 Chrome 擴展的經驗，這算是個不錯的學習練習。」</p>
+<p>雖然我有軟體架構的經驗，但 Chrome 擴展開發對我們來說都是全新的領域。</p>
+<p>但當我們開始深入研究時，才發現這個「簡單」的想法背後藏著許多複雜的技術挑戰。</p>
+<h3 id="第一個挑戰：如何檢測滑鼠懸停"><a href="#第一個挑戰：如何檢測滑鼠懸停" class="headerlink" title="第一個挑戰：如何檢測滑鼠懸停"></a>第一個挑戰：如何檢測滑鼠懸停</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 我的第一次嘗試 - 天真的方法</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;mouseover&#x27;</span>, <span class="keyword">function</span>(<span class="params">e</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (e.<span class="property">target</span>.<span class="property">tagName</span> === <span class="string">&#x27;IMG&#x27;</span>) &#123;</span><br><span class="line">        <span class="title function_">showDownloadButton</span>(e.<span class="property">target</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>看起來簡單對吧？但實際測試時問題接踵而來：</p>
+<ul>
+<li>按鈕閃爍不停</li>
+<li>性能問題導致頁面卡頓</li>
+<li>有些圖片檢測不到</li>
+<li>按鈕位置不正確</li>
+</ul>
+<p>這讓我意識到，做好一個看似簡單的功能需要考慮的細節遠比想像中複雜。</p>
+<h3 id="深入兔子洞：事件優化"><a href="#深入兔子洞：事件優化" class="headerlink" title="深入兔子洞：事件優化"></a>深入兔子洞：事件優化</h3><p>經過幾天的研究和測試，我學到了事件委派和防抖的重要性：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 優化後的版本</span></span><br><span class="line"><span class="keyword">let</span> hoverTimeout;</span><br><span class="line"><span class="keyword">let</span> currentImage = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;mouseover&#x27;</span>, <span class="keyword">function</span>(<span class="params">e</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (e.<span class="property">target</span>.<span class="property">tagName</span> === <span class="string">&#x27;IMG&#x27;</span> &amp;&amp; e.<span class="property">target</span> !== currentImage) &#123;</span><br><span class="line">        <span class="built_in">clearTimeout</span>(hoverTimeout);</span><br><span class="line">        hoverTimeout = <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">            <span class="title function_">showDownloadButton</span>(e.<span class="property">target</span>);</span><br><span class="line">            currentImage = e.<span class="property">target</span>;</span><br><span class="line">        &#125;, <span class="number">200</span>); <span class="comment">// 200ms 延遲避免閃爍</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;mouseout&#x27;</span>, <span class="keyword">function</span>(<span class="params">e</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (e.<span class="property">target</span>.<span class="property">tagName</span> === <span class="string">&#x27;IMG&#x27;</span>) &#123;</span><br><span class="line">        <span class="built_in">clearTimeout</span>(hoverTimeout);</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">            <span class="title function_">hideDownloadButton</span>();</span><br><span class="line">        &#125;, <span class="number">300</span>); <span class="comment">// 給用戶時間移動到按鈕上</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="最大的挑戰：找到最高解析度的圖片"><a href="#最大的挑戰：找到最高解析度的圖片" class="headerlink" title="最大的挑戰：找到最高解析度的圖片"></a>最大的挑戰：找到最高解析度的圖片</h2><p>當基本功能運作後，我們發現了真正的技術挑戰：很多網站顯示的是縮圖，但用戶想要的是原始大小的圖片。這個看似簡單的需求，實際上是整個項目最複雜的部分。</p>
+<h3 id="Google-Images-的謎題"><a href="#Google-Images-的謎題" class="headerlink" title="Google Images 的謎題"></a>Google Images 的謎題</h3><p>Google Images 是我們遇到的最大挑戰。表面上看到的圖片元素，其 <code>src</code> 屬性指向的只是一個低解析度的預覽圖，而真正的高解析度圖片 URL 被深深埋藏在複雜的 DOM 結構和 data 屬性中。</p>
+<p>我花了整整一週時間研究 Google Images 的頁面結構，像偵探一樣追蹤每個可能的線索：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Google Images 高解析度檢測 - 經過無數次試錯後的最終方案</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">getGoogleImagesHighRes</span>(<span class="params">img</span>) &#123;</span><br><span class="line">    <span class="comment">// 方法 1: 檢查各種可能的 data 屬性</span></span><br><span class="line">    <span class="keyword">const</span> dataUrl = img.<span class="title function_">getAttribute</span>(<span class="string">&#x27;data-src&#x27;</span>) || </span><br><span class="line">                   img.<span class="title function_">getAttribute</span>(<span class="string">&#x27;data-original-src&#x27;</span>) ||</span><br><span class="line">                   img.<span class="title function_">getAttribute</span>(<span class="string">&#x27;data-iurl&#x27;</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 方法 2: 爬取父元素的 data-ri 屬性（Google的元數據）</span></span><br><span class="line">    <span class="keyword">const</span> parent = img.<span class="title function_">closest</span>(<span class="string">&#x27;[data-ri]&#x27;</span>);</span><br><span class="line">    <span class="keyword">if</span> (parent) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">const</span> metadata = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(parent.<span class="title function_">getAttribute</span>(<span class="string">&#x27;data-ri&#x27;</span>));</span><br><span class="line">            <span class="comment">// &#x27;ou&#x27; 是 original URL 的縮寫</span></span><br><span class="line">            <span class="keyword">if</span> (metadata.<span class="property">ou</span>) <span class="keyword">return</span> metadata.<span class="property">ou</span>;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">            <span class="comment">// JSON 解析失敗，繼續嘗試其他方法</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 方法 3: 分析 srcset 找最高解析度</span></span><br><span class="line">    <span class="keyword">if</span> (img.<span class="property">srcset</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> srcsetUrls = <span class="title function_">parseSrcset</span>(img.<span class="property">srcset</span>);</span><br><span class="line">        <span class="keyword">return</span> srcsetUrls[srcsetUrls.<span class="property">length</span> - <span class="number">1</span>].<span class="property">url</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 方法 4: 嘗試從 URL 參數中獲取原始圖片</span></span><br><span class="line">    <span class="keyword">if</span> (img.<span class="property">src</span>.<span class="title function_">includes</span>(<span class="string">&#x27;googleusercontent.com&#x27;</span>)) &#123;</span><br><span class="line">        <span class="keyword">return</span> img.<span class="property">src</span>.<span class="title function_">replace</span>(<span class="regexp">/=s\d+/</span>, <span class="string">&#x27;&#x27;</span>); <span class="comment">// 移除尺寸限制參數</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> img.<span class="property">src</span>; <span class="comment">// 最後的回退方案</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="每個網站都是一個新謎題"><a href="#每個網站都是一個新謎題" class="headerlink" title="每個網站都是一個新謎題"></a>每個網站都是一個新謎題</h3><p>接下來我們發現，每個主流網站都有自己的圖片存儲邏輯：</p>
+<ul>
+<li><strong>Instagram</strong>：高解析度圖片藏在 <code>data-*</code> 屬性中，但屬性名會變化</li>
+<li><strong>Twitter</strong>：需要修改 URL 參數來獲取大圖版本（<code>:large</code> vs <code>:small</code>）</li>
+<li><strong>Pinterest</strong>：原始圖片 URL 隱藏在複雜的 JSON 結構中</li>
+<li><strong>Facebook</strong>：多層嵌套的圖片版本，需要遞歸查找</li>
+</ul>
+<p>我們需要為每個網站開發專門的解析邏輯：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ImageResolver</span> &#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">siteHandlers</span> = &#123;</span><br><span class="line">            <span class="string">&#x27;instagram.com&#x27;</span>: <span class="variable language_">this</span>.<span class="property">handleInstagram</span>,</span><br><span class="line">            <span class="string">&#x27;twitter.com&#x27;</span>: <span class="variable language_">this</span>.<span class="property">handleTwitter</span>,</span><br><span class="line">            <span class="string">&#x27;x.com&#x27;</span>: <span class="variable language_">this</span>.<span class="property">handleTwitter</span>, <span class="comment">// Twitter 改名後的域名</span></span><br><span class="line">            <span class="string">&#x27;images.google.com&#x27;</span>: <span class="variable language_">this</span>.<span class="property">handleGoogleImages</span>,</span><br><span class="line">            <span class="string">&#x27;pinterest.com&#x27;</span>: <span class="variable language_">this</span>.<span class="property">handlePinterest</span>,</span><br><span class="line">            <span class="string">&#x27;facebook.com&#x27;</span>: <span class="variable language_">this</span>.<span class="property">handleFacebook</span></span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">async</span> <span class="title function_">resolveHighResUrl</span>(<span class="params">img</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> hostname = <span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">hostname</span>;</span><br><span class="line">        <span class="keyword">const</span> handler = <span class="variable language_">this</span>.<span class="property">siteHandlers</span>[hostname];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (handler) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">const</span> result = <span class="keyword">await</span> <span class="title function_">handler</span>(img);</span><br><span class="line">                <span class="keyword">if</span> (result &amp;&amp; result !== img.<span class="property">src</span>) <span class="keyword">return</span> result;</span><br><span class="line">            &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">                <span class="variable language_">console</span>.<span class="title function_">warn</span>(<span class="string">`Handler failed for <span class="subst">$&#123;hostname&#125;</span>:`</span>, error);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 通用回退策略：嘗試常見的高解析度模式</span></span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="title function_">genericResolve</span>(img);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="title function_">handleTwitter</span>(<span class="params">img</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (img.<span class="property">src</span>.<span class="title function_">includes</span>(<span class="string">&#x27;pbs.twimg.com&#x27;</span>)) &#123;</span><br><span class="line">            <span class="comment">// 將 :small 或其他尺寸替換為 :large</span></span><br><span class="line">            <span class="keyword">return</span> img.<span class="property">src</span>.<span class="title function_">replace</span>(<span class="regexp">/:(small|medium|thumb)/</span>, <span class="string">&#x27;:large&#x27;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> img.<span class="property">src</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="意想不到的用戶體驗挑戰"><a href="#意想不到的用戶體驗挑戰" class="headerlink" title="意想不到的用戶體驗挑戰"></a>意想不到的用戶體驗挑戰</h2><p>技術問題解決後，我們開始面對各種意想不到的用戶體驗問題。</p>
+<h3 id="可拖曳按鈕的定位難題"><a href="#可拖曳按鈕的定位難題" class="headerlink" title="可拖曳按鈕的定位難題"></a>可拖曳按鈕的定位難題</h3><p>最初我們把下載按鈕固定在圖片的右上角，但很快發現問題：</p>
+<ul>
+<li>在小圖片上按鈕過於突兀</li>
+<li>有時會遮擋重要內容（如水印、文字）</li>
+<li>不同網站的 CSS 會影響按鈕顯示</li>
+</ul>
+<p>我們決定讓按鈕可拖曳，但這帶來了新的技術挑戰：<strong>如何確保按鈕始終保持在圖片邊界內？</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 限制按鈕在圖片邊界內的拖曳邏輯</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">constrainButtonPosition</span>(<span class="params">button, image, newX, newY</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> imgRect = image.<span class="title function_">getBoundingClientRect</span>();</span><br><span class="line">    <span class="keyword">const</span> btnRect = button.<span class="title function_">getBoundingClientRect</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 計算有效拖曳範圍</span></span><br><span class="line">    <span class="keyword">const</span> minX = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">const</span> minY = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">const</span> maxX = imgRect.<span class="property">width</span> - btnRect.<span class="property">width</span>;</span><br><span class="line">    <span class="keyword">const</span> maxY = imgRect.<span class="property">height</span> - btnRect.<span class="property">height</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 限制在邊界內</span></span><br><span class="line">    <span class="keyword">const</span> constrainedX = <span class="title class_">Math</span>.<span class="title function_">max</span>(minX, <span class="title class_">Math</span>.<span class="title function_">min</span>(maxX, newX));</span><br><span class="line">    <span class="keyword">const</span> constrainedY = <span class="title class_">Math</span>.<span class="title function_">max</span>(minY, <span class="title class_">Math</span>.<span class="title function_">min</span>(maxY, newY));</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> &#123; <span class="attr">x</span>: constrainedX, <span class="attr">y</span>: constrainedY &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="裝飾性圖片的過濾問題"><a href="#裝飾性圖片的過濾問題" class="headerlink" title="裝飾性圖片的過濾問題"></a>裝飾性圖片的過濾問題</h3><p>測試過程中我們發現了一個意想不到的問題：很多網站都有用來裝飾的小圖片，比如：</p>
+<ul>
+<li>1x1 像素的追蹤圖片</li>
+<li>用於背景裝飾的重複圖案</li>
+<li>載入中的佔位符圖片</li>
+<li>CSS 背景圖片</li>
+</ul>
+<p>這些圖片上出現下載按鈕既沒用又影響體驗。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 智能圖片過濾系統</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">shouldShowDownloadButton</span>(<span class="params">img</span>) &#123;</span><br><span class="line">    <span class="comment">// 過濾太小的圖片（可能是裝飾性的）</span></span><br><span class="line">    <span class="keyword">if</span> (img.<span class="property">width</span> &lt; <span class="number">50</span> || img.<span class="property">height</span> &lt; <span class="number">50</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 過濾明顯的追蹤圖片</span></span><br><span class="line">    <span class="keyword">if</span> (img.<span class="property">width</span> === <span class="number">1</span> &amp;&amp; img.<span class="property">height</span> === <span class="number">1</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 過濾常見的佔位符和圖標</span></span><br><span class="line">    <span class="keyword">const</span> src = img.<span class="property">src</span>.<span class="title function_">toLowerCase</span>();</span><br><span class="line">    <span class="keyword">const</span> suspiciousPatterns = [</span><br><span class="line">        <span class="string">&#x27;placeholder&#x27;</span>, <span class="string">&#x27;loading&#x27;</span>, <span class="string">&#x27;spinner&#x27;</span>, <span class="string">&#x27;icon-&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;logo-small&#x27;</span>, <span class="string">&#x27;avatar-default&#x27;</span>, <span class="string">&#x27;1x1&#x27;</span>, <span class="string">&#x27;pixel&#x27;</span></span><br><span class="line">    ];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (suspiciousPatterns.<span class="title function_">some</span>(<span class="function"><span class="params">pattern</span> =&gt;</span> src.<span class="title function_">includes</span>(pattern))) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 檢查是否為 CSS 背景圖片</span></span><br><span class="line">    <span class="keyword">const</span> computedStyle = <span class="variable language_">window</span>.<span class="title function_">getComputedStyle</span>(img);</span><br><span class="line">    <span class="keyword">if</span> (computedStyle.<span class="property">display</span> === <span class="string">&#x27;none&#x27;</span> || </span><br><span class="line">        computedStyle.<span class="property">visibility</span> === <span class="string">&#x27;hidden&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 檢查圖片的長寬比是否異常（可能是分隔線等裝飾元素）</span></span><br><span class="line">    <span class="keyword">const</span> aspectRatio = img.<span class="property">width</span> / img.<span class="property">height</span>;</span><br><span class="line">    <span class="keyword">if</span> (aspectRatio &gt; <span class="number">20</span> || aspectRatio &lt; <span class="number">0.05</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="視覺反饋的重要性"><a href="#視覺反饋的重要性" class="headerlink" title="視覺反饋的重要性"></a>視覺反饋的重要性</h3><p>我添加了細緻的動畫和狀態指示：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.download-button</span> &#123;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">0.8</span>);</span><br><span class="line">    <span class="attribute">transition</span>: all <span class="number">0.2s</span> <span class="built_in">cubic-bezier</span>(<span class="number">0.4</span>, <span class="number">0</span>, <span class="number">0.2</span>, <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.download-button</span><span class="selector-class">.show</span> &#123;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">1</span>;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.download-button</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">1.1</span>);</span><br><span class="line">    <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">4px</span> <span class="number">12px</span> <span class="built_in">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.3</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>這些微小的細節讓整個體驗變得流暢和愉悅。</p>
+<h2 id="第一個用戶的反饋改變了一切"><a href="#第一個用戶的反饋改變了一切" class="headerlink" title="第一個用戶的反饋改變了一切"></a>第一個用戶的反饋改變了一切</h2><p>當我們把第一個版本分享給朋友時，收到的反饋讓我們重新思考產品定位。</p>
+<p>「這個很棒！但是我經常需要下載整個頁面的所有圖片，能不能添加批量下載功能？」</p>
+<p>這個建議打開了我們的思路。Felix 和我意識到，這不僅僅是一個單張圖片下載工具，而是一個完整的圖片管理解決方案。</p>
+<p>「批量下載涉及複雜的並發控制和錯誤處理，」Felix 提醒我，「我們需要仔細設計這個功能的架構。」</p>
+<h3 id="批量下載的技術挑戰"><a href="#批量下載的技術挑戰" class="headerlink" title="批量下載的技術挑戰"></a>批量下載的技術挑戰</h3><p>實現批量下載看起來簡單，但實際上涉及複雜的異步處理和錯誤處理。我們需要考慮：</p>
+<ul>
+<li>避免同時發起太多下載請求（會被瀏覽器限制）</li>
+<li>處理部分下載失敗的情況</li>
+<li>給用戶提供進度反饋</li>
+<li>避免下載重複圖片</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">BatchDownloader</span> &#123;</span><br><span class="line">    <span class="keyword">async</span> <span class="title function_">downloadAll</span>(<span class="params">images</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> results = [];</span><br><span class="line">        <span class="keyword">const</span> concurrency = <span class="number">3</span>; <span class="comment">// 限制並發數量</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; images.<span class="property">length</span>; i += concurrency) &#123;</span><br><span class="line">            <span class="keyword">const</span> batch = images.<span class="title function_">slice</span>(i, i + concurrency);</span><br><span class="line">            <span class="keyword">const</span> promises = batch.<span class="title function_">map</span>(<span class="function"><span class="params">img</span> =&gt;</span> <span class="variable language_">this</span>.<span class="title function_">downloadSingle</span>(img));</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">const</span> batchResults = <span class="keyword">await</span> <span class="title class_">Promise</span>.<span class="title function_">allSettled</span>(promises);</span><br><span class="line">                results.<span class="title function_">push</span>(...batchResults);</span><br><span class="line">                </span><br><span class="line">                <span class="comment">// 更新進度</span></span><br><span class="line">                <span class="variable language_">this</span>.<span class="title function_">updateProgress</span>(i + batch.<span class="property">length</span>, images.<span class="property">length</span>);</span><br><span class="line">                </span><br><span class="line">                <span class="comment">// 避免過於頻繁的請求</span></span><br><span class="line">                <span class="keyword">await</span> <span class="variable language_">this</span>.<span class="title function_">delay</span>(<span class="number">500</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">                <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;Batch download error:&#x27;</span>, error);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> results;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="意外的成功"><a href="#意外的成功" class="headerlink" title="意外的成功"></a>意外的成功</h2><p>上線一個月後，我們收到了第一封用戶郵件：</p>
+<p>「謝謝你們開發了這個擴展！我是一名設計師，每天需要收集大量的視覺素材。你們的工具為我節省了大量時間。能不能添加一個 AI 放大功能？」</p>
+<p>這讓我們意識到，我們無意中解決了一個比想像中更普遍的問題。Felix 開玩笑說：「看來我們不小心做對了什麼。」</p>
+<h3 id="數據告訴我的故事"><a href="#數據告訴我的故事" class="headerlink" title="數據告訴我的故事"></a>數據告訴我的故事</h3><ul>
+<li>第一週：47 個用戶</li>
+<li>第一個月：1,247 個用戶</li>
+<li>用戶類型：60% 設計師&#x2F;創作者，25% 學生，15% 其他專業人士</li>
+<li>最常用功能：單張下載 (78%)，批量下載 (45%)，格式轉換 (23%)</li>
+</ul>
+<h2 id="技術債務與重構"><a href="#技術債務與重構" class="headerlink" title="技術債務與重構"></a>技術債務與重構</h2><p>隨著功能增加，代碼開始變得複雜和難以維護。作為有軟體架構經驗的我，決定進行一次大規模的重構：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 重構前：一個巨大的文件，500+ 行</span></span><br><span class="line"><span class="comment">// 重構後：模塊化架構</span></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">ClickSave</span> = &#123;</span><br><span class="line">    <span class="attr">core</span>: <span class="keyword">new</span> <span class="title class_">CoreModule</span>(),</span><br><span class="line">    <span class="attr">ui</span>: <span class="keyword">new</span> <span class="title class_">UIModule</span>(),</span><br><span class="line">    <span class="attr">downloader</span>: <span class="keyword">new</span> <span class="title class_">DownloadModule</span>(),</span><br><span class="line">    <span class="attr">settings</span>: <span class="keyword">new</span> <span class="title class_">SettingsModule</span>(),</span><br><span class="line">    <span class="attr">analytics</span>: <span class="keyword">new</span> <span class="title class_">AnalyticsModule</span>()</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>這次重構教會了我們：</p>
+<ul>
+<li>單一職責原則的重要性</li>
+<li>早期投資於良好架構的價值</li>
+<li>測試驅動開發的必要性</li>
+<li>團隊合作中代碼審查的價值</li>
+</ul>
+<h2 id="學到的最重要的教訓"><a href="#學到的最重要的教訓" class="headerlink" title="學到的最重要的教訓"></a>學到的最重要的教訓</h2><h3 id="1-用戶體驗勝過技術複雜性"><a href="#1-用戶體驗勝過技術複雜性" class="headerlink" title="1. 用戶體驗勝過技術複雜性"></a>1. 用戶體驗勝過技術複雜性</h3><p>最初我過度關注技術實現的優雅性，但用戶只關心功能是否好用。一個簡單直觀的界面比複雜的技術架構更重要。</p>
+<h3 id="2-持續的用戶反饋是產品成功的關鍵"><a href="#2-持續的用戶反饋是產品成功的關鍵" class="headerlink" title="2. 持續的用戶反饋是產品成功的關鍵"></a>2. 持續的用戶反饋是產品成功的關鍵</h3><p>每個版本發布後，我們都會認真閱讀每一條用戶反饋。這些反饋幫助我們了解真正的用戶需求，而不是我們假想的需求。我們建立了一套簡單的系統來追蹤和分析用戶反饋，這對產品迭代至關重要。</p>
+<h3 id="3-性能優化永遠不能忽視"><a href="#3-性能優化永遠不能忽視" class="headerlink" title="3. 性能優化永遠不能忽視"></a>3. 性能優化永遠不能忽視</h3><p>在不同的網站和設備上測試讓我深刻理解了性能優化的重要性。一個功能再強大，如果影響頁面性能，用戶也會毫不猶豫地卸載。</p>
+<h3 id="4-隱私和安全是基本要求"><a href="#4-隱私和安全是基本要求" class="headerlink" title="4. 隱私和安全是基本要求"></a>4. 隱私和安全是基本要求</h3><p>在設計之初就考慮隱私和安全，而不是事後添加。用戶的信任是最寶貴的資產。</p>
+<h3 id="5-合作學習的價值"><a href="#5-合作學習的價值" class="headerlink" title="5. 合作學習的價值"></a>5. 合作學習的價值</h3><p>這個項目證明了合作學習的價值。雖然我們都沒有 Chrome 擴展開發經驗，但通過互相討論和代碼審查，我們學習得比單獨研究要快得多。Felix 從 ML 和 DevOps 的角度提出問題，我從軟體架構的角度思考解決方案，這種互補讓我們避免了很多彎路。</p>
+<h2 id="下一步的計劃"><a href="#下一步的計劃" class="headerlink" title="下一步的計劃"></a>下一步的計劃</h2><p>現在 ClickSave 已經有了穩定的用戶基礎，我們正在思考下一步的發展方向：</p>
+<ol>
+<li><strong>AI 集成</strong>：基於用戶請求，Felix 正在探索集成圖片 AI 處理功能</li>
+<li><strong>跨平台支持</strong>：考慮開發 Firefox 和 Safari 版本</li>
+<li><strong>雲端同步</strong>：讓用戶的設定和下載歷史可以跨設備同步</li>
+</ol>
+<h2 id="寫在最後"><a href="#寫在最後" class="headerlink" title="寫在最後"></a>寫在最後</h2><p>這個項目教會了我們，好的產品不僅僅是好的代碼，更是對用戶真正需求的理解和滿足。從一個個人的小煩惱出發，最終創造出每天處理數千次圖片下載的工具，這個過程充滿了挑戰，但也帶來了巨大的滿足感。</p>
+<p>與 Felix 的合作讓我深刻體會到，兩個人一起學習新技術比單打獨鬥要有效得多。這個 Chrome 擴展開發的小實驗，不僅讓我們學會了擴展開發，更重要的是體驗了從零開始構建產品的完整過程。</p>
+<p>如果你也有類似的想法但還沒有開始行動，我們的建議是：不要想太多，先動手做一個最簡單的版本。找一個能力互補的夥伴，用戶的反饋會告訴你們接下來該往哪個方向走。</p>
+<p>技術會變化，工具會更新，但解決真實問題的初心和團隊合作的價值不會改變。這就是我們從 ClickSave 這個項目中學到的最重要的一課。</p>
+<hr>
+<p><strong>項目相關連結</strong>：</p>
+<ul>
+<li>🌐 <a href="https://gba3124.github.io/blog/image-downloader" rel="internal follow bookmark" hexo-seo="true" alt="我如何開發出 Chrome 擴展" title="我如何開發出 Chrome 擴展">ClickSave 官網</a></li>
+<li>💻 <a target="_blank" rel="nofollow noopener noreferer noreferrer external" href="https://github.com/gba3124/image-downloader" hexo-seo="true" alt="我如何開發出 Chrome 擴展" title="我如何開發出 Chrome 擴展">GitHub 代碼庫</a></li>
+<li>📦 Chrome Web Store（即將上線）</li>
+</ul>
+<p><em>如果這篇文章對你有幫助，或者你也在開發類似的工具，歡迎在評論區分享你的經驗和想法。</em> </p>
+
+      </div>
+    </div>
+    
+      <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script>
+      <script>
+        if (window.mermaid) {
+          mermaid.initialize({"startOnload":true});
+        }
+      </script>
+    
+  </article>
+  <div class="post__foot">
+    
+      <div class="like-author">
+  <input type="checkbox" id="likeCode" >
+  <div class="author-face">
+    <img height="100px"
+         width="100px"
+         id="front-face"
+         alt="author face"
+         src="/blog/images/reward/avatar.png" >
+    <a href="https://buymeacoffee.com/gba3124" target="_blank" rel="nofollow noopener noreferer noreferrer external" hexo-seo="true" alt="我如何開發出 Chrome 擴展" title="我如何開發出 Chrome 擴展">
+        <img height="100px"
+            width="100px"
+            id="back-face"
+            alt="like code"
+            src="/blog/images/reward/bmc_qr.png" >
+    </a>
+  </div>
+  <div class="like-text">感謝您的支持與鼓勵</div>
+  <label for="likeCode" class="like-btn">
+    <svg viewBox="0 0 1024 1024"
+         width="20px"
+         style="margin-right: 10px"
+         height="20px">
+      <path d="M466.88 908.96L113.824 563.296a270.08 270.08 0 0 1 0-387.392c108.8-106.56 284.896-106.56 393.696 0 1.504 1.472 2.976 2.944 4.448 4.48 1.472-1.536 2.944-3.008 4.448-4.48 108.8-106.56 284.896-106.56 393.696 0a269.952 269.952 0 0 1 34.016 347.072l-387.392 385.6a64 64 0 0 1-89.92 0.384z" p-id="13650" fill="#ee4242" ></path>
+    </svg>
+    支持我
+  </label>
+</div>
+
+    
+    <div class="post-nav">
+  
+    <a class="post-nav-item-left" href="/blog/zh-tw/2025/03/15/zh-tw/featTest/feature-test/">
+      <div class="text-align">
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" ></path>
+        </svg>
+        <span class="text-small">上一篇</span>
+      </div>
+      <div>主題功能測試</div>
+    </a>
+  
+  <div class="vhr"></div>
+  
+    <div class="post-nav-item-right"></div>
+  
+</div>
+
+    
+    
+  </div>
+
+    </div>
+    <div class="foot">
+  <div class="footer-bg">
+    <div class="footer-threads" id="footer-threads"></div>
+    
+    <div id="footer-dock-container"></div>
+  </div>
+  <div class="footer-blur-layer"></div>
+</div>
+
+
+<div class="footer-copyright-section">
+  <div class="foot-inner">
+    <div class="copyright">
+      <svg width="16" height="16" viewBox="0 0 725 725">
+        <path fill-rule="evenodd" fill="currentColor" d="M145.870,236.632 L396.955,103.578 L431.292,419.44 L156.600,522.53 L145.870,236.632 Z" ></path>
+        <path fill-rule="evenodd" fill="currentColor" d="M396.955,103.578 L564.345,234.486 L611.558,513.469 L431.292,419.44 L396.955,103.578 Z" ></path>
+        <path fill-rule="evenodd" fill="currentColor" d="M431.292,419.44 L611.558,513.469 L358.327,595.18 L156.600,522.53 L431.292,419.44 Z" ></path>
+      </svg>
+      <span>由 <a target="_blank" rel="nofollow noopener noreferer noreferrer external" href="https://hexo.io/" hexo-seo="true" alt="我如何開發出 Chrome 擴展" title="我如何開發出 Chrome 擴展">Hexo</a> 驅動 · 主題 <a target="_blank" rel="nofollow noopener noreferer noreferrer external" href="https://github.com/hooozen/hexo-theme-tranquility" hexo-seo="true" alt="我如何開發出 Chrome 擴展" title="我如何開發出 Chrome 擴展">Tranquility</a></span>
+      <span>© 2025 <a href="https://gba3124.github.io/blog" rel="internal follow bookmark" hexo-seo="true" alt="我如何開發出 Chrome 擴展" title="我如何開發出 Chrome 擴展">Owen Hsiao</a></span>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  window.themeConfig = {
+    social: [{"name":"GitHub","icon":"/images/logo-github.svg","url":"https://github.com/gba3124"},{"name":"LinkedIn","icon":"/images/logo-linkedin.png","url":"https://www.linkedin.com/in/owen-hsiao-875b50217"},{"name":"Facebook","icon":"/images/logo-facebook.png","url":"https://web.facebook.com/profile.php?id=100000464468024"}],
+    contacts: [{"name":"gba3124@gmail.com","icon":"/images/icon/icon-email.svg","url":"mailto:gba3124@gmail.com"}],
+    links: [{"name":"我的 GitHub","url":"https://github.com/gba3124"}],
+    lang: {
+      social: '帳號',
+      contact: '聯繫',
+      friends: '朋友'
+    }
+  };
+</script>
+
+    
+      <script src="https://unpkg.com/js-polyfills@0.1.43/es6.js"></script>
+      <script src="/blog/js/mathjax-config.js"></script>
+      <script id="MathJax-script"
+              async
+              src="https://www.unpkg.com/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+    
+    
+      <script src="/blog/js/search.js"></script>
+      <script>searchInitialize("/blog/search.json")</script>
+    
+    <script src="/blog/js/copy-code.js"></script>
+    <script src="/blog/js/language-switch.js"></script>
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="/blog/js/threads-footer.js"></script>
+    
+    
+    <script src="/blog/js/footer-dock.js"></script>
+    
+    
+  
+
+  </body>
+</html>

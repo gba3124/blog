@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="800" height="500" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    text {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+    }
+    .title {
+      font-size: 22px;
+      font-weight: bold;
+      text-anchor: middle;
+    }
+    .subtitle {
+      font-size: 16px;
+      text-anchor: middle;
+    }
+    .axis-label {
+      font-size: 12px;
+    }
+    .bar {
+      fill: #4285f4;
+      opacity: 0.8;
+    }
+    .bar-12 {
+      fill: #4285f4;
+    }
+    .bar-19 {
+      fill: #ea4335;
+    }
+    .bar-22 {
+      fill: #fbbc05;
+    }
+    .bar-31 {
+      fill: #34a853;
+    }
+    .bar-34 {
+      fill: #673ab7;
+    }
+    .grid {
+      stroke: #ddd;
+      stroke-width: 1;
+    }
+    .score-label {
+      font-size: 12px;
+      text-anchor: start;
+    }
+  </style>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" class="title">Harmony Score Comparison of Equal Temperament Systems</text>
+  <text x="400" y="70" class="subtitle">Score based on approximation of just intonation intervals</text>
+  
+  <!-- Horizontal grid lines -->
+  <line x1="100" y1="150" x2="700" y2="150" class="grid"/>
+  <line x1="100" y1="200" x2="700" y2="200" class="grid"/>
+  <line x1="100" y1="250" x2="700" y2="250" class="grid"/>
+  <line x1="100" y1="300" x2="700" y2="300" class="grid"/>
+  <line x1="100" y1="350" x2="700" y2="350" class="grid"/>
+  <line x1="100" y1="400" x2="700" y2="400" class="grid"/>
+  
+  <!-- Y-axis labels -->
+  <text x="95" y="150" text-anchor="end" class="axis-label">1000</text>
+  <text x="95" y="200" text-anchor="end" class="axis-label">950</text>
+  <text x="95" y="250" text-anchor="end" class="axis-label">900</text>
+  <text x="95" y="300" text-anchor="end" class="axis-label">850</text>
+  <text x="95" y="350" text-anchor="end" class="axis-label">800</text>
+  <text x="95" y="400" text-anchor="end" class="axis-label">750</text>
+  
+  <!-- Y-axis -->
+  <line x1="100" y1="150" x2="100" y2="400" stroke="black" stroke-width="1"/>
+  <text x="400" y="440" text-anchor="middle">Equal Temperament Systems (tones per octave)</text>
+  <text x="50" y="275" text-anchor="middle" transform="rotate(-90,50,275)">Harmony Score</text>
+  
+  <!-- Bars for each ET system -->
+  <!-- 12-TET -->
+  <rect x="150" y="258.6" width="50" height="141.4" class="bar-12"/>
+  <text x="175" y="420" text-anchor="middle">12</text>
+  <text x="175" y="250" text-anchor="middle">891.4</text>
+  
+  <!-- 19-TET -->
+  <rect x="250" y="222.4" width="50" height="177.6" class="bar-19"/>
+  <text x="275" y="420" text-anchor="middle">19</text>
+  <text x="275" y="214" text-anchor="middle">927.6</text>
+  
+  <!-- 22-TET -->
+  <rect x="350" y="246.8" width="50" height="153.2" class="bar-22"/>
+  <text x="375" y="420" text-anchor="middle">22</text>
+  <text x="375" y="238" text-anchor="middle">903.2</text>
+  
+  <!-- 31-TET -->
+  <rect x="450" y="193.2" width="50" height="206.8" class="bar-31"/>
+  <text x="475" y="420" text-anchor="middle">31</text>
+  <text x="475" y="185" text-anchor="middle">956.8</text>
+  
+  <!-- 34-TET -->
+  <rect x="550" y="207.7" width="50" height="192.3" class="bar-34"/>
+  <text x="575" y="420" text-anchor="middle">34</text>
+  <text x="575" y="199" text-anchor="middle">942.3</text>
+  
+  <!-- Legend -->
+  <rect x="620" y="150" width="15" height="15" class="bar-12"/>
+  <text x="640" y="162" class="score-label">12-TET (891.4)</text>
+  
+  <rect x="620" y="180" width="15" height="15" class="bar-19"/>
+  <text x="640" y="192" class="score-label">19-TET (927.6)</text>
+  
+  <rect x="620" y="210" width="15" height="15" class="bar-22"/>
+  <text x="640" y="222" class="score-label">22-TET (903.2)</text>
+  
+  <rect x="620" y="240" width="15" height="15" class="bar-31"/>
+  <text x="640" y="252" class="score-label">31-TET (956.8)</text>
+  
+  <rect x="620" y="270" width="15" height="15" class="bar-34"/>
+  <text x="640" y="282" class="score-label">34-TET (942.3)</text>
+  
+  <!-- Note at the bottom -->
+  <text x="400" y="470" text-anchor="middle" font-style="italic">
+    Higher scores indicate better approximation of just intonation intervals
+  </text>
+</svg>

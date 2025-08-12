@@ -1,0 +1,1 @@
+window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],processEscapes:!0,processEnvironments:!0,processRefs:!0},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"],ignoreHtmlClass:"tex2jax_ignore",processHtmlClass:"tex2jax_process"}};

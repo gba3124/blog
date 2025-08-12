@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+    <meta charset="utf8" >
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" >
+    <title>
+      
+        Why Are Piano Keys Arranged This Way? A Mathematical Take on Musical Tuning | Owen Hsiao
+      
+    </title>
+    <meta name="description" content="" >
+    <meta name="keywords" content="" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" >
+    
+      <link rel="apple-touch-icon"
+            sizes="180x180"
+            href="/blog/images/apple-touch-icon.png" >
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/blog/images/favicon-32x32.png" >
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/blog/images/favicon-16x16.png" >
+    
+    
+      <link rel="mask-icon"
+            href="/blog/images/logo.svg"
+            color="" >
+    
+    
+    
+    <link rel="stylesheet"
+          type="text/css"
+          href='/blog/css/layout.css' >
+    
+    
+  <link rel="stylesheet" type="text/css" href="/blog/css/post.css">
+  
+  <style>
+    /* Post 頁面專用白色 nav 樣式 */
+    .nav {
+      background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 15%, rgba(255, 255, 255, 0.7) 30%, rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 1) 70%, rgba(255, 255, 255, 1) 100%) !important;
+    }
+    
+    /* Post 頁面的 nav 文字顏色調整 */
+    .nav-menu-item {
+      color: #333 !important;
+    }
+    
+    .nav-menu-item:hover {
+      color: #000 !important;
+    }
+    
+    .lang-switch {
+      color: #333 !important;
+      border-color: #333 !important;
+    }
+    
+    .lang-switch:hover {
+      background: #333 !important;
+      color: white !important;
+    }
+    
+    /* 手機版 nav 按鈕顏色 */
+    .nav-btn::before, 
+    .nav-btn::after {
+      background: #333 !important;
+    }
+    
+    /* 手機版 nav 和菜單樣式 */
+    @media screen and (max-width: 1023px) {
+      .nav {
+        background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 15%, rgba(255, 255, 255, 0.7) 30%, rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 1) 70%, rgba(255, 255, 255, 1) 100%) !important;
+      }
+      
+      .nav-menu {
+        background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 15%, rgba(255, 255, 255, 0.7) 30%, rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 1) 70%, rgba(255, 255, 255, 1) 100%) !important;
+      }
+    }
+  </style>
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JPFR7PFSPP"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-JPFR7PFSPP');
+    </script>
+  <meta name="generator" content="Hexo 7.3.0">
+
+<script type="application/ld+json" id="hexo-seo-schema">[
+  {
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "url": "https://gba3124.github.io/blog",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "@id": "https://developers.google.com/search/docs/advanced/structured-data/sitelinks-searchbox",
+      "target": "/search{search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+]</script>
+
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" ></head>
+  <body>
+    
+      <div id="search-mask" style="display:none">
+  <div class="search-main" id="search-main">
+    <div class="search__head">
+      <div class="search-form">
+        <svg t="1706347533072"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="7828"
+             width="20"
+             height="20">
+          <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="#000000" p-id="7829">
+          </path>
+        </svg>
+        <input id="search-input" placeholder="Search...">
+        <svg t="1706361500528"
+             id="search-clear"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="4351"
+             width="20"
+             height="20">
+          <path d="M512 562.688l-264.2944 264.2944-50.688-50.688L461.312 512 197.0176 247.7056l50.688-50.688L512 461.312l264.2944-264.2944 50.688 50.688L562.688 512l264.2944 264.2944-50.688 50.688L512 562.688z" fill="#00" p-id="4352">
+          </path>
+        </svg>
+      </div>
+    </div>
+    <div class="search__body" id="search-result"></div>
+    <div class="search__foot"></div>
+  </div>
+</div>
+<script>
+window.TRANQUILITY_I18N = {
+  search: {
+    empty: "No results found for: ",
+    hits: "Found undefined results for: ",
+    hits_time: "Found undefined results in undefined ms"
+  },
+  post: {
+    untitled: "Untitled"
+  }
+};
+</script>
+
+    
+    
+    
+    <div class=head>
+      <div class="nav">
+        <a href='/blog/en/' class="nav-logo">
+          <img alt="logo" height="60px" width="60px" src="/blog/images/logo.svg" >
+        </a>
+        <input id="navBtn" type="checkbox" >
+        <div class="nav-right">
+          
+            <div class="search-outer">
+  <div class="search" id="search-btn">
+    <svg t="1706347533072"
+         class="icon"
+         viewBox="0 0 1024 1024"
+         version="1.1"
+         xmlns="http://www.w3.org/2000/svg"
+         p-id="7828"
+         width="20"
+         height="20">
+      <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="#000000" p-id="7829">
+      </path>
+    </svg>
+    <span>Search</span>
+    <span class="search-shortcut-key">Ctrl K</span>
+  </div>
+</div>
+
+          
+          <div class="nav-menu">
+            
+              
+                <a class="nav-menu-item" href="/blog/en/posts">Articles</a>
+              
+                <a class="nav-menu-item" href="/blog/en/thoughts">Thoughts</a>
+              
+                <a class="nav-menu-item" href="/blog/en/products">My Products</a>
+              
+            
+            
+          </div>
+          <button class="lang-switch" onclick="switchLanguage()">
+            <i class="fa-solid fa-language"></i>
+            <span>中文</span>
+          </button>
+        </div>
+        <label class="nav-btn" for="navBtn"></label>
+      </div>
+    </div>
+    
+    
+    <div class="body">
+      
+  <article class="post-content">
+    <div class="post-inner">
+      <div class="post-content__head">
+        <div class="post-title">Why Are Piano Keys Arranged This Way? A Mathematical Take on Musical Tuning</div>
+        <div class="post-info">
+          
+  <a href="/blog/en/tags/music/" class="post-tag">music</a><a href="/blog/en/tags/math/" class="post-tag">math</a><a href="/blog/en/tags/number%20theory/" class="post-tag">number theory</a>
+
+
+          <span class="post-date">2025-03-21</span>
+        </div>
+      </div>
+      
+      <div class="post-content__body">
+        <p>Ever wondered why pianos have 88 keys or why guitar frets are spaced the way they are? Or why an octave contains exactly 12 notes—5 black keys and 7 white keys—instead of 10 or 15? The answers lie in elegant mathematical formulas that shape our musical world.</p>
+<p><img src="/blog/images/music/piano-keyboard-layout.svg" alt="Piano keyboard layout demonstrating the 12-tone equal temperament system"></p>
+<p>After quitting my job last year, I finally found time to explore topics I’d long been curious about. While browsing <a target="_blank" rel="nofollow noopener noreferer noreferrer external" href="https://news.ycombinator.com/" hexo-seo="true" alt="Why Are Piano Keys Arranged This Way? A Mathematical Take on Musical Tuning" title="Why Are Piano Keys Arranged This Way? A Mathematical Take on Musical Tuning">Hacker News</a>, I came across this <a target="_blank" rel="nofollow noopener noreferer noreferrer external" href="https://github.com/Hardmath123/hardmath123.github.io/blob/master/content/19-notes.md" hexo-seo="true" alt="Why Are Piano Keys Arranged This Way? A Mathematical Take on Musical Tuning" title="Why Are Piano Keys Arranged This Way? A Mathematical Take on Musical Tuning">brilliant piece</a> on musical tuning systems. As someone who spent my high school years immersed in electric guitar and music theory, I was instantly captivated.</p>
+<p>Let’s explore the fascinating intersection of mathematics and music that determines how our instruments are designed.</p>
+<h2 id="Pythagoras-and-the-Mathematics-of-Harmony"><a href="#Pythagoras-and-the-Mathematics-of-Harmony" class="headerlink" title="Pythagoras and the Mathematics of Harmony"></a><strong>Pythagoras and the Mathematics of Harmony</strong></h2><p>About 2,500 years ago, <strong>Pythagoras</strong> made a groundbreaking discovery: harmonious sounds correspond to simple integer ratios.</p>
+<p><img src="/blog/images/music/Monochord.jpg" alt="Pythagoras studying interval proportions on a monochord"></p>
+<p>Believing that the universe could be expressed through integers and their ratios, Pythagoras identified specific frequency relationships that sound particularly pleasing to our ears:</p>
+<ul>
+<li><p><strong>1:2 (Octave)</strong>: When a note with frequency $f$ is played together with a note of frequency $2f$, they sound exceptionally harmonious. The audio below features A3, A4, A5.</p>
+<audio controls>
+<source src="/blog/audios/octave_interval.wav" type="audio/mpeg">
+Your browser does not support the audio player.
+</audio>
+</li>
+<li><p><strong>2:3 (Perfect Fifth)</strong>: The most harmonious interval after the octave. Electric guitar power chords are based on this interval. The audio below features A4, E5.</p>
+<audio controls>
+<source src="/blog/audios/perfect_fifth_interval.wav" type="audio/mpeg">
+Your browser does not support the audio player.
+</audio></li>
+</ul>
+<h2 id="The-Cycle-of-Fifths-and-the-Pythagorean-Comma-A-Mathematical-Puzzle"><a href="#The-Cycle-of-Fifths-and-the-Pythagorean-Comma-A-Mathematical-Puzzle" class="headerlink" title="The Cycle of Fifths and the Pythagorean Comma: A Mathematical Puzzle"></a>The Cycle of Fifths and the Pythagorean Comma: A Mathematical Puzzle</h2><p>Pythagoras realized he could build an entire musical system using perfect fifth relationships:</p>
+<ol>
+<li>Begin with a reference note (like C)</li>
+<li>Find its perfect fifth by multiplying its frequency by 3&#x2F;2 (giving us G)</li>
+<li>When a new note’s frequency exceeds twice the original, bring it down an octave (divide by 2)</li>
+<li>Repeat to generate a complete scale</li>
+</ol>
+<p><img src="/blog/images/music/circle-of-fifths.svg" alt="The Circle of Fifths showing how 12 notes connect through perfect fifth relationships"></p>
+<p>In theory, after 12 perfect fifths, we should return exactly to our starting note (in a higher octave). But mathematics reveals a problem:</p>
+<p>$$\left(\frac{3}{2}\right)^{12} \approx 129.746$$</p>
+<p>While $2^7 &#x3D; 128$, creating a difference of about 1.36%. This means 12 stacked perfect fifths produces a slightly different pitch than 7 octaves. This small but crucial discrepancy is called the “Pythagorean Comma.”</p>
+<h2 id="The-Mathematical-Inevitability-of-Imperfection"><a href="#The-Mathematical-Inevitability-of-Imperfection" class="headerlink" title="The Mathematical Inevitability of Imperfection"></a>The Mathematical Inevitability of Imperfection</h2><p>The core question is: do integers $n$ and $m$ exist such that:</p>
+<p>$$\left(\frac{3}{2}\right)^n &#x3D; 2^m$$</p>
+<p>Taking logarithms:</p>
+<p>$$\frac{n}{m} &#x3D; \frac{\log(2)}{\log\left(\frac{3}{2}\right)} \approx 1.7095…$$</p>
+<p>The <a target="_blank" rel="nofollow noopener noreferer noreferrer external" href="https://en.wikipedia.org/wiki/Gelfond%E2%80%93Schneider_theorem" hexo-seo="true" alt="Why Are Piano Keys Arranged This Way? A Mathematical Take on Musical Tuning" title="Why Are Piano Keys Arranged This Way? A Mathematical Take on Musical Tuning">Gelfond–Schneider theorem</a> proves this value is irrational—meaning no integers can make the equation exactly true. This isn’t a flaw in our tuning methods but a fundamental mathematical reality, similar to how π can never be expressed as a finite decimal.</p>
+<p>Interestingly, $\frac{12}{7} \approx 1.7142$ closely approximates $1.7095$, which explains why Western music adopted a 12-tone system.</p>
+<h2 id="12-Tone-Equal-Temperament-The-Elegant-Compromise"><a href="#12-Tone-Equal-Temperament-The-Elegant-Compromise" class="headerlink" title="12-Tone Equal Temperament: The Elegant Compromise"></a>12-Tone Equal Temperament: The Elegant Compromise</h2><p>To solve the Pythagorean Comma problem, musicians and mathematicians developed 12-tone equal temperament (12-TET):</p>
+<ol>
+<li>The octave is divided into 12 precisely equal semitones</li>
+<li>Each semitone has a frequency ratio of <a target="_blank" rel="nofollow noopener noreferer noreferrer external" href="https://www.wolframalpha.com/input?i=2%5E(1/12)&lang=zh" hexo-seo="true" alt="Why Are Piano Keys Arranged This Way? A Mathematical Take on Musical Tuning" title="Why Are Piano Keys Arranged This Way? A Mathematical Take on Musical Tuning">$2^{1&#x2F;12} \approx 1.059463$</a></li>
+<li>Twelve semitones complete the octave perfectly: $(2^{1&#x2F;12})^{12} &#x3D; 2$</li>
+</ol>
+<p>This system prioritizes consistency and modulation flexibility over perfect harmonic ratios. In 12-TET, the perfect fifth becomes <a target="_blank" rel="nofollow noopener noreferer noreferrer external" href="https://www.wolframalpha.com/input?i=2%5E(7/12)&lang=zh" hexo-seo="true" alt="Why Are Piano Keys Arranged This Way? A Mathematical Take on Musical Tuning" title="Why Are Piano Keys Arranged This Way? A Mathematical Take on Musical Tuning">$2^{7&#x2F;12} \approx 1.498$</a>—just 0.11% off from the ideal $\frac{3}{2} &#x3D; 1.5$. This slight adjustment enables all keys to function equally well and allows for seamless modulation between them.</p>
+<h3 id="The-Mathematical-Precision-of-12-TET"><a href="#The-Mathematical-Precision-of-12-TET" class="headerlink" title="The Mathematical Precision of 12-TET"></a>The Mathematical Precision of 12-TET</h3><p>The frequency ratio for each semitone in 12-TET is:</p>
+<p>$$<br>r &#x3D; \sqrt[12]{2} \approx 1.059463…<br>$$</p>
+<p>Being irrational, this number cannot be expressed as an exact integer ratio. The challenge becomes approximating key musical intervals with this system, a problem in <a target="_blank" rel="nofollow noopener noreferer noreferrer external" href="https://en.wikipedia.org/wiki/Diophantine_approximation" hexo-seo="true" alt="Why Are Piano Keys Arranged This Way? A Mathematical Take on Musical Tuning" title="Why Are Piano Keys Arranged This Way? A Mathematical Take on Musical Tuning">Diophantine approximation</a>—the mathematical field of approximating irrational numbers with rational ones.</p>
+<p>12-TET provides remarkably good approximations of traditional just intonation intervals:</p>
+<table>
+<thead>
+<tr>
+<th>Interval</th>
+<th>Just Ratio</th>
+<th>12-TET Ratio</th>
+<th>Error (%)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Octave</td>
+<td>2.000000</td>
+<td>2.000000</td>
+<td>0.000000</td>
+</tr>
+<tr>
+<td>Perfect Fifth</td>
+<td>1.500000</td>
+<td>1.498307</td>
+<td>-0.112862</td>
+</tr>
+<tr>
+<td>Perfect Fourth</td>
+<td>1.333333</td>
+<td>1.334840</td>
+<td>0.112989</td>
+</tr>
+<tr>
+<td>Major Third</td>
+<td>1.250000</td>
+<td>1.259921</td>
+<td>0.793684</td>
+</tr>
+<tr>
+<td>Minor Third</td>
+<td>1.200000</td>
+<td>1.189207</td>
+<td>-0.899407</td>
+</tr>
+<tr>
+<td>Major Sixth</td>
+<td>1.666667</td>
+<td>1.681793</td>
+<td>0.907570</td>
+</tr>
+<tr>
+<td>Minor Sixth</td>
+<td>1.600000</td>
+<td>1.587401</td>
+<td>-0.787434</td>
+</tr>
+<tr>
+<td>Major Second</td>
+<td>1.125000</td>
+<td>1.122462</td>
+<td>-0.225596</td>
+</tr>
+<tr>
+<td>Minor Second</td>
+<td>1.066667</td>
+<td>1.059463</td>
+<td>-0.675335</td>
+</tr>
+<tr>
+<td>Tritone (Augmented Fourth)</td>
+<td>1.400000</td>
+<td>1.414214</td>
+<td>1.015254</td>
+</tr>
+</tbody></table>
+<p><img src="/blog/images/music/equal-temperament-vs-just-intonation.svg" alt="Visual comparison of 12-TET vs just intonation intervals"></p>
+<h2 id="Beyond-12-Notes-Alternative-Equal-Temperament-Systems"><a href="#Beyond-12-Notes-Alternative-Equal-Temperament-Systems" class="headerlink" title="Beyond 12 Notes: Alternative Equal Temperament Systems"></a>Beyond 12 Notes: Alternative Equal Temperament Systems</h2><p>The mathematical exploration extends beyond 12-TET to other possible systems:</p>
+<h3 id="19-Tone-Equal-Temperament-19-TET"><a href="#19-Tone-Equal-Temperament-19-TET" class="headerlink" title="19-Tone Equal Temperament (19-TET)"></a>19-Tone Equal Temperament (19-TET)</h3><ul>
+<li>Each step: $2^{1&#x2F;19} \approx 1.0371$</li>
+<li>Perfect fifth: $2^{11&#x2F;19} \approx 1.4937$ (0.42% error)</li>
+<li>Ratio approximation: $\frac{19}{11} \approx 1.7273$ vs. actual $\frac{\log(2)}{\log(3&#x2F;2)} \approx 1.7095$ (<strong>1.04%</strong> error)</li>
+</ul>
+<h3 id="31-Tone-Equal-Temperament-31-TET"><a href="#31-Tone-Equal-Temperament-31-TET" class="headerlink" title="31-Tone Equal Temperament (31-TET)"></a>31-Tone Equal Temperament (31-TET)</h3><ul>
+<li>Each step: $2^{1&#x2F;31} \approx 1.0226$</li>
+<li>Perfect fifth: $2^{18&#x2F;31} \approx 1.4955$ (0.3% error)</li>
+<li>Ratio approximation: $\frac{31}{18} \approx 1.7222$ vs. actual $\frac{\log(2)}{\log(3&#x2F;2)} \approx 1.7095$ (<strong>0.74%</strong> error)</li>
+<li>Nearly perfect reproduction of just intonation intervals, but practically complex</li>
+</ul>
+<h2 id="Calculating-Optimal-Temperaments-A-Computational-Approach"><a href="#Calculating-Optimal-Temperaments-A-Computational-Approach" class="headerlink" title="Calculating Optimal Temperaments: A Computational Approach"></a>Calculating Optimal Temperaments: A Computational Approach</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">improved_harmony_score</span>(<span class="params">n, plot=<span class="literal">False</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    Calculate harmony score for n-equal temperament system</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    intervals = &#123;</span><br><span class="line">        <span class="string">&quot;Perfect Octave&quot;</span>: &#123;<span class="string">&quot;ratio&quot;</span>: <span class="number">2</span>/<span class="number">1</span>, <span class="string">&quot;weight&quot;</span>: <span class="number">10.0</span>&#125;,</span><br><span class="line">        <span class="string">&quot;Perfect Fifth&quot;</span>: &#123;<span class="string">&quot;ratio&quot;</span>: <span class="number">3</span>/<span class="number">2</span>, <span class="string">&quot;weight&quot;</span>: <span class="number">8.0</span>&#125;,</span><br><span class="line">        <span class="string">&quot;Perfect Fourth&quot;</span>: &#123;<span class="string">&quot;ratio&quot;</span>: <span class="number">4</span>/<span class="number">3</span>, <span class="string">&quot;weight&quot;</span>: <span class="number">7.0</span>&#125;,</span><br><span class="line">        <span class="string">&quot;Major Third&quot;</span>: &#123;<span class="string">&quot;ratio&quot;</span>: <span class="number">5</span>/<span class="number">4</span>, <span class="string">&quot;weight&quot;</span>: <span class="number">6.0</span>&#125;,</span><br><span class="line">        <span class="string">&quot;Minor Third&quot;</span>: &#123;<span class="string">&quot;ratio&quot;</span>: <span class="number">6</span>/<span class="number">5</span>, <span class="string">&quot;weight&quot;</span>: <span class="number">5.0</span>&#125;,</span><br><span class="line">        <span class="string">&quot;Major Sixth&quot;</span>: &#123;<span class="string">&quot;ratio&quot;</span>: <span class="number">5</span>/<span class="number">3</span>, <span class="string">&quot;weight&quot;</span>: <span class="number">4.0</span>&#125;,</span><br><span class="line">        <span class="string">&quot;Minor Sixth&quot;</span>: &#123;<span class="string">&quot;ratio&quot;</span>: <span class="number">8</span>/<span class="number">5</span>, <span class="string">&quot;weight&quot;</span>: <span class="number">3.5</span>&#125;,</span><br><span class="line">        <span class="string">&quot;Major Second&quot;</span>: &#123;<span class="string">&quot;ratio&quot;</span>: <span class="number">9</span>/<span class="number">8</span>, <span class="string">&quot;weight&quot;</span>: <span class="number">3.0</span>&#125;,</span><br><span class="line">        <span class="string">&quot;Minor Seventh&quot;</span>: &#123;<span class="string">&quot;ratio&quot;</span>: <span class="number">9</span>/<span class="number">5</span>, <span class="string">&quot;weight&quot;</span>: <span class="number">2.5</span>&#125;,</span><br><span class="line">        <span class="string">&quot;Major Seventh&quot;</span>: &#123;<span class="string">&quot;ratio&quot;</span>: <span class="number">15</span>/<span class="number">8</span>, <span class="string">&quot;weight&quot;</span>: <span class="number">2.0</span>&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    errors = &#123;&#125;</span><br><span class="line">    total_weighted_error = <span class="number">0</span></span><br><span class="line">    total_weight = <span class="built_in">sum</span>(interval[<span class="string">&quot;weight&quot;</span>] <span class="keyword">for</span> interval <span class="keyword">in</span> intervals.values())</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> name, interval <span class="keyword">in</span> intervals.items():</span><br><span class="line">        ratio = interval[<span class="string">&quot;ratio&quot;</span>]</span><br><span class="line">        weight = interval[<span class="string">&quot;weight&quot;</span>]</span><br><span class="line">        </span><br><span class="line">        steps = np.arange(<span class="number">1</span>, n)</span><br><span class="line">        et_ratios = <span class="number">2</span> ** (steps / n)</span><br><span class="line">        </span><br><span class="line">        target_cents = <span class="number">1200</span> * np.log2(ratio)</span><br><span class="line">        et_cents = <span class="number">1200</span> * np.log2(et_ratios)</span><br><span class="line">        cents_errors = np.<span class="built_in">abs</span>(et_cents - target_cents)</span><br><span class="line">        </span><br><span class="line">        min_error = np.<span class="built_in">min</span>(cents_errors)</span><br><span class="line">        best_step = steps[np.argmin(cents_errors)]</span><br><span class="line">        perceptual_error = <span class="number">1</span> - np.exp(-<span class="number">0.1</span> * min_error**<span class="number">1.5</span>)</span><br><span class="line">        weighted_error = perceptual_error * weight</span><br><span class="line">        </span><br><span class="line">        errors[name] = &#123;</span><br><span class="line">            <span class="string">&quot;Just Ratio&quot;</span>: ratio,</span><br><span class="line">            <span class="string">&quot;ET Steps&quot;</span>: best_step,</span><br><span class="line">            <span class="string">&quot;ET Ratio&quot;</span>: <span class="number">2</span> ** (best_step / n),</span><br><span class="line">            <span class="string">&quot;Error (cents)&quot;</span>: min_error,</span><br><span class="line">            <span class="string">&quot;Perceptual Error&quot;</span>: perceptual_error,</span><br><span class="line">            <span class="string">&quot;Weight&quot;</span>: weight,</span><br><span class="line">            <span class="string">&quot;Weighted Error&quot;</span>: weighted_error</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        total_weighted_error += weighted_error</span><br><span class="line">    </span><br><span class="line">    normalized_error = total_weighted_error / total_weight</span><br><span class="line">    score = <span class="number">1000</span> * (<span class="number">1</span> - normalized_error)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> score, errors</span><br><span class="line"></span><br><span class="line"><span class="comment"># Calculate harmony scores for 2-50 equal temperaments</span></span><br><span class="line">results = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, <span class="number">51</span>):</span><br><span class="line">    score, _ = improved_harmony_score(n)</span><br><span class="line">    results[n] = score</span><br><span class="line"></span><br><span class="line"><span class="comment"># Output results</span></span><br><span class="line"><span class="keyword">for</span> n, score <span class="keyword">in</span> results.items():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;n&#125;</span>-ET: <span class="subst">&#123;score:<span class="number">.2</span>f&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Harmony-Scores-Across-Different-Temperaments"><a href="#Harmony-Scores-Across-Different-Temperaments" class="headerlink" title="Harmony Scores Across Different Temperaments"></a>Harmony Scores Across Different Temperaments</h2><table>
+<thead>
+<tr>
+<th>Equal Divisions</th>
+<th>Harmony Score</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2</td>
+<td>0.000</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1.178</td>
+</tr>
+<tr>
+<td>4</td>
+<td>0.363</td>
+</tr>
+<tr>
+<td>5</td>
+<td>0.138</td>
+</tr>
+<tr>
+<td>6</td>
+<td>28.359</td>
+</tr>
+<tr>
+<td>7</td>
+<td>1.715</td>
+</tr>
+<tr>
+<td>8</td>
+<td>0.363</td>
+</tr>
+<tr>
+<td>9</td>
+<td>1.180</td>
+</tr>
+<tr>
+<td>10</td>
+<td>3.776</td>
+</tr>
+<tr>
+<td>11</td>
+<td>29.144</td>
+</tr>
+<tr>
+<td>12</td>
+<td><strong>253.200</strong></td>
+</tr>
+<tr>
+<td>19</td>
+<td><strong>250.865</strong></td>
+</tr>
+<tr>
+<td>22</td>
+<td><strong>144.688</strong></td>
+</tr>
+<tr>
+<td>31</td>
+<td><strong>324.254</strong></td>
+</tr>
+<tr>
+<td>34</td>
+<td><strong>438.195</strong></td>
+</tr>
+<tr>
+<td>41</td>
+<td><strong>439.427</strong></td>
+</tr>
+<tr>
+<td>46</td>
+<td><strong>454.806</strong></td>
+</tr>
+</tbody></table>
+<p>The results reveal that 12, 19, 31, 34, 41, and 46 equal divisions achieve notably high harmony scores. While 19-TET and 31-TET have historical precedent in music theory and composition, systems like 34-TET, 41-TET, and 46-TET remain largely theoretical despite their mathematical advantages. The reason for this practical limitation is likely evident to readers.</p>
+<h3 id="Experience-Alternative-Temperaments-Recommended-Listening"><a href="#Experience-Alternative-Temperaments-Recommended-Listening" class="headerlink" title="Experience Alternative Temperaments: Recommended Listening"></a>Experience Alternative Temperaments: Recommended Listening</h3><p><strong>19-Tone Equal Temperament (19-TET):</strong></p>
+<ul>
+<li><a target="_blank" rel="nofollow noopener noreferer noreferrer external" href="https://sethares.engr.wisc.edu/mp3s/truthonabus.html" hexo-seo="true" alt="Why Are Piano Keys Arranged This Way? A Mathematical Take on Musical Tuning" title="Why Are Piano Keys Arranged This Way? A Mathematical Take on Musical Tuning">Truth on a Bus</a></li>
+<li><a target="_blank" rel="nofollow noopener noreferer noreferrer external" href="https://www.youtube.com/watch?v=nSmIQZavm3k" hexo-seo="true" alt="Why Are Piano Keys Arranged This Way? A Mathematical Take on Musical Tuning" title="Why Are Piano Keys Arranged This Way? A Mathematical Take on Musical Tuning">Deluge</a></li>
+<li><a target="_blank" rel="nofollow noopener noreferer noreferrer external" href="https://www.youtube.com/watch?v=VUmdZ9XMKAY" hexo-seo="true" alt="Why Are Piano Keys Arranged This Way? A Mathematical Take on Musical Tuning" title="Why Are Piano Keys Arranged This Way? A Mathematical Take on Musical Tuning">Dagdröm 2</a></li>
+</ul>
+<p><strong>31-Tone Equal Temperament (31-TET):</strong></p>
+<ul>
+<li><a target="_blank" rel="nofollow noopener noreferer noreferrer external" href="https://www.youtube.com/watch?v=23ImVLezV4c" hexo-seo="true" alt="Why Are Piano Keys Arranged This Way? A Mathematical Take on Musical Tuning" title="Why Are Piano Keys Arranged This Way? A Mathematical Take on Musical Tuning">Music fur die 31-Stufige Orgel</a></li>
+</ul>
+<h2 id="Conclusion-Where-Mathematics-and-Music-Converge"><a href="#Conclusion-Where-Mathematics-and-Music-Converge" class="headerlink" title="Conclusion: Where Mathematics and Music Converge"></a>Conclusion: Where Mathematics and Music Converge</h2><p>The 12-tone equal temperament system represents an elegant compromise between mathematical purity and musical practicality. It trades the perfect harmony of pure intervals for a system offering lower complexity, key equality, and modulation freedom.</p>
+<p>The mathematics behind tuning systems—involving Diophantine approximation, continued fraction theory, and error minimization—reveals why certain numbers emerge as particularly significant in music theory. This intersection of mathematics and music demonstrates how abstract numerical relationships shape our tangible musical experiences.</p>
+
+      </div>
+    </div>
+    
+      <script src='https://unpkg.com/mermaid@latest/dist/mermaid.min.js'></script>
+      <script>
+        if (window.mermaid) {
+          mermaid.initialize({"startOnload":true});
+        }
+      </script>
+    
+  </article>
+  <div class="post__foot">
+    
+      <div class="like-author">
+  <input type="checkbox" id="likeCode" >
+  <div class="author-face">
+    <img height="100px"
+         width="100px"
+         id="front-face"
+         alt="author face"
+         src="/blog/images/reward/avatar.png" >
+    <a href="https://buymeacoffee.com/gba3124" target="_blank" rel="nofollow noopener noreferer noreferrer external" hexo-seo="true" alt="Why Are Piano Keys Arranged This Way? A Mathematical Take on Musical Tuning" title="Why Are Piano Keys Arranged This Way? A Mathematical Take on Musical Tuning">
+        <img height="100px"
+            width="100px"
+            id="back-face"
+            alt="like code"
+            src="/blog/images/reward/bmc_qr.png" >
+    </a>
+  </div>
+  <div class="like-text">Thank you for your support and encouragement</div>
+  <label for="likeCode" class="like-btn">
+    <svg viewBox="0 0 1024 1024"
+         width="20px"
+         style="margin-right: 10px"
+         height="20px">
+      <path d="M466.88 908.96L113.824 563.296a270.08 270.08 0 0 1 0-387.392c108.8-106.56 284.896-106.56 393.696 0 1.504 1.472 2.976 2.944 4.448 4.48 1.472-1.536 2.944-3.008 4.448-4.48 108.8-106.56 284.896-106.56 393.696 0a269.952 269.952 0 0 1 34.016 347.072l-387.392 385.6a64 64 0 0 1-89.92 0.384z" p-id="13650" fill="#ee4242" ></path>
+    </svg>
+    Support Me
+  </label>
+</div>
+
+    
+    <div class="post-nav">
+  
+    <a class="post-nav-item-left" href="/blog/zh-tw/2025/04/03/zh-tw/draft/scientific-memory-techniques/">
+      <div class="text-align">
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" ></path>
+        </svg>
+        <span class="text-small">上一篇</span>
+      </div>
+      <div>科學實證的記憶技巧大全：從認知心理學到實踐應用</div>
+    </a>
+  
+  <div class="vhr"></div>
+  
+    <a class="post-nav-item-right" href="/blog/zh-tw/2025/03/21/zh-tw/posts/why-12-tone-equal-temperament/">
+      <div class="text-align">
+        <span class="text-small">下一篇</span>
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             transform="scale(-1,-1)"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" ></path>
+        </svg>
+      </div>
+      為什麼琴鍵這樣排列? 從數學角度探討音律系統
+    </a>
+  
+</div>
+
+    
+    
+  </div>
+
+    </div>
+    <div class="foot">
+  <div class="footer-bg">
+    <div class="footer-threads" id="footer-threads"></div>
+    
+    <div id="footer-dock-container"></div>
+  </div>
+  <div class="footer-blur-layer"></div>
+</div>
+
+
+<div class="footer-copyright-section">
+  <div class="foot-inner">
+    <div class="copyright">
+      <svg width="16" height="16" viewBox="0 0 725 725">
+        <path fill-rule="evenodd" fill="currentColor" d="M145.870,236.632 L396.955,103.578 L431.292,419.44 L156.600,522.53 L145.870,236.632 Z" ></path>
+        <path fill-rule="evenodd" fill="currentColor" d="M396.955,103.578 L564.345,234.486 L611.558,513.469 L431.292,419.44 L396.955,103.578 Z" ></path>
+        <path fill-rule="evenodd" fill="currentColor" d="M431.292,419.44 L611.558,513.469 L358.327,595.18 L156.600,522.53 L431.292,419.44 Z" ></path>
+      </svg>
+      <span>Powered by <a target="_blank" rel="nofollow noopener noreferer noreferrer external" href="https://hexo.io/" hexo-seo="true" alt="Why Are Piano Keys Arranged This Way? A Mathematical Take on Musical Tuning" title="Why Are Piano Keys Arranged This Way? A Mathematical Take on Musical Tuning">Hexo</a> · Theme <a target="_blank" rel="nofollow noopener noreferer noreferrer external" href="https://github.com/hooozen/hexo-theme-tranquility" hexo-seo="true" alt="Why Are Piano Keys Arranged This Way? A Mathematical Take on Musical Tuning" title="Why Are Piano Keys Arranged This Way? A Mathematical Take on Musical Tuning">Tranquility</a></span>
+      <span>© 2025 <a href="https://gba3124.github.io/blog" rel="internal follow bookmark" hexo-seo="true" alt="Why Are Piano Keys Arranged This Way? A Mathematical Take on Musical Tuning" title="Why Are Piano Keys Arranged This Way? A Mathematical Take on Musical Tuning">Owen Hsiao</a></span>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  window.themeConfig = {
+    social: [{"name":"GitHub","icon":"/images/logo-github.svg","url":"https://github.com/gba3124"},{"name":"LinkedIn","icon":"/images/logo-linkedin.png","url":"https://www.linkedin.com/in/owen-hsiao-875b50217"},{"name":"Facebook","icon":"/images/logo-facebook.png","url":"https://web.facebook.com/profile.php?id=100000464468024"}],
+    contacts: [{"name":"gba3124@gmail.com","icon":"/images/icon/icon-email.svg","url":"mailto:gba3124@gmail.com"}],
+    links: [{"name":"我的 GitHub","url":"https://github.com/gba3124"}],
+    lang: {
+      social: 'Social',
+      contact: 'Contact',
+      friends: 'Friends'
+    }
+  };
+</script>
+
+    
+      <script src="https://unpkg.com/js-polyfills@0.1.43/es6.js"></script>
+      <script src="/blog/js/mathjax-config.js"></script>
+      <script id="MathJax-script"
+              async
+              src="https://www.unpkg.com/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+    
+    
+      <script src="/blog/js/search.js"></script>
+      <script>searchInitialize("/blog/search.json")</script>
+    
+    <script src="/blog/js/copy-code.js"></script>
+    <script src="/blog/js/language-switch.js"></script>
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="/blog/js/threads-footer.js"></script>
+    
+    
+    <script src="/blog/js/footer-dock.js"></script>
+    
+    
+  
+
+  </body>
+</html>
