@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <title>
+      
+        Statistical Methods: You Thought the Tool Was Right, but You Violated Its Assumptions | Owen Hsiao
+      
+    </title>
+    <meta name="description" content="Regression to the mean, overfitting, p-value misinterpretation, multiple comparisons, and 7 more statistical method pitfalls. The tool is legitimate, but you may have misunderstood what it told you." />
+    <meta name="keywords" content="statistics, regression, machine-learning, statistical-methods" />
+    <meta name="author" content="Owen Hsiao (蕭為謙)" />
+    
+    
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Statistical Methods: You Thought the Tool Was Right, but You Violated Its Assumptions" />
+    <meta property="og:description" content="Regression to the mean, overfitting, p-value misinterpretation, multiple comparisons, and 7 more statistical method pitfalls. The tool is legitimate, but you may have misunderstood what it told you." />
+    <meta property="og:url" content="https://owenhsiao.com/en/blog/statistical-fallacies-statistical-methods/" />
+    <meta property="og:site_name" content="Owen Hsiao" />
+    <meta property="og:locale" content="en" />
+    
+    <meta property="og:image" content="https://owenhsiao.com/images/content/about.webp" />
+    
+    
+    <meta property="article:published_time" content="2026-02-06T16:00:00.000Z" />
+    <meta property="article:modified_time" content="2026-04-15T12:12:00.707Z" />
+    <meta property="article:author" content="Owen Hsiao (蕭為謙)" />
+    
+    <meta property="article:tag" content="statistics" />
+    
+    <meta property="article:tag" content="regression" />
+    
+    <meta property="article:tag" content="machine-learning" />
+    
+    <meta property="article:tag" content="statistical-methods" />
+    
+    
+    
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Statistical Methods: You Thought the Tool Was Right, but You Violated Its Assumptions" />
+    <meta name="twitter:description" content="Regression to the mean, overfitting, p-value misinterpretation, multiple comparisons, and 7 more statistical method pitfalls. The tool is legitimate, but you may have misunderstood what it told you." />
+    
+    <meta name="twitter:image" content="https://owenhsiao.com/images/content/about.webp" />
+    
+    <meta name="twitter:creator" content="@Owen Hsiao" />
+
+    
+    
+    
+    
+    <link rel="canonical" href="https://owenhsiao.com/en/blog/statistical-fallacies-statistical-methods/" />
+
+    
+    
+    
+      <meta name="robots" content="index,follow" />
+    
+
+    
+    
+      
+      
+        
+        
+          
+          
+          <link rel="alternate" hreflang="zh-tw" href="https://owenhsiao.com/zh-tw/blog/statistical-fallacies-statistical-methods/" />
+        
+      
+        
+        
+          
+          
+          <link rel="alternate" hreflang="en" href="https://owenhsiao.com/en/blog/statistical-fallacies-statistical-methods/" />
+        
+      
+        
+        
+      
+      <link rel="alternate" hreflang="x-default" href="https://owenhsiao.com/en/blog/statistical-fallacies-statistical-methods/" />
+    
+
+    
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@graph":[{"@type":["WebSite","Blog"],"@id":"https://owenhsiao.com/#website","name":"Owen Hsiao","url":"https://owenhsiao.com","description":"Personal blog featuring essays, insights, and projects by Owen Hsiao (蕭為謙). Exploring technology, philosophy, and life through deep thinking and analysis.","inLanguage":["zh-TW","en"],"publisher":{"@id":"https://owenhsiao.com/#person"},"author":{"@id":"https://owenhsiao.com/#person"},"potentialAction":{"@type":"SearchAction","target":"https://owenhsiao.com/search/index.html?q={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"Person","@id":"https://owenhsiao.com/#person","name":"Owen Hsiao (蕭為謙)","alternateName":["Owen Hsiao","蕭為謙"],"url":"https://owenhsiao.com","image":{"@type":"ImageObject","url":"https://owenhsiao.com/images/content/about.webp"},"jobTitle":"Writer, Thinker & Developer","description":"A developer who exploring technology, philosophy, and personal development through essays and insights.","sameAs":["https://github.com/gba3124","https://www.linkedin.com/in/owen-hsiao-875b50217","https://web.facebook.com/profile.php?id=100000464468024"],"mainEntityOfPage":"https://owenhsiao.com/en/about/"}]}
+    </script>
+    
+    
+    
+    
+    
+      
+    
+    
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Owen Hsiao","item":"https://owenhsiao.com/en/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://owenhsiao.com/en/blog/"},{"@type":"ListItem","position":3,"name":"Statistical Methods: You Thought the Tool Was Right, but You Violated Its Assumptions","item":"https://owenhsiao.com/en/blog/statistical-fallacies-statistical-methods/"}]}
+    </script>
+    
+
+    
+    
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@type":"BlogPosting","headline":"Statistical Methods: You Thought the Tool Was Right, but You Violated Its Assumptions","description":"Regression to the mean, overfitting, p-value misinterpretation, multiple comparisons, and 7 more statistical method pitfalls. The tool is legitimate, but you may have misunderstood what it told you.","image":"https://owenhsiao.com/images/content/about.webp","datePublished":"2026-02-06T16:00:00.000Z","dateModified":"2026-04-15T12:12:00.707Z","inLanguage":"en","articleSection":"blog","author":{"@type":"Person","name":"Owen Hsiao (蕭為謙)","alternateName":["Owen Hsiao","蕭為謙"],"url":"https://owenhsiao.com","image":"https://owenhsiao.com/images/content/about.webp","jobTitle":"Writer, Thinker & Developer","sameAs":["https://github.com/gba3124","https://www.linkedin.com/in/owen-hsiao-875b50217","https://web.facebook.com/profile.php?id=100000464468024"]},"publisher":{"@type":"Person","name":"Owen Hsiao (蕭為謙)","logo":{"@type":"ImageObject","url":"https://owenhsiao.com/images/logos/logo.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://owenhsiao.com/en/blog/statistical-fallacies-statistical-methods/"},"isPartOf":{"@type":"WebSite","name":"Owen Hsiao","url":"https://owenhsiao.com"},"keywords":"statistics, regression, machine-learning, statistical-methods"}
+    </script>
+    
+
+    
+    
+
+    <!-- DNS Prefetch & Preconnect for external resources -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Google Fonts - Space Grotesk (body) + Playfair Display (headings) + Inconsolata (code) + CJK -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inconsolata:wght@400;600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inconsolata:wght@400;600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inconsolata:wght@400;600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" /></noscript>
+    
+    
+      <link rel="apple-touch-icon"
+            sizes="180x180"
+            href="/images/favicons/apple-touch-icon.png" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/images/favicons/favicon-32x32.png" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/images/favicons/favicon-16x16.png" />
+    
+    
+      <link rel="mask-icon"
+            href="/images/logos/logo.svg"
+            color="" />
+    
+    
+    
+    
+    <!-- Critical CSS: layout -->
+    <link rel="stylesheet"
+          type="text/css"
+          href='/css/layout.css' />
+    
+    <!-- Non-critical CSS: Gesture Control - defer loading -->
+    <link rel="preload" as="style" href='/css/gesture-control.css' />
+    <link rel="stylesheet"
+          type="text/css"
+          href='/css/gesture-control.css'
+          media="print"
+          onload="this.media='all'" />
+    <noscript><link rel="stylesheet" type="text/css" href='/css/gesture-control.css' /></noscript>
+    
+    
+    
+  <link rel="stylesheet" type="text/css" href="/css/post.css"/>
+  
+  <link rel="stylesheet" type="text/css" href="/css/comments.css"/>
+  <style>
+    /* Post 頁面專用白色 nav 樣式 */
+    .nav {
+      background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 15%, rgba(255, 255, 255, 0.7) 30%, rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 1) 70%, rgba(255, 255, 255, 1) 100%) !important;
+    }
+    
+    /* Post 頁面的 nav 文字顏色調整 */
+    .nav-menu-item {
+      color: #333 !important;
+    }
+    
+    .nav-menu-item:hover {
+      color: #000 !important;
+    }
+    
+    .lang-switch {
+      color: #333 !important;
+      border-color: #333 !important;
+    }
+
+    .lang-switch:hover {
+      background: #333 !important;
+      color: white !important;
+    }
+    
+    /* Post 頁面搜索按鈕白色主題 */
+    #search-btn {
+      background: rgba(255, 255, 255, 0.9) !important;
+      border: 1px solid rgba(139, 0, 0, 0.15) !important;
+      color: #2c2c2c !important;
+    }
+    
+    #search-btn .icon {
+      color: #2c2c2c !important;
+    }
+    
+    #search-btn .icon path {
+      fill: #2c2c2c !important;
+    }
+    
+    #search-btn > span:not(.search-shortcut-key) {
+      color: #2c2c2c !important;
+    }
+    
+    #search-btn .search-shortcut-key {
+      border: 1px solid rgba(139, 0, 0, 0.2) !important;
+      background: rgba(139, 0, 0, 0.05) !important;
+      color: rgba(44, 44, 44, 0.8) !important;
+    }
+    
+    #search-btn:hover {
+      background: rgba(255, 255, 255, 0.95) !important;
+      border-color: rgba(139, 0, 0, 0.3) !important;
+      color: #000000 !important;
+    }
+    
+    #search-btn:hover .icon {
+      color: #000000 !important;
+    }
+    
+    #search-btn:hover .icon path {
+      fill: #000000 !important;
+    }
+    
+    #search-btn:hover > span:not(.search-shortcut-key) {
+      color: #000000 !important;
+    }
+    
+    #search-btn:hover .search-shortcut-key {
+      background: rgba(139, 0, 0, 0.1) !important;
+      border-color: rgba(139, 0, 0, 0.3) !important;
+      color: #2c2c2c !important;
+    }
+    
+    /* 手機版 nav 按鈕顏色 */
+    .nav-btn::before, 
+    .nav-btn::after {
+      background: #333 !important;
+    }
+    
+    /* 手機版 nav 和菜單樣式 */
+    @media screen and (max-width: 1023px) {
+      .nav {
+        background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 15%, rgba(255, 255, 255, 0.7) 30%, rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 1) 70%, rgba(255, 255, 255, 1) 100%) !important;
+      }
+      
+      .nav-menu {
+        background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 15%, rgba(255, 255, 255, 0.7) 30%, rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 1) 70%, rgba(255, 255, 255, 1) 100%) !important;
+      }
+    }
+  </style>
+
+    <script>
+      (function () {
+        var GA_ID = 'G-JPFR7PFSPP';
+        var initialized = false;
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { window.dataLayer.push(arguments); };
+
+        function initAnalytics() {
+          if (initialized) return;
+          initialized = true;
+          var script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+          script.onload = function () {
+            window.gtag('js', new Date());
+            window.gtag('config', GA_ID);
+          };
+          document.head.appendChild(script);
+        }
+
+        function start() {
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(initAnalytics, { timeout: 3000 });
+          } else {
+            setTimeout(initAnalytics, 1200);
+          }
+        }
+
+        start();
+        ['pointerdown', 'keydown', 'touchstart'].forEach(function (eventName) {
+          document.addEventListener(eventName, initAnalytics, { once: true, passive: true, capture: true });
+        });
+      })();
+    </script>
+  <meta name="generator" content="Hexo 7.3.0"></head>
+  <body data-page="post">
+    
+      <div id="search-mask" style="display:none">
+  <div class="search-main" id="search-main">
+    <div class="search__head">
+      <div class="search-form">
+        <svg t="1706347533072"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="7828"
+             width="20"
+             height="20">
+          <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="currentColor" p-id="7829">
+          </path>
+        </svg>
+        <label for="search-input"
+               style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">
+          Search...
+        </label>
+        <input id="search-input" type="search" aria-label="Search..." placeholder="Search...">
+        <svg t="1706361500528"
+             id="search-clear"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="4351"
+             width="20"
+             height="20">
+          <path d="M512 562.688l-264.2944 264.2944-50.688-50.688L461.312 512 197.0176 247.7056l50.688-50.688L512 461.312l264.2944-264.2944 50.688 50.688L562.688 512l264.2944 264.2944-50.688 50.688L512 562.688z" fill="currentColor" p-id="4352">
+          </path>
+        </svg>
+      </div>
+    </div>
+    <div class="search__body" id="search-result"></div>
+    <div class="search__foot"></div>
+  </div>
+</div>
+<script>
+window.TRANQUILITY_I18N = {
+  search: {
+    empty: "No results found for: ",
+    hits: "Found undefined results for: ",
+    hits_time: "Found undefined results in undefined ms"
+  },
+  post: {
+    untitled: "Untitled"
+  }
+};
+</script>
+
+    
+    
+    
+    <div class=head>
+      <div class="nav">
+        <a href='/en/' class="nav-logo">
+          <img alt="logo" height="60px" width="60px" src="/images/logos/logo.svg" />
+        </a>
+        <input id="navBtn" type="checkbox" />
+        <div class="nav-right">
+          
+            <div class="search-outer">
+  <div class="search" id="search-btn" role="button" tabindex="0" aria-label="Search...">
+    <svg t="1706347533072"
+         class="icon"
+         viewBox="0 0 1024 1024"
+         version="1.1"
+         xmlns="http://www.w3.org/2000/svg"
+         p-id="7828"
+         width="18"
+         height="18">
+      <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="currentColor" p-id="7829">
+      </path>
+    </svg>
+    <span>Search</span>
+    <span class="search-shortcut-key">⌘K</span>
+  </div>
+</div>
+
+          
+          <div class="nav-menu">
+            
+              
+                <a class="nav-menu-item" href="/en/blog">Blog</a>
+              
+            
+            <a class="nav-menu-item" href='/en/about/'>About</a>
+            
+          </div>
+          <button class="lang-switch" onclick="switchLanguage()">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor" d="M12.87 15.07c-.29-.3-.57-.61-.84-.93c.8-.95 1.49-2 2.03-3.14h1.68V9h-5V7h-2v2H3v2h8.64a11.9 11.9 0 0 1-1.52 2.46c-.9-.99-1.66-2.09-2.26-3.29H5.84a13.9 13.9 0 0 0 2.97 4.4l-1.52 1.52l1.41 1.41L12 14.2l2.3 2.3l1.41-1.41l-2.84-2.84zM17.5 10h-2l-4.5 12h2l1.2-3h4.6l1.2 3h2l-4.5-12zm-2.64 7l1.94-5.18L18.74 17h-3.88z"/>
+            </svg>
+            <span>中文</span>
+          </button>
+        </div>
+        <label class="nav-btn" for="navBtn"></label>
+      </div>
+    </div>
+    
+    
+    <main class="body" id="main-content">
+      
+  <article class="post-content">
+    <div class="post-inner">
+      <div class="post-content__head">
+        <div class="post-tags-row">
+          
+  <a href="/en/tags/statistics/" class="post-tag">statistics</a><a href="/en/tags/regression/" class="post-tag">regression</a><a href="/en/tags/machine-learning/" class="post-tag">machine-learning</a><a href="/en/tags/statistical-methods/" class="post-tag">statistical-methods</a>
+
+
+        </div>
+        <div class="post-title">Statistical Methods: You Thought the Tool Was Right, but You Violated Its Assumptions</div>
+        <div class="post-info">
+          <div class="post-info__meta">
+            <span class="post-date">2026-02-07</span>
+          </div>
+          
+          <div class="post-info__description">Regression to the mean, overfitting, p-value misinterpretation, multiple comparisons, and 7 more statistical method pitfalls. The tool is legitimate, but you may have misunderstood what it told you.</div>
+          
+        </div>
+      </div>
+      
+      <div class="post-content__body">
+        <p>The “Sports Illustrated Jinx” has circulated among sports fans for years: whenever an athlete appears on the cover of <em>Sports Illustrated</em>, their subsequent performance drops — or they get injured. Countless athletes have refused to be on the cover because of it.</p>
+<p>Athletes who make the cover are typically at an “extreme career peak.” But statistically, extreme values tend to be followed by regression toward the mean — they cannot stay at the apex of luck and skill forever. The performance drop is not caused by appearing on the cover; it is because that moment was inherently exceptional, and what follows is a return to normal.</p>
+<p>This is the typical face of statistical method traps: <strong>the tool itself is legitimate, but you misunderstood what the tool told you, or the tool’s assumptions were violated without you realizing it</strong>. This differs in nature from the traps in previous articles: you can combat confirmation bias with self-awareness, you can spot Simpson’s Paradox by looking at grouped data, but these method-level traps — if you do not understand the statistical logic underlying the tool — you will not even know you have stepped on a mine.</p>
+<hr>
+<h2 id="31-Regression-to-the-Mean-Mistaking-Mean-Reversion-for-Your-Intervention-Working"><a href="#31-Regression-to-the-Mean-Mistaking-Mean-Reversion-for-Your-Intervention-Working" class="headerlink" title="31. Regression to the Mean: Mistaking Mean Reversion for Your Intervention Working"></a>31. Regression to the Mean: Mistaking Mean Reversion for Your Intervention Working</h2><p>Nobel laureate Daniel Kahneman once told a story: a flight instructor opposed praising students, arguing that “every time I praise a student for a perfect landing, their next one is usually worse; but when I harshly scold them for a terrible landing, they improve next time. So punishment is more effective than praise.”</p>
+<p>The instructor committed the regression fallacy:</p>
+<ul>
+<li>After a student makes a “perfect landing” (an extreme high), the next performance regressing to the mean (getting worse) is a high-probability event — regardless of whether you praised them.</li>
+<li>After a student makes a “terrible landing” (an extreme low), the next performance regressing to the mean (getting better) is also a high-probability event — regardless of whether you scolded them.</li>
+</ul>
+<p>In the tech world, this error shows up in post-incident reviews: “After a severe system failure (extreme value), we deployed emergency patch A, and system stability improved significantly. Patch A worked.” Not necessarily. Systems naturally tend to regress toward normal after an extreme failure, unless the damage is permanent. Without a control group, you cannot tell whether the patch was effective or mean reversion simply ran its course.</p>
+<p>How to spot it: if your intervention always happens when “things are especially bad” and then “things improve,” you need at least a control group before you can say anything.</p>
+<h2 id="32-Multicollinearity-Variables-Too-Similar-for-the-Model-to-Tell-Them-Apart"><a href="#32-Multicollinearity-Variables-Too-Similar-for-the-Model-to-Tell-Them-Apart" class="headerlink" title="32. Multicollinearity: Variables Too Similar for the Model to Tell Them Apart"></a>32. Multicollinearity: Variables Too Similar for the Model to Tell Them Apart</h2><p>In regression models, if predictor variables are highly correlated with each other, the model cannot accurately estimate each variable’s independent effect. Coefficients become unstable and may even flip sign (what should be a positive relationship gets estimated as negative).</p>
+<p>Predicting house prices: square footage and number of rooms are highly correlated variables (bigger houses typically have more rooms). When you put both into a regression model, the model gets stuck: is it square footage or number of rooms that affects price? The coefficient estimates jump around, become unstable — you cannot say “each additional room increases the price by X dollars” because the effects of square footage and room count are entangled and inseparable.</p>
+<p>In machine learning feature engineering, the harm of multicollinearity is often underestimated: you think adding more correlated features makes the model “richer,” when in reality you are making it more confused and interpretability drops to zero.</p>
+<h2 id="33-Omitted-Variable-Bias-Leaving-Out-an-Important-Explanatory-Variable"><a href="#33-Omitted-Variable-Bias-Leaving-Out-an-Important-Explanatory-Variable" class="headerlink" title="33. Omitted Variable Bias: Leaving Out an Important Explanatory Variable"></a>33. Omitted Variable Bias: Leaving Out an Important Explanatory Variable</h2><p>This is the model-level version of confounding: your regression model omits a variable that simultaneously affects X and Y, so the model incorrectly attributes that omitted variable’s influence to the other variables you did include, causing coefficient bias.</p>
+<p>Suppose you want to study the effect of education level (X) on salary (Y), but you forgot to control for “family socioeconomic status” (omitted variable Z). Z simultaneously influences education (wealthy families with resources more easily send children to higher education) and salary (the direct effects of social capital and connections). Result: your model’s coefficient estimate for education is biased upward because it credits the salary advantage brought by “family background” to “education level.”</p>
+<p>Omitted variable bias is the “you don’t know what you don’t know” kind of problem: you did not include Z, you cannot see Z’s influence, you may not even be aware Z exists. The antidote is building a theoretical framework (thinking through what factors might affect Y before looking at data), not just looking at data.</p>
+<h2 id="34-Overfitting-The-Model-Memorized-Past-Exams-and-Cannot-Handle-New-Questions"><a href="#34-Overfitting-The-Model-Memorized-Past-Exams-and-Cannot-Handle-New-Questions" class="headerlink" title="34. Overfitting: The Model Memorized Past Exams and Cannot Handle New Questions"></a>34. Overfitting: The Model Memorized Past Exams and Cannot Handle New Questions</h2><p>An overfit model performs perfectly on training data but falls apart on new data — it learned “the noise and specific patterns of this particular dataset” rather than “the underlying patterns of the real world.”</p>
+<p>Imagine training a purchase prediction model on 2019 user behavior data — the model achieves 97% accuracy on 2019 data. In 2020, COVID dramatically changes all user behavior, and the model’s performance instantly collapses. Much of what it learned as “patterns” was noise specific to that particular time period, not generalizable user behavior logic.</p>
+<p>Common overfitting signals: model performance on training data is far better than on validation data; too many features are used (especially when the number of features approaches or exceeds the number of data points); different random seeds produce wildly different results.</p>
+<h2 id="35-Data-Leakage-Future-Information-Leaked-into-Past-Training"><a href="#35-Data-Leakage-Future-Information-Leaked-into-Past-Training" class="headerlink" title="35. Data Leakage: Future Information Leaked into Past Training"></a>35. Data Leakage: Future Information Leaked into Past Training</h2><p>This is the most embarrassing error in machine learning, because its signal is “the model performs suspiciously well” — which looks like good news.</p>
+<p>Suppose you train an AI to predict whether a patient will develop pneumonia — 99% accuracy, and you think you are about to revolutionize healthcare. After deployment, the model completely fails. Investigation reveals: the training data included a feature called “whether the patient is taking antibiotics.” In the historical data, only diagnosed pneumonia patients were on antibiotics. The model found a shortcut: “antibiotics &#x3D; pneumonia.” But in reality, you want to predict the condition <strong>before</strong> the patient takes medication — that feature simply does not exist at prediction time.</p>
+<p>Similar forms of leakage in data preprocessing are more common and harder to detect:</p>
+<ul>
+<li>Computing normalization means and standard deviations using the entire dataset (including the test set), then splitting into train&#x2F;test sets — test set information has already seeped into the training process.</li>
+<li>Using “last login time” to predict user churn: known in retrospect, but when the model goes live, you do not know this feature’s value before churn happens.</li>
+</ul>
+<p>A model performing too good to be true is not good news — it is a signal that demands serious scrutiny.</p>
+<h2 id="36-Look-ahead-Bias-You-Used-Data-That-Could-Not-Have-Been-Known-at-the-Time"><a href="#36-Look-ahead-Bias-You-Used-Data-That-Could-Not-Have-Been-Known-at-the-Time" class="headerlink" title="36. Look-ahead Bias: You Used Data That Could Not Have Been Known at the Time"></a>36. Look-ahead Bias: You Used Data That Could Not Have Been Known at the Time</h2><p>Look-ahead bias is data leakage’s specific manifestation in time series analysis and financial backtesting: you use “future data that was unavailable at the time” to evaluate a strategy that “could have been executed at the time,” making historical performance look unrealistically good.</p>
+<p>The most common case in financial backtesting: you use “the complete data for all of 2020” to design a trading strategy, then “test” its 2020 performance — but a trader in March 2020 could not have known November’s data. Strategies that backtest perfectly usually fall apart once they go live.</p>
+<p>In ML time series forecasting, this problem appears in feature engineering: you calculate a “7-day moving average,” but if the calculation includes the prediction date’s own data, you have introduced look-ahead bias. Strictly distinguishing “before the prediction point” from “the prediction date and after” is a fundamental practice in time series modeling.</p>
+<h2 id="37-Extrapolation-Bias-You-Used-the-Model-Outside-Its-Training-Range"><a href="#37-Extrapolation-Bias-You-Used-the-Model-Outside-Its-Training-Range" class="headerlink" title="37. Extrapolation Bias: You Used the Model Outside Its Training Range"></a>37. Extrapolation Bias: You Used the Model Outside Its Training Range</h2><p>Extrapolation means extending a model’s predictions beyond the range of its training data. The problem: a model performing well within the range it has seen does not mean it is valid outside that range.</p>
+<p>You trained a recommendation system on Taiwanese user behavior data — accuracy and retention look great. You confidently launch it in Southeast Asia, and the results are dismal. Southeast Asian users have entirely different behavior patterns, cultural backgrounds, and usage contexts from Taiwanese users. The model has never seen that kind of data, and its “intelligence” is worthless outside the training distribution.</p>
+<p>In trend forecasting, the extrapolation fallacy takes the form of extending a linear growth trend indefinitely: “We added 10,000 new users per month for the past six months, so in three years we’ll have 3.6 million users.” Growth curves are never straight lines — markets have boundaries, competitors emerge, user acquisition costs rise. “Extrapolating the current trend” is the laziest and most error-prone approach to prediction.</p>
+<h2 id="38-P-value-Misinterpretation-97-Sure-the-New-Feature-Is-Better-No-You-Are-Not"><a href="#38-P-value-Misinterpretation-97-Sure-the-New-Feature-Is-Better-No-You-Are-Not" class="headerlink" title="38. P-value Misinterpretation: 97% Sure the New Feature Is Better? No, You Are Not"></a>38. P-value Misinterpretation: 97% Sure the New Feature Is Better? No, You Are Not</h2><p>The A&#x2F;B test is done, p &#x3D; 0.03. Someone says: “We are 97% confident the new version is better!”</p>
+<p>This is the most widespread misunderstanding of p-values — common even in academia, let alone in product development.</p>
+<p><strong>The correct definition of a p-value</strong>: given that the null hypothesis (no difference between versions) is true, the probability of observing data “this extreme or more extreme.”</p>
+<p>p &#x3D; 0.03 means: if the two versions truly have no difference, there is only a 3% chance of producing this result.</p>
+<p>It <strong>does not</strong> mean: “the probability that the null hypothesis is true is 3%,” nor does it mean “the probability that the new version is better is 97%.” Both interpretations are logically wrong — the p-value is computed under the assumption that the null hypothesis is true, and it has no ability to directly tell you the probability that the null hypothesis is true or false.</p>
+<p>A practical way to understand it: p &lt; 0.05 says “if nothing changed, a result this coincidental has only a 5% chance of appearing.” It gives you reason to doubt the assumption that “nothing changed,” but it does not equal “the new version is definitely better.”</p>
+<h2 id="39-Effect-Size-Neglect-Statistical-Significance-Does-Not-Equal-Practical-Importance"><a href="#39-Effect-Size-Neglect-Statistical-Significance-Does-Not-Equal-Practical-Importance" class="headerlink" title="39. Effect Size Neglect: Statistical Significance Does Not Equal Practical Importance"></a>39. Effect Size Neglect: Statistical Significance Does Not Equal Practical Importance</h2><p>An A&#x2F;B test with n &#x3D; 1,000,000 finishes, p &lt; 0.0001 (highly significant) — the new button’s click-through rate improved from 2.0000% to 2.0001%.</p>
+<p>This result is statistically real — it is not noise. But is a 0.0001 percentage point improvement worth the additional code complexity, maintenance costs, and deployment risks?</p>
+<p>Statistical significance and practical importance are two different things. With a large enough sample, any tiny difference can reach statistical significance. This is why reporting effect size — Cohen’s d, relative lift, etc. — is at least as important as p-values, if not more.</p>
+<p>Effect size neglect and #40 “underpowered study” are two sides of the same coin: too small a sample means real effects go undetected (false negative); too large a sample means trivial effects get blown up to “significant” (treating noise as signal). Both problems must be addressed when designing experiments.</p>
+<h2 id="40-Underpowered-Study-You-Lack-the-Ability-to-See-a-Real-Effect"><a href="#40-Underpowered-Study-You-Lack-the-Ability-to-See-a-Real-Effect" class="headerlink" title="40. Underpowered Study: You Lack the Ability to See a Real Effect"></a>40. Underpowered Study: You Lack the Ability to See a Real Effect</h2><p>An A&#x2F;B test with a few hundred people shows no significant difference. Team conclusion: “The new feature doesn’t work.”</p>
+<p>But the truth may be: the effect is real — you just did not have a large enough sample to “see” it. This is a <strong>false negative (Type II Error)</strong> — incorrectly accepting the null hypothesis.</p>
+<p>The purpose of power analysis is to calculate, before the experiment begins: given the effect size you expect, how large a sample do you need to detect the effect with sufficient confidence if it truly exists? Running an A&#x2F;B test without a power analysis is like “going to read the blackboard without knowing how poor your eyesight is.”</p>
+<p>Many companies rush to stop a test after seeing “no significant difference,” treating it as proof that the feature is ineffective. But “failing to reject the null hypothesis” and “the null hypothesis being true” are two entirely different things.</p>
+<h2 id="41-Multiple-Comparisons-Run-Enough-Tests-and-You-Will-Get-a-False-Positive"><a href="#41-Multiple-Comparisons-Run-Enough-Tests-and-You-Will-Get-a-False-Positive" class="headerlink" title="41. Multiple Comparisons: Run Enough Tests and You Will Get a False Positive"></a>41. Multiple Comparisons: Run Enough Tests and You Will Get a False Positive</h2><p>Suppose you simultaneously A&#x2F;B test 20 different button colors, each at a significance threshold of p &lt; 0.05. Purely by probability, even if all 20 colors truly have zero effect on conversion, you would expect about 1 (20 x 5% &#x3D; 1) to produce a false positive result with p &lt; 0.05. If you only report that 1 “significant” result, you claim to have found the best button color — but that is mathematical inevitability, not a discovery.</p>
+<p>Randomly combining variables and time intervals to run tests until some combination produces a “significant” result, then retroactively crafting an explanation — this is called P-Hacking. It is not necessarily deliberate fraud; more often it is self-deception: you genuinely believe the “significant” result because you do not realize how many tests you have already run.</p>
+<p>The fix: determine your hypothesis before the experiment begins (pre-registration); if you must do multiple comparisons, use Bonferroni correction or FDR (False Discovery Rate) control; for every “significant” result, seriously ask yourself “how many tests did I run before finding this one?”</p>
+<hr>
+<p>Statistical method traps share a common trait: the tool is technically legitimate, the output is numerically correct, but the interpretation is wrong. This makes them more dangerous than straightforward fallacies because you have no reason to be suspicious. When you see a perfect model accuracy, a p &lt; 0.05 significant result, or a backtested strategy with stellar returns, the signal that should make you stop and look closer is often “this result looks too good” itself.</p>
+
+      </div>
+    </div>
+  </article>
+  <div class="post__foot">
+    
+    
+<div class="author-bio">
+  <input type="checkbox" id="authorLikeCode" />
+  
+  <div class="author-bio__inner">
+    <div class="author-bio__avatar">
+      <label for="authorLikeCode" class="author-bio__avatar-wrapper" title="點擊切換 QR Code">
+        <div class="author-bio__avatar-face">
+          <img id="author-front-face"
+               src="/images/content/about.webp" 
+               alt="Owen Hsiao (蕭為謙)"
+               loading="lazy"
+               decoding="async" />
+          
+          
+            <img id="author-back-face"
+                 alt="support code"
+                 src="/images/content/reward/bmc_qr.png"
+                 loading="lazy"
+                 decoding="async" />
+          
+        </div>
+      </label>
+    </div>
+
+    <div class="author-bio__content">
+      <div class="author-bio__header">
+        <h3 class="author-bio__name">
+          <a href="/en/about/">
+            Owen Hsiao (蕭為謙)
+          </a>
+        </h3>
+        <span class="author-bio__title">Writer, Thinker & Developer</span>
+      </div>
+
+      <p class="author-bio__description">
+        
+          A developer who exploring technology, philosophy, and personal development through essays and insights.
+        
+      </p>
+
+      <div class="author-bio__footer">
+        <div class="author-bio__social">
+          
+            <a href="https://github.com/gba3124" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               title="GitHub"
+               class="author-bio__social-link">
+              
+                <img src="/images/logos/logo-github.svg" alt="GitHub" loading="lazy" decoding="async" />
+              
+            </a>
+          
+            <a href="https://www.linkedin.com/in/owen-hsiao-875b50217" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               title="LinkedIn"
+               class="author-bio__social-link">
+              
+                <img src="/images/logos/logo-linkedin.png" alt="LinkedIn" loading="lazy" decoding="async" />
+              
+            </a>
+          
+            <a href="https://web.facebook.com/profile.php?id=100000464468024" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               title="Facebook"
+               class="author-bio__social-link">
+              
+                <img src="/images/logos/logo-facebook.png" alt="Facebook" loading="lazy" decoding="async" />
+              
+            </a>
+          
+            <a href="https://www.taipeifusion.org/zh/members?Owen" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               title="台北創聚扶輪社"
+               class="author-bio__social-link">
+              
+                <img src="/images/logos/logo-rotary.svg" alt="台北創聚扶輪社" loading="lazy" decoding="async" />
+              
+            </a>
+          
+        </div>
+
+        
+          <div class="author-bio__support">
+            <a href="https://buymeacoffee.com/gba3124" target="_blank" class="author-bio__support-btn">
+              <span class="support-icon">
+                <svg viewBox="0 0 1024 1024" width="18px" height="18px">
+                  <path d="M466.88 908.96L113.824 563.296a270.08 270.08 0 0 1 0-387.392c108.8-106.56 284.896-106.56 393.696 0 1.504 1.472 2.976 2.944 4.448 4.48 1.472-1.536 2.944-3.008 4.448-4.48 108.8-106.56 284.896-106.56 393.696 0a269.952 269.952 0 0 1 34.016 347.072l-387.392 385.6a64 64 0 0 1-89.92 0.384z" fill="currentColor" />
+                </svg>
+              </span>
+              <span class="support-text">Support Me</span>
+            </a>
+            <span class="author-bio__support-hint">Thank you for your support and encouragement</span>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+/* --- 基礎設定 --- */
+:root {
+  --bio-bg: rgba(255, 255, 255, 0.85);
+  --bio-border: rgba(0, 0, 0, 0.06);
+  --bio-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+  --bio-accent: #8B0000; /* 你的品牌紅 */
+  --bio-accent-light: rgba(139, 0, 0, 0.06);
+  --bio-text-main: #2c3e50;
+  --bio-text-sub: #7f8c8d;
+  --bio-radius: 16px;
+}
+
+#authorLikeCode {
+  display: none; /* 隱藏 checkbox */
+}
+
+/* --- 主容器 --- */
+.author-bio {
+  margin: 4rem auto;
+  padding: 2.5rem;
+  background: var(--bio-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--bio-border);
+  border-radius: var(--bio-radius);
+  box-shadow: var(--bio-shadow);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.author-bio:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+.author-bio__inner {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+
+/* --- 頭像區域 (翻轉特效) --- */
+.author-bio__avatar {
+  flex-shrink: 0;
+}
+
+.author-bio__avatar-wrapper {
+  width: 100px;
+  height: 100px;
+  perspective: 1000px; /* 為 3D 翻轉做準備 */
+  display: block; /* 讓 label 撐開 */
+  cursor: pointer; /* 顯示手指鼠標，提示可點擊 */
+}
+
+.author-bio__avatar-face {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+#author-front-face,
+#author-back-face {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden; /* 隱藏背面 */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border: 3px solid #fff;
+}
+
+#author-back-face {
+  transform: rotateY(180deg); /* 預設背面是轉過去的 */
+  border-radius: 12px; /* QR Code 方形導圓角 */
+  background: #fff;
+  padding: 6px; /* 留白邊距 */
+  object-fit: contain;
+}
+
+/* Checkbox 觸發翻轉 */
+#authorLikeCode:checked ~ .author-bio__inner .author-bio__avatar-face {
+  transform: rotateY(180deg);
+}
+
+/* --- 內容區域 --- */
+.author-bio__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.author-bio__header {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.author-bio__name {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.author-bio__name a {
+  color: var(--bio-text-main);
+  text-decoration: none;
+  background-image: linear-gradient(var(--bio-accent), var(--bio-accent));
+  background-size: 0% 2px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  transition: background-size 0.3s ease, color 0.3s ease;
+}
+
+.author-bio__name a:hover {
+  color: var(--bio-accent);
+  background-size: 100% 2px;
+}
+
+.author-bio__title {
+  font-size: 0.9rem;
+  color: var(--bio-accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+}
+
+.author-bio__description {
+  margin: 0 0 1.5rem 0;
+  line-height: 1.7;
+  color: #555;
+  font-size: 1rem;
+  max-width: 650px;
+}
+
+/* --- 底部區域 (社交 + 贊助) --- */
+.author-bio__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(0,0,0,0.04);
+}
+
+.author-bio__social {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.author-bio__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f8f9fa;
+  transition: all 0.2s ease;
+  color: var(--bio-text-sub);
+  text-decoration: none;
+}
+
+.author-bio__social-link img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.author-bio__social-link:hover {
+  background: var(--bio-text-main);
+  transform: translateY(-2px);
+  color: #fff;
+}
+
+/* --- 贊助按鈕區 --- */
+.author-bio__support {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.author-bio__support-hint {
+  font-size: 0.85rem;
+  color: #999;
+  font-weight: 500;
+  display: none; /* 預設隱藏提示文字，保持簡潔，Hover 或 Desktop 可顯示 */
+}
+
+.author-bio__support-btn {
+  /* 改為標準連結樣式，移除 label 特性 */
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 24px;
+  background: var(--bio-accent-light);
+  color: var(--bio-accent);
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  text-decoration: none; /* 移除下底線 */
+  user-select: none;
+}
+
+.author-bio__support-btn svg {
+  fill: var(--bio-accent);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.author-bio__support-btn:hover {
+  background: var(--bio-accent);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(139, 0, 0, 0.2);
+}
+
+.author-bio__support-btn:hover svg {
+  fill: #fff;
+  transform: scale(1.2);
+  animation: heartbeat 1s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1.2); }
+  15% { transform: scale(1.4); }
+  30% { transform: scale(1.2); }
+  45% { transform: scale(1.3); }
+  60% { transform: scale(1.2); }
+}
+
+/* --- RWD 手機版 --- */
+@media screen and (max-width: 768px) {
+  .author-bio {
+    padding: 2rem 1.5rem;
+    margin: 2rem auto;
+  }
+
+  .author-bio__inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  
+  .author-bio__header {
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .author-bio__footer {
+    justify-content: center;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .author-bio__support-hint {
+    display: block; /* 手機版可以顯示提示文字，因為空間垂直排列足夠 */
+    margin-top: 0.5rem;
+  }
+}
+
+/* 大螢幕時顯示提示文字 */
+@media screen and (min-width: 992px) {
+  .author-bio__support-hint {
+    display: inline-block;
+  }
+}
+</style>
+    
+    <div class="post-nav">
+  
+    <a class="post-nav-item-left" href="/zh-tw/blog/statistical-fallacies-experiment-design/">
+      <div class="text-align">
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" />
+        </svg>
+        <span class="text-small">上一篇</span>
+      </div>
+      <div>實驗設計篇：你以為實驗是公正的，但它從一開始就不是</div>
+    </a>
+  
+  <div class="vhr"></div>
+  
+    <a class="post-nav-item-right" href="/zh-tw/blog/statistical-fallacies-statistical-methods/">
+      <div class="text-align">
+        <span class="text-small">下一篇</span>
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             transform="scale(-1,-1)"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" />
+        </svg>
+      </div>
+      統計方法篇：你以為工具是對的，但工具的假設被你違反了
+    </a>
+  
+</div>
+
+    
+    
+    
+      <!-- Firebase 留言系統組件 -->
+<div class="comment-system" id="comment-system">
+  <!-- 留言將在這裡動態載入 -->
+</div>
+
+<!-- Firebase 配置腳本 -->
+<script>
+  // Firebase 配置 - 從主題配置讀取
+  window.FIREBASE_CONFIG = {
+    apiKey: "AIzaSyAESLWLI-pgJCwJdE51TmUFCFaUlOj5fu8",
+    authDomain: "owenhsiao-blog.firebaseapp.com", 
+    projectId: "owenhsiao-blog",
+    storageBucket: "owenhsiao-blog.firebasestorage.app",
+    messagingSenderId: "844251626767",
+    appId: "1:844251626767:web:480fd052da01f06134527a"
+  };
+</script>
+
+<!-- Firebase SDK (v9 compat mode for better compatibility) -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+<script>
+  // 初始化 Firebase
+  if (window.FIREBASE_CONFIG && window.FIREBASE_CONFIG.apiKey !== "your-api-key") {
+    try {
+      firebase.initializeApp(window.FIREBASE_CONFIG);
+      window.db = firebase.firestore();
+      
+      console.log('[OK] Firebase 初始化成功');
+      
+      // 當頁面載入完成後初始化留言系統
+      document.addEventListener('DOMContentLoaded', function() {
+        if (window.CommentSystemCompat) {
+          // 獲取當前文章的唯一 ID（使用 lang/slug 格式，不受分類路徑變動影響）
+          const pathSegments = window.location.pathname.replace(/\/$/, '').split('/').filter(Boolean);
+          const lang = pathSegments.find(seg => ['zh-tw', 'en'].includes(seg)) || 'zh-tw';
+          const slug = pathSegments.length > 0 ? pathSegments[pathSegments.length - 1] : 'home';
+          const postId = lang + '/' + slug;
+          
+          // 初始化留言系統
+          window.commentSystem = new window.CommentSystemCompat(postId, 'comment-system');
+          console.log('[OK] 留言系統初始化成功，文章 ID:', postId);
+        } else {
+          console.error('[ERR] CommentSystemCompat 未載入');
+        }
+      });
+    } catch (error) {
+      console.error('[ERR] Firebase 初始化失敗:', error);
+      
+      // 顯示設定提示
+      document.addEventListener('DOMContentLoaded', function() {
+        const container = document.getElementById('comment-system');
+        if (container) {
+          container.innerHTML = `
+            <div style="background: rgba(255, 243, 205, 0.9); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 16px; padding: 2rem; margin: 2rem 0; text-align: center; backdrop-filter: blur(10px);">
+              <h3 style="color: #8B0000; margin-bottom: 1rem; font-weight: 600; font-size: 1.25rem;">Comment System Setup</h3>
+              <p style="color: #856404; margin-bottom: 1rem; line-height: 1.6;">請完成 Firebase 配置以啟用留言功能</p>
+              <p style="color: #6c757d; font-size: 0.9rem; margin: 0;">
+                運行 <code style="background: rgba(0, 0, 0, 0.05); padding: 2px 6px; border-radius: 4px;">./setup-comments.sh</code> 查看設定指南
+              </p>
+            </div>
+          `;
+        }
+      });
+    }
+  } else {
+    // Firebase 配置未設定時顯示提示
+    document.addEventListener('DOMContentLoaded', function() {
+      const container = document.getElementById('comment-system');
+      if (container) {
+        container.innerHTML = `
+          <div style="background: rgba(255, 243, 205, 0.9); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 16px; padding: 2rem; margin: 2rem 0; text-align: center; backdrop-filter: blur(10px);">
+            <h3 style="color: #8B0000; margin-bottom: 1rem; font-weight: 600; font-size: 1.25rem;">Comment System Setup</h3>
+            <p style="color: #856404; margin-bottom: 1rem; line-height: 1.6;">請完成 Firebase 配置以啟用留言功能</p>
+            <p style="color: #6c757d; font-size: 0.9rem; margin: 0;">
+              運行 <code style="background: rgba(0, 0, 0, 0.05); padding: 2px 6px; border-radius: 4px;">./setup-comments.sh</code> 查看設定指南
+            </p>
+          </div>
+        `;
+      }
+    });
+  }
+</script>
+
+<!-- 留言系統腳本 -->
+<script src="/js/comments/comment-system-compat.js"></script>
+
+    
+  </div>
+
+    </main>
+    <div class="foot">
+  <div class="footer-bg">
+    <div class="footer-threads" id="footer-threads"></div>
+    <!-- Footer Dock 在 threads 中間 -->
+    <div id="footer-dock-container"></div>
+  </div>
+  <div class="footer-blur-layer"></div>
+</div>
+
+<!-- Copyright 移到最下面，獨立容器 -->
+<div class="footer-copyright-section">
+  <div class="foot-inner">
+    <div class="copyright">
+      <svg width="16" height="16" viewBox="0 0 725 725">
+        <path fill-rule="evenodd" fill="currentColor" d="M145.870,236.632 L396.955,103.578 L431.292,419.44 L156.600,522.53 L145.870,236.632 Z" />
+        <path fill-rule="evenodd" fill="currentColor" d="M396.955,103.578 L564.345,234.486 L611.558,513.469 L431.292,419.44 L396.955,103.578 Z" />
+        <path fill-rule="evenodd" fill="currentColor" d="M431.292,419.44 L611.558,513.469 L358.327,595.18 L156.600,522.53 L431.292,419.44 Z" />
+      </svg>
+      <span>Powered by <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> · Theme <a target="_blank" rel="noopener" href="https://github.com/hooozen/hexo-theme-tranquility">Tranquility</a></span>
+      <span>© 2026 <a href="https://owenhsiao.com">Owen Hsiao</a></span>
+    </div>
+  </div>
+</div>
+
+<!-- 傳遞主題配置數據給 JavaScript -->
+<script>
+  window.themeConfig = {
+    social: [{"name":"GitHub","icon":"/images/logos/logo-github.svg","url":"https://github.com/gba3124"},{"name":"LinkedIn","icon":"/images/logos/logo-linkedin.png","url":"https://www.linkedin.com/in/owen-hsiao-875b50217"},{"name":"Facebook","icon":"/images/logos/logo-facebook.png","url":"https://web.facebook.com/profile.php?id=100000464468024"},{"name":"台北創聚扶輪社","icon":"/images/logos/logo-rotary.svg","url":"https://www.taipeifusion.org/zh/members?Owen"}],
+    contacts: [{"name":"wei-chien.hsiao.tw@member.mensa.org","icon":"/images/icons/ui/icon/icon-email.svg","url":"mailto:wei-chien.hsiao.tw@member.mensa.org"}],
+    links: [{"name":"台灣獨立駭客","url":"https://www.indiehackerstaiwan.com"},{"name":"Frontier","url":"https://frontier-lab.io"}],
+    lang: {
+      social: 'Social',
+      contact: 'Contact',
+      friends: 'Friends',
+      gesture: {
+        title: 'Gesture Control',
+        camera: 'Camera',
+        tracking: 'Tracking',
+        pinch: 'Pinch',
+        start: 'Start',
+        stop: 'Stop',
+        starting: 'Starting...',
+        sensitivity: 'Sensitivity',
+        scroll: 'Scroll',
+        debug: 'Debug Mode',
+        tip1: '1. Move hand to control cursor',
+        tip2: '2. Pinch to click, drag to scroll',
+        error_camera_denied: 'Please allow camera access to use gesture control',
+        error_camera_not_found: 'No camera device found'
+      }
+    }
+  };
+</script>
+
+    
+    
+    
+      
+    
+    
+    
+      <script defer src="/js/search.js"></script>
+      <script defer>document.addEventListener('DOMContentLoaded', function() { searchInitialize("/search.json"); });</script>
+    
+    
+      <script defer src="/js/copy-code.js"></script>
+    
+    <script defer src="/js/language-switch.js"></script>
+    <script>
+      window.__TRQLT_PERF = {
+        three: "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js",
+        threadsFooter: "/js/threads-footer.js",
+        footerDock: "/js/footer-dock.js",
+        customCursor: "/js/custom-cursor.js",
+        oneEuroFilter: "/js/one-euro-filter.js",
+        gestureControl: "/js/gesture-control.js",
+        gestureUI: "/js/gesture-ui.js",
+        gestureInit: "/js/gesture-init.js",
+        textPressure: "/js/text-pressure.js",
+        fuzzyText: "/js/fuzzy-text.js",
+        tiltedCard: "/js/tilted-card.js",
+        metallicPaint: "/js/metallic-paint.js",
+        tagcloudInit: "/js/tagcloud-init.js",
+        fancyTagcloud: false
+      };
+    </script>
+    <script defer src="/js/perf-loader.js?v=2"></script>
+    <script defer src="/js/lazy-bg.js"></script>
+    
+    
+  
+  
+    <script defer src="https://unpkg.com/mermaid@11.14.0/dist/mermaid.min.js"></script>
+    <script defer>
+      document.addEventListener('DOMContentLoaded', function() {
+        if (!window.mermaid || !document.querySelector('.mermaid')) return;
+        mermaid.initialize({"startOnload":true});
+      });
+    </script>
+  
+
+  </body>
+</html>

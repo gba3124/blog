@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <title>
+      
+        Cognitive Bias: 7 Systematic Bugs in Your Brain's Source Code | Owen Hsiao
+      
+    </title>
+    <meta name="description" content="Confirmation bias, anchoring bias, availability heuristic, Goodhart's Law, and 3 more cognitive biases. How the brain's systematic shortcuts during data analysis and decision-making lead you astray." />
+    <meta name="keywords" content="psychology, statistics, cognitive-bias, decision-making" />
+    <meta name="author" content="Owen Hsiao (蕭為謙)" />
+    
+    
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Cognitive Bias: 7 Systematic Bugs in Your Brain's Source Code" />
+    <meta property="og:description" content="Confirmation bias, anchoring bias, availability heuristic, Goodhart's Law, and 3 more cognitive biases. How the brain's systematic shortcuts during data analysis and decision-making lead you astray." />
+    <meta property="og:url" content="https://owenhsiao.com/en/blog/statistical-fallacies-cognitive-bias/" />
+    <meta property="og:site_name" content="Owen Hsiao" />
+    <meta property="og:locale" content="en" />
+    
+    <meta property="og:image" content="https://owenhsiao.com/images/content/about.webp" />
+    
+    
+    <meta property="article:published_time" content="2025-11-14T16:00:00.000Z" />
+    <meta property="article:modified_time" content="2026-04-15T12:10:24.728Z" />
+    <meta property="article:author" content="Owen Hsiao (蕭為謙)" />
+    
+    <meta property="article:tag" content="psychology" />
+    
+    <meta property="article:tag" content="statistics" />
+    
+    <meta property="article:tag" content="cognitive-bias" />
+    
+    <meta property="article:tag" content="decision-making" />
+    
+    
+    
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Cognitive Bias: 7 Systematic Bugs in Your Brain's Source Code" />
+    <meta name="twitter:description" content="Confirmation bias, anchoring bias, availability heuristic, Goodhart's Law, and 3 more cognitive biases. How the brain's systematic shortcuts during data analysis and decision-making lead you astray." />
+    
+    <meta name="twitter:image" content="https://owenhsiao.com/images/content/about.webp" />
+    
+    <meta name="twitter:creator" content="@Owen Hsiao" />
+
+    
+    
+    
+    
+    <link rel="canonical" href="https://owenhsiao.com/en/blog/statistical-fallacies-cognitive-bias/" />
+
+    
+    
+    
+      <meta name="robots" content="index,follow" />
+    
+
+    
+    
+      
+      
+        
+        
+          
+          
+          <link rel="alternate" hreflang="zh-tw" href="https://owenhsiao.com/zh-tw/blog/statistical-fallacies-cognitive-bias/" />
+        
+      
+        
+        
+          
+          
+          <link rel="alternate" hreflang="en" href="https://owenhsiao.com/en/blog/statistical-fallacies-cognitive-bias/" />
+        
+      
+        
+        
+      
+      <link rel="alternate" hreflang="x-default" href="https://owenhsiao.com/en/blog/statistical-fallacies-cognitive-bias/" />
+    
+
+    
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@graph":[{"@type":["WebSite","Blog"],"@id":"https://owenhsiao.com/#website","name":"Owen Hsiao","url":"https://owenhsiao.com","description":"Personal blog featuring essays, insights, and projects by Owen Hsiao (蕭為謙). Exploring technology, philosophy, and life through deep thinking and analysis.","inLanguage":["zh-TW","en"],"publisher":{"@id":"https://owenhsiao.com/#person"},"author":{"@id":"https://owenhsiao.com/#person"},"potentialAction":{"@type":"SearchAction","target":"https://owenhsiao.com/search/index.html?q={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"Person","@id":"https://owenhsiao.com/#person","name":"Owen Hsiao (蕭為謙)","alternateName":["Owen Hsiao","蕭為謙"],"url":"https://owenhsiao.com","image":{"@type":"ImageObject","url":"https://owenhsiao.com/images/content/about.webp"},"jobTitle":"Writer, Thinker & Developer","description":"A developer who exploring technology, philosophy, and personal development through essays and insights.","sameAs":["https://github.com/gba3124","https://www.linkedin.com/in/owen-hsiao-875b50217","https://web.facebook.com/profile.php?id=100000464468024"],"mainEntityOfPage":"https://owenhsiao.com/en/about/"}]}
+    </script>
+    
+    
+    
+    
+    
+      
+    
+    
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Owen Hsiao","item":"https://owenhsiao.com/en/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://owenhsiao.com/en/blog/"},{"@type":"ListItem","position":3,"name":"Cognitive Bias: 7 Systematic Bugs in Your Brain's Source Code","item":"https://owenhsiao.com/en/blog/statistical-fallacies-cognitive-bias/"}]}
+    </script>
+    
+
+    
+    
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@type":"BlogPosting","headline":"Cognitive Bias: 7 Systematic Bugs in Your Brain's Source Code","description":"Confirmation bias, anchoring bias, availability heuristic, Goodhart's Law, and 3 more cognitive biases. How the brain's systematic shortcuts during data analysis and decision-making lead you astray.","image":"https://owenhsiao.com/images/content/about.webp","datePublished":"2025-11-14T16:00:00.000Z","dateModified":"2026-04-15T12:10:24.728Z","inLanguage":"en","articleSection":"blog","author":{"@type":"Person","name":"Owen Hsiao (蕭為謙)","alternateName":["Owen Hsiao","蕭為謙"],"url":"https://owenhsiao.com","image":"https://owenhsiao.com/images/content/about.webp","jobTitle":"Writer, Thinker & Developer","sameAs":["https://github.com/gba3124","https://www.linkedin.com/in/owen-hsiao-875b50217","https://web.facebook.com/profile.php?id=100000464468024"]},"publisher":{"@type":"Person","name":"Owen Hsiao (蕭為謙)","logo":{"@type":"ImageObject","url":"https://owenhsiao.com/images/logos/logo.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://owenhsiao.com/en/blog/statistical-fallacies-cognitive-bias/"},"isPartOf":{"@type":"WebSite","name":"Owen Hsiao","url":"https://owenhsiao.com"},"keywords":"psychology, statistics, cognitive-bias, decision-making"}
+    </script>
+    
+
+    
+    
+
+    <!-- DNS Prefetch & Preconnect for external resources -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Google Fonts - Space Grotesk (body) + Playfair Display (headings) + Inconsolata (code) + CJK -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inconsolata:wght@400;600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inconsolata:wght@400;600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inconsolata:wght@400;600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" /></noscript>
+    
+    
+      <link rel="apple-touch-icon"
+            sizes="180x180"
+            href="/images/favicons/apple-touch-icon.png" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/images/favicons/favicon-32x32.png" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/images/favicons/favicon-16x16.png" />
+    
+    
+      <link rel="mask-icon"
+            href="/images/logos/logo.svg"
+            color="" />
+    
+    
+    
+    
+    <!-- Critical CSS: layout -->
+    <link rel="stylesheet"
+          type="text/css"
+          href='/css/layout.css' />
+    
+    <!-- Non-critical CSS: Gesture Control - defer loading -->
+    <link rel="preload" as="style" href='/css/gesture-control.css' />
+    <link rel="stylesheet"
+          type="text/css"
+          href='/css/gesture-control.css'
+          media="print"
+          onload="this.media='all'" />
+    <noscript><link rel="stylesheet" type="text/css" href='/css/gesture-control.css' /></noscript>
+    
+    
+    
+  <link rel="stylesheet" type="text/css" href="/css/post.css"/>
+  
+  <link rel="stylesheet" type="text/css" href="/css/comments.css"/>
+  <style>
+    /* Post 頁面專用白色 nav 樣式 */
+    .nav {
+      background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 15%, rgba(255, 255, 255, 0.7) 30%, rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 1) 70%, rgba(255, 255, 255, 1) 100%) !important;
+    }
+    
+    /* Post 頁面的 nav 文字顏色調整 */
+    .nav-menu-item {
+      color: #333 !important;
+    }
+    
+    .nav-menu-item:hover {
+      color: #000 !important;
+    }
+    
+    .lang-switch {
+      color: #333 !important;
+      border-color: #333 !important;
+    }
+
+    .lang-switch:hover {
+      background: #333 !important;
+      color: white !important;
+    }
+    
+    /* Post 頁面搜索按鈕白色主題 */
+    #search-btn {
+      background: rgba(255, 255, 255, 0.9) !important;
+      border: 1px solid rgba(139, 0, 0, 0.15) !important;
+      color: #2c2c2c !important;
+    }
+    
+    #search-btn .icon {
+      color: #2c2c2c !important;
+    }
+    
+    #search-btn .icon path {
+      fill: #2c2c2c !important;
+    }
+    
+    #search-btn > span:not(.search-shortcut-key) {
+      color: #2c2c2c !important;
+    }
+    
+    #search-btn .search-shortcut-key {
+      border: 1px solid rgba(139, 0, 0, 0.2) !important;
+      background: rgba(139, 0, 0, 0.05) !important;
+      color: rgba(44, 44, 44, 0.8) !important;
+    }
+    
+    #search-btn:hover {
+      background: rgba(255, 255, 255, 0.95) !important;
+      border-color: rgba(139, 0, 0, 0.3) !important;
+      color: #000000 !important;
+    }
+    
+    #search-btn:hover .icon {
+      color: #000000 !important;
+    }
+    
+    #search-btn:hover .icon path {
+      fill: #000000 !important;
+    }
+    
+    #search-btn:hover > span:not(.search-shortcut-key) {
+      color: #000000 !important;
+    }
+    
+    #search-btn:hover .search-shortcut-key {
+      background: rgba(139, 0, 0, 0.1) !important;
+      border-color: rgba(139, 0, 0, 0.3) !important;
+      color: #2c2c2c !important;
+    }
+    
+    /* 手機版 nav 按鈕顏色 */
+    .nav-btn::before, 
+    .nav-btn::after {
+      background: #333 !important;
+    }
+    
+    /* 手機版 nav 和菜單樣式 */
+    @media screen and (max-width: 1023px) {
+      .nav {
+        background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 15%, rgba(255, 255, 255, 0.7) 30%, rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 1) 70%, rgba(255, 255, 255, 1) 100%) !important;
+      }
+      
+      .nav-menu {
+        background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 15%, rgba(255, 255, 255, 0.7) 30%, rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 1) 70%, rgba(255, 255, 255, 1) 100%) !important;
+      }
+    }
+  </style>
+
+    <script>
+      (function () {
+        var GA_ID = 'G-JPFR7PFSPP';
+        var initialized = false;
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { window.dataLayer.push(arguments); };
+
+        function initAnalytics() {
+          if (initialized) return;
+          initialized = true;
+          var script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+          script.onload = function () {
+            window.gtag('js', new Date());
+            window.gtag('config', GA_ID);
+          };
+          document.head.appendChild(script);
+        }
+
+        function start() {
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(initAnalytics, { timeout: 3000 });
+          } else {
+            setTimeout(initAnalytics, 1200);
+          }
+        }
+
+        start();
+        ['pointerdown', 'keydown', 'touchstart'].forEach(function (eventName) {
+          document.addEventListener(eventName, initAnalytics, { once: true, passive: true, capture: true });
+        });
+      })();
+    </script>
+  <meta name="generator" content="Hexo 7.3.0"></head>
+  <body data-page="post">
+    
+      <div id="search-mask" style="display:none">
+  <div class="search-main" id="search-main">
+    <div class="search__head">
+      <div class="search-form">
+        <svg t="1706347533072"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="7828"
+             width="20"
+             height="20">
+          <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="currentColor" p-id="7829">
+          </path>
+        </svg>
+        <label for="search-input"
+               style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">
+          Search...
+        </label>
+        <input id="search-input" type="search" aria-label="Search..." placeholder="Search...">
+        <svg t="1706361500528"
+             id="search-clear"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="4351"
+             width="20"
+             height="20">
+          <path d="M512 562.688l-264.2944 264.2944-50.688-50.688L461.312 512 197.0176 247.7056l50.688-50.688L512 461.312l264.2944-264.2944 50.688 50.688L562.688 512l264.2944 264.2944-50.688 50.688L512 562.688z" fill="currentColor" p-id="4352">
+          </path>
+        </svg>
+      </div>
+    </div>
+    <div class="search__body" id="search-result"></div>
+    <div class="search__foot"></div>
+  </div>
+</div>
+<script>
+window.TRANQUILITY_I18N = {
+  search: {
+    empty: "No results found for: ",
+    hits: "Found undefined results for: ",
+    hits_time: "Found undefined results in undefined ms"
+  },
+  post: {
+    untitled: "Untitled"
+  }
+};
+</script>
+
+    
+    
+    
+    <div class=head>
+      <div class="nav">
+        <a href='/en/' class="nav-logo">
+          <img alt="logo" height="60px" width="60px" src="/images/logos/logo.svg" />
+        </a>
+        <input id="navBtn" type="checkbox" />
+        <div class="nav-right">
+          
+            <div class="search-outer">
+  <div class="search" id="search-btn" role="button" tabindex="0" aria-label="Search...">
+    <svg t="1706347533072"
+         class="icon"
+         viewBox="0 0 1024 1024"
+         version="1.1"
+         xmlns="http://www.w3.org/2000/svg"
+         p-id="7828"
+         width="18"
+         height="18">
+      <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="currentColor" p-id="7829">
+      </path>
+    </svg>
+    <span>Search</span>
+    <span class="search-shortcut-key">⌘K</span>
+  </div>
+</div>
+
+          
+          <div class="nav-menu">
+            
+              
+                <a class="nav-menu-item" href="/en/blog">Blog</a>
+              
+            
+            <a class="nav-menu-item" href='/en/about/'>About</a>
+            
+          </div>
+          <button class="lang-switch" onclick="switchLanguage()">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor" d="M12.87 15.07c-.29-.3-.57-.61-.84-.93c.8-.95 1.49-2 2.03-3.14h1.68V9h-5V7h-2v2H3v2h8.64a11.9 11.9 0 0 1-1.52 2.46c-.9-.99-1.66-2.09-2.26-3.29H5.84a13.9 13.9 0 0 0 2.97 4.4l-1.52 1.52l1.41 1.41L12 14.2l2.3 2.3l1.41-1.41l-2.84-2.84zM17.5 10h-2l-4.5 12h2l1.2-3h4.6l1.2 3h2l-4.5-12zm-2.64 7l1.94-5.18L18.74 17h-3.88z"/>
+            </svg>
+            <span>中文</span>
+          </button>
+        </div>
+        <label class="nav-btn" for="navBtn"></label>
+      </div>
+    </div>
+    
+    
+    <main class="body" id="main-content">
+      
+  <article class="post-content">
+    <div class="post-inner">
+      <div class="post-content__head">
+        <div class="post-tags-row">
+          
+  <a href="/en/tags/psychology/" class="post-tag">psychology</a><a href="/en/tags/statistics/" class="post-tag">statistics</a><a href="/en/tags/cognitive-bias/" class="post-tag">cognitive-bias</a><a href="/en/tags/decision-making/" class="post-tag">decision-making</a>
+
+
+        </div>
+        <div class="post-title">Cognitive Bias: 7 Systematic Bugs in Your Brain's Source Code</div>
+        <div class="post-info">
+          <div class="post-info__meta">
+            <span class="post-date">2025-11-15</span>
+          </div>
+          
+          <div class="post-info__description">Confirmation bias, anchoring bias, availability heuristic, Goodhart's Law, and 3 more cognitive biases. How the brain's systematic shortcuts during data analysis and decision-making lead you astray.</div>
+          
+        </div>
+      </div>
+      
+      <div class="post-content__body">
+        <p>In 1960, Peter Wason ran an experiment that still makes cognitive scientists wince.</p>
+<p>He showed subjects three numbers — <strong>2, 4, 6</strong> — and told them this sequence followed a certain rule. Their task was to guess the rule by proposing their own sets of three numbers, to which Wason would respond “fits” or “does not fit,” until they felt confident enough to state the answer.</p>
+<p>Most subjects immediately formed a hypothesis: “must be even numbers” or “increasing by 2.” Then they started testing:</p>
+<ul>
+<li>8, 10, 12: “Fits”</li>
+<li>14, 16, 18: “Fits”</li>
+<li>100, 102, 104: “Fits”</li>
+</ul>
+<p>“Got it! The rule is even numbers increasing by 2!”</p>
+<p>Wason’s actual rule was: <strong>any three ascending numbers</strong>. 1, 2, 3 fits. 1, 50, 1000 also fits. Subjects almost never tried these. They only asked questions whose answers would be “fits” — never once proactively testing something that might shatter their hypothesis.</p>
+<p>This is <strong>confirmation bias</strong> in its purest form: not deliberate fabrication, but the thought “try to disprove myself” never even arising in the first place.</p>
+<p><strong>Cognitive biases</strong> are not occasional mistakes — they are systematic bugs built into the brain’s information processing. These 7 are the ones most likely to lead you astray during data analysis and decision-making.</p>
+<hr>
+<h2 id="24-Confirmation-Bias-Analysis-Phase-Seeing-Only-What-You-Want-to-See"><a href="#24-Confirmation-Bias-Analysis-Phase-Seeing-Only-What-You-Want-to-See" class="headerlink" title="24. Confirmation Bias (Analysis Phase): Seeing Only What You Want to See"></a>24. Confirmation Bias (Analysis Phase): Seeing Only What You Want to See</h2><p>Wason’s subjects were not stupid — they simply never thought to “try to disprove themselves.” We tend to seek, interpret, and remember information that supports our preexisting views, while ignoring or downplaying contradictory evidence.</p>
+<p>In product development, this bias is extremely lethal. When you have strong emotional investment in a feature, you unconsciously cherry-pick positive reviews to share with the team, dismissing negative feedback as trolls or “users who don’t get the product.” The danger of confirmation bias here is not just that you reach the wrong conclusion — it is that your decision-making process looks completely normal. You are collecting feedback, you are analyzing data — it is just that your filter is operating where you cannot see it.</p>
+<p>In A&#x2F;B testing, when results do not match expectations, a person with confirmation bias will “torture the data” until they find some narrow segment where the new version “actually looks decent,” then interpret that as a win.</p>
+<p>The strongest defense against confirmation bias: actively seek counter-evidence. Before reaching any conclusion, invest equal effort in asking “what evidence would prove me wrong?”</p>
+<h2 id="25-Anchoring-Bias-The-First-Number-You-See-Controls-You"><a href="#25-Anchoring-Bias-The-First-Number-You-See-Controls-You" class="headerlink" title="25. Anchoring Bias: The First Number You See Controls You"></a>25. Anchoring Bias: The First Number You See Controls You</h2><p>Imagine you are evaluating a new system’s performance. The engineer tells you the first number: “Current latency is around 500ms.” That “500ms” becomes an anchor. In subsequent testing, if latency drops to 400ms, you think “Wow, significant performance improvement!” But if the initial anchor had been 100ms, your evaluation of 400ms would be entirely different — “Why is it so slow?”</p>
+<p>In budget planning and effort estimation, anchoring bias is everywhere. Once someone throws out a number (say, “this feature should take about 3 days”), all subsequent discussion revolves around fine-tuning that number, unable to break free and assess objectively. Even when we know the first number is unreasonable, the brain still involuntarily “anchors” to it.</p>
+<p>The fix: before hearing any number, form your own independent estimate first. Let the first anchor be yours, not someone else’s.</p>
+<h2 id="26-Availability-Heuristic-Easy-to-Recall-Does-Not-Equal-Likely-to-Happen"><a href="#26-Availability-Heuristic-Easy-to-Recall-Does-Not-Equal-Likely-to-Happen" class="headerlink" title="26. Availability Heuristic: Easy to Recall Does Not Equal Likely to Happen"></a>26. Availability Heuristic: Easy to Recall Does Not Equal Likely to Happen</h2><p>Why do we feel that flying is more dangerous than driving? Because plane crash news always features terrifying footage and wall-to-wall coverage — vivid memories that are easily retrieved (available) from our minds. The brain mistakenly concludes: “things that are easy to recall &#x3D; things that happen frequently.”</p>
+<p>In engineering, we often overestimate the severity of certain bugs simply because one particular bug caused a memorable 3 AM on-call incident. At the same time, we might underestimate chronic but less dramatic performance issues that lack “theatricality,” even though the latter may cause far more user churn.</p>
+<p>The availability heuristic lets our risk assessments get hijacked by the vividness of memories rather than driven by actual incidence rates.</p>
+<h2 id="27-Representativeness-Heuristic-Stereotypes-Override-Actual-Probabilities"><a href="#27-Representativeness-Heuristic-Stereotypes-Override-Actual-Probabilities" class="headerlink" title="27. Representativeness Heuristic: Stereotypes Override Actual Probabilities"></a>27. Representativeness Heuristic: Stereotypes Override Actual Probabilities</h2><p>This is the classic “Linda Problem”: Linda is 31, single, outspoken, and very bright. She majored in philosophy. As a student, she was deeply concerned with discrimination and social justice and participated in anti-nuclear demonstrations. Which is more likely?</p>
+<p>A. Linda is a bank teller<br>B. Linda is a bank teller and an active feminist</p>
+<p>Most people choose B because B’s description “fits” Linda better. But logically, B is a subset of A — B’s probability cannot be greater than A’s. We let “how well the description fits” override statistical base rates.</p>
+<p>In technical evaluations, we often judge probability by “how well the description fits.” See an engineer described as “rigorous thinker, antisocial, uses Linux,” and intuition says they are more likely a backend engineer. But if the base number of frontend engineers is larger, this judgment violates the base rate. Stereotypes are fuel for heuristics, and heuristics and probability calculations are not the same thing.</p>
+<h2 id="28-McNamara-Fallacy-Measuring-Only-What-Can-Be-Measured-Ignoring-What-Cannot"><a href="#28-McNamara-Fallacy-Measuring-Only-What-Can-Be-Measured-Ignoring-What-Cannot" class="headerlink" title="28. McNamara Fallacy: Measuring Only What Can Be Measured, Ignoring What Cannot"></a>28. McNamara Fallacy: Measuring Only What Can Be Measured, Ignoring What Cannot</h2><p>During the Vietnam War, U.S. Secretary of Defense Robert McNamara built a rigorous quantitative metrics system to assess war progress: enemy body counts, bombing sorties, square miles of territory controlled. He completely ignored “morale,” “public support,” and “strategic objective achievement” — factors that could not be quantified but were critically important.</p>
+<p>The result: the U.S. military “won” every battle by the numbers but lost the entire war. McNamara later admitted in his old age that their fundamental mistake was treating “what can be measured” as a substitute for “what truly matters.”</p>
+<p>In product development, this fallacy shows up as DAU (daily active users). Users can open the app and immediately close it — DAU looks perfect, but the actual value users derive from the product might be zero. We measure engineer productivity by “lines of code” while ignoring code quality and architecture, and the result is engineers writing more verbose code to game the metric.</p>
+<p>The structure of the McNamara Fallacy: find a measurable metric -&gt; treat it as a proxy for the real goal -&gt; start optimizing the metric -&gt; the metric improves while the real goal deteriorates.</p>
+<h2 id="29-Goodhart’s-Law-When-a-Measure-Becomes-a-Target-It-Ceases-to-Be-a-Good-Measure"><a href="#29-Goodhart’s-Law-When-a-Measure-Becomes-a-Target-It-Ceases-to-Be-a-Good-Measure" class="headerlink" title="29. Goodhart’s Law: When a Measure Becomes a Target, It Ceases to Be a Good Measure"></a>29. Goodhart’s Law: When a Measure Becomes a Target, It Ceases to Be a Good Measure</h2><p>This is different from the McNamara Fallacy but closely related. The McNamara Fallacy is “measure only what’s measurable, ignore what’s not”; Goodhart’s Law is “once you measure it, the metric itself gets corrupted.”</p>
+<p>A customer service team uses “average response time” as a performance metric. Agents start rapidly closing tickets — problems unsolved, tickets closed, metrics perfect. Customer satisfaction plummets.</p>
+<p>SEO once used keyword density to gauge content quality. Websites began churning out articles stuffed with keywords — high density, terrible reader experience. Google’s ranking algorithm has been forced to continuously evolve precisely to combat the effects of Goodhart’s Law.</p>
+<p>Use App Store ratings to measure app quality, and companies start popping up “Rate us 5 stars!” prompts at just the right moment — deliberately timed for when users are happiest. Ratings look great, but what they now represent is not genuine user evaluation — it is “how cooperative users are when asked.”</p>
+<p>Goodhart’s Law is not a human nature problem; it is a systems problem. When a metric is tied to rewards, optimizing the metric becomes rational behavior regardless of the cost. Understanding this law is fundamental to designing incentive systems.</p>
+<h2 id="30-Path-Dependence-The-Roads-You-Have-Walked-Limit-the-Roads-You-Can-Walk"><a href="#30-Path-Dependence-The-Roads-You-Have-Walked-Limit-the-Roads-You-Can-Walk" class="headerlink" title="30. Path Dependence: The Roads You Have Walked Limit the Roads You Can Walk"></a>30. Path Dependence: The Roads You Have Walked Limit the Roads You Can Walk</h2><p>Early decisions constrain later options. This is not just an engineering architecture issue — it is a cognitive trap: even when new data shows the current direction is wrong, people tend to keep going down the wrong path.</p>
+<p>The QWERTY keyboard is the most commonly cited example: it was originally designed to prevent typewriter keys from jamming — a need that no longer exists on modern keyboards, yet decades of user habit make it nearly impossible to replace with a better layout.</p>
+<p>In software development, path dependence manifests as “technical debt”: compromises made for a quick launch become boundary conditions for every subsequent architectural decision. The cost of refactoring compounds over time until it becomes so high that no one is willing to touch it — even though everyone knows it is wrong.</p>
+<p>In decision-making, the cognitive version of path dependence is the <strong>sunk cost fallacy</strong>: “We have invested so much in this path that we cannot abandon it now.” This is an emotional argument, not a data argument. Costs already paid are sunk — whether you continue or stop, those costs are gone. Decisions should be based only on future costs and benefits, not past investments.</p>
+<hr>
+<p>Cognitive biases are hard to overcome because they operate at the subconscious level. Understanding them is the first step, but awareness alone is not enough — the brain under pressure is faster than reason. What is more effective is designing it into the process: establish a “devil’s advocate” role that forces everyone to confront counter-evidence, create a fixed checklist of questions that must be answered before any decision, and let systems do the work that willpower alone cannot sustain against the brain’s built-in self-protection mechanisms.</p>
+
+      </div>
+    </div>
+  </article>
+  <div class="post__foot">
+    
+    
+<div class="author-bio">
+  <input type="checkbox" id="authorLikeCode" />
+  
+  <div class="author-bio__inner">
+    <div class="author-bio__avatar">
+      <label for="authorLikeCode" class="author-bio__avatar-wrapper" title="點擊切換 QR Code">
+        <div class="author-bio__avatar-face">
+          <img id="author-front-face"
+               src="/images/content/about.webp" 
+               alt="Owen Hsiao (蕭為謙)"
+               loading="lazy"
+               decoding="async" />
+          
+          
+            <img id="author-back-face"
+                 alt="support code"
+                 src="/images/content/reward/bmc_qr.png"
+                 loading="lazy"
+                 decoding="async" />
+          
+        </div>
+      </label>
+    </div>
+
+    <div class="author-bio__content">
+      <div class="author-bio__header">
+        <h3 class="author-bio__name">
+          <a href="/en/about/">
+            Owen Hsiao (蕭為謙)
+          </a>
+        </h3>
+        <span class="author-bio__title">Writer, Thinker & Developer</span>
+      </div>
+
+      <p class="author-bio__description">
+        
+          A developer who exploring technology, philosophy, and personal development through essays and insights.
+        
+      </p>
+
+      <div class="author-bio__footer">
+        <div class="author-bio__social">
+          
+            <a href="https://github.com/gba3124" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               title="GitHub"
+               class="author-bio__social-link">
+              
+                <img src="/images/logos/logo-github.svg" alt="GitHub" loading="lazy" decoding="async" />
+              
+            </a>
+          
+            <a href="https://www.linkedin.com/in/owen-hsiao-875b50217" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               title="LinkedIn"
+               class="author-bio__social-link">
+              
+                <img src="/images/logos/logo-linkedin.png" alt="LinkedIn" loading="lazy" decoding="async" />
+              
+            </a>
+          
+            <a href="https://web.facebook.com/profile.php?id=100000464468024" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               title="Facebook"
+               class="author-bio__social-link">
+              
+                <img src="/images/logos/logo-facebook.png" alt="Facebook" loading="lazy" decoding="async" />
+              
+            </a>
+          
+            <a href="https://www.taipeifusion.org/zh/members?Owen" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               title="台北創聚扶輪社"
+               class="author-bio__social-link">
+              
+                <img src="/images/logos/logo-rotary.svg" alt="台北創聚扶輪社" loading="lazy" decoding="async" />
+              
+            </a>
+          
+        </div>
+
+        
+          <div class="author-bio__support">
+            <a href="https://buymeacoffee.com/gba3124" target="_blank" class="author-bio__support-btn">
+              <span class="support-icon">
+                <svg viewBox="0 0 1024 1024" width="18px" height="18px">
+                  <path d="M466.88 908.96L113.824 563.296a270.08 270.08 0 0 1 0-387.392c108.8-106.56 284.896-106.56 393.696 0 1.504 1.472 2.976 2.944 4.448 4.48 1.472-1.536 2.944-3.008 4.448-4.48 108.8-106.56 284.896-106.56 393.696 0a269.952 269.952 0 0 1 34.016 347.072l-387.392 385.6a64 64 0 0 1-89.92 0.384z" fill="currentColor" />
+                </svg>
+              </span>
+              <span class="support-text">Support Me</span>
+            </a>
+            <span class="author-bio__support-hint">Thank you for your support and encouragement</span>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+/* --- 基礎設定 --- */
+:root {
+  --bio-bg: rgba(255, 255, 255, 0.85);
+  --bio-border: rgba(0, 0, 0, 0.06);
+  --bio-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+  --bio-accent: #8B0000; /* 你的品牌紅 */
+  --bio-accent-light: rgba(139, 0, 0, 0.06);
+  --bio-text-main: #2c3e50;
+  --bio-text-sub: #7f8c8d;
+  --bio-radius: 16px;
+}
+
+#authorLikeCode {
+  display: none; /* 隱藏 checkbox */
+}
+
+/* --- 主容器 --- */
+.author-bio {
+  margin: 4rem auto;
+  padding: 2.5rem;
+  background: var(--bio-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--bio-border);
+  border-radius: var(--bio-radius);
+  box-shadow: var(--bio-shadow);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.author-bio:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+.author-bio__inner {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+
+/* --- 頭像區域 (翻轉特效) --- */
+.author-bio__avatar {
+  flex-shrink: 0;
+}
+
+.author-bio__avatar-wrapper {
+  width: 100px;
+  height: 100px;
+  perspective: 1000px; /* 為 3D 翻轉做準備 */
+  display: block; /* 讓 label 撐開 */
+  cursor: pointer; /* 顯示手指鼠標，提示可點擊 */
+}
+
+.author-bio__avatar-face {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+#author-front-face,
+#author-back-face {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden; /* 隱藏背面 */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border: 3px solid #fff;
+}
+
+#author-back-face {
+  transform: rotateY(180deg); /* 預設背面是轉過去的 */
+  border-radius: 12px; /* QR Code 方形導圓角 */
+  background: #fff;
+  padding: 6px; /* 留白邊距 */
+  object-fit: contain;
+}
+
+/* Checkbox 觸發翻轉 */
+#authorLikeCode:checked ~ .author-bio__inner .author-bio__avatar-face {
+  transform: rotateY(180deg);
+}
+
+/* --- 內容區域 --- */
+.author-bio__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.author-bio__header {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.author-bio__name {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.author-bio__name a {
+  color: var(--bio-text-main);
+  text-decoration: none;
+  background-image: linear-gradient(var(--bio-accent), var(--bio-accent));
+  background-size: 0% 2px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  transition: background-size 0.3s ease, color 0.3s ease;
+}
+
+.author-bio__name a:hover {
+  color: var(--bio-accent);
+  background-size: 100% 2px;
+}
+
+.author-bio__title {
+  font-size: 0.9rem;
+  color: var(--bio-accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+}
+
+.author-bio__description {
+  margin: 0 0 1.5rem 0;
+  line-height: 1.7;
+  color: #555;
+  font-size: 1rem;
+  max-width: 650px;
+}
+
+/* --- 底部區域 (社交 + 贊助) --- */
+.author-bio__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(0,0,0,0.04);
+}
+
+.author-bio__social {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.author-bio__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f8f9fa;
+  transition: all 0.2s ease;
+  color: var(--bio-text-sub);
+  text-decoration: none;
+}
+
+.author-bio__social-link img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.author-bio__social-link:hover {
+  background: var(--bio-text-main);
+  transform: translateY(-2px);
+  color: #fff;
+}
+
+/* --- 贊助按鈕區 --- */
+.author-bio__support {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.author-bio__support-hint {
+  font-size: 0.85rem;
+  color: #999;
+  font-weight: 500;
+  display: none; /* 預設隱藏提示文字，保持簡潔，Hover 或 Desktop 可顯示 */
+}
+
+.author-bio__support-btn {
+  /* 改為標準連結樣式，移除 label 特性 */
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 24px;
+  background: var(--bio-accent-light);
+  color: var(--bio-accent);
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  text-decoration: none; /* 移除下底線 */
+  user-select: none;
+}
+
+.author-bio__support-btn svg {
+  fill: var(--bio-accent);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.author-bio__support-btn:hover {
+  background: var(--bio-accent);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(139, 0, 0, 0.2);
+}
+
+.author-bio__support-btn:hover svg {
+  fill: #fff;
+  transform: scale(1.2);
+  animation: heartbeat 1s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1.2); }
+  15% { transform: scale(1.4); }
+  30% { transform: scale(1.2); }
+  45% { transform: scale(1.3); }
+  60% { transform: scale(1.2); }
+}
+
+/* --- RWD 手機版 --- */
+@media screen and (max-width: 768px) {
+  .author-bio {
+    padding: 2rem 1.5rem;
+    margin: 2rem auto;
+  }
+
+  .author-bio__inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  
+  .author-bio__header {
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .author-bio__footer {
+    justify-content: center;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .author-bio__support-hint {
+    display: block; /* 手機版可以顯示提示文字，因為空間垂直排列足夠 */
+    margin-top: 0.5rem;
+  }
+}
+
+/* 大螢幕時顯示提示文字 */
+@media screen and (min-width: 992px) {
+  .author-bio__support-hint {
+    display: inline-block;
+  }
+}
+</style>
+    
+    <div class="post-nav">
+  
+    <a class="post-nav-item-left" href="/zh-tw/blog/statistical-fallacies-math-intuition/">
+      <div class="text-align">
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" />
+        </svg>
+        <span class="text-small">上一篇</span>
+      </div>
+      <div>數字直覺陷阱篇：數學告訴你的，往往和你的直覺相反</div>
+    </a>
+  
+  <div class="vhr"></div>
+  
+    <a class="post-nav-item-right" href="/zh-tw/blog/statistical-fallacies-cognitive-bias/">
+      <div class="text-align">
+        <span class="text-small">下一篇</span>
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             transform="scale(-1,-1)"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" />
+        </svg>
+      </div>
+      認知偏差篇：大腦底層代碼的 7 個系統性 Bug
+    </a>
+  
+</div>
+
+    
+    
+    
+      <!-- Firebase 留言系統組件 -->
+<div class="comment-system" id="comment-system">
+  <!-- 留言將在這裡動態載入 -->
+</div>
+
+<!-- Firebase 配置腳本 -->
+<script>
+  // Firebase 配置 - 從主題配置讀取
+  window.FIREBASE_CONFIG = {
+    apiKey: "AIzaSyAESLWLI-pgJCwJdE51TmUFCFaUlOj5fu8",
+    authDomain: "owenhsiao-blog.firebaseapp.com", 
+    projectId: "owenhsiao-blog",
+    storageBucket: "owenhsiao-blog.firebasestorage.app",
+    messagingSenderId: "844251626767",
+    appId: "1:844251626767:web:480fd052da01f06134527a"
+  };
+</script>
+
+<!-- Firebase SDK (v9 compat mode for better compatibility) -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+<script>
+  // 初始化 Firebase
+  if (window.FIREBASE_CONFIG && window.FIREBASE_CONFIG.apiKey !== "your-api-key") {
+    try {
+      firebase.initializeApp(window.FIREBASE_CONFIG);
+      window.db = firebase.firestore();
+      
+      console.log('[OK] Firebase 初始化成功');
+      
+      // 當頁面載入完成後初始化留言系統
+      document.addEventListener('DOMContentLoaded', function() {
+        if (window.CommentSystemCompat) {
+          // 獲取當前文章的唯一 ID（使用 lang/slug 格式，不受分類路徑變動影響）
+          const pathSegments = window.location.pathname.replace(/\/$/, '').split('/').filter(Boolean);
+          const lang = pathSegments.find(seg => ['zh-tw', 'en'].includes(seg)) || 'zh-tw';
+          const slug = pathSegments.length > 0 ? pathSegments[pathSegments.length - 1] : 'home';
+          const postId = lang + '/' + slug;
+          
+          // 初始化留言系統
+          window.commentSystem = new window.CommentSystemCompat(postId, 'comment-system');
+          console.log('[OK] 留言系統初始化成功，文章 ID:', postId);
+        } else {
+          console.error('[ERR] CommentSystemCompat 未載入');
+        }
+      });
+    } catch (error) {
+      console.error('[ERR] Firebase 初始化失敗:', error);
+      
+      // 顯示設定提示
+      document.addEventListener('DOMContentLoaded', function() {
+        const container = document.getElementById('comment-system');
+        if (container) {
+          container.innerHTML = `
+            <div style="background: rgba(255, 243, 205, 0.9); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 16px; padding: 2rem; margin: 2rem 0; text-align: center; backdrop-filter: blur(10px);">
+              <h3 style="color: #8B0000; margin-bottom: 1rem; font-weight: 600; font-size: 1.25rem;">Comment System Setup</h3>
+              <p style="color: #856404; margin-bottom: 1rem; line-height: 1.6;">請完成 Firebase 配置以啟用留言功能</p>
+              <p style="color: #6c757d; font-size: 0.9rem; margin: 0;">
+                運行 <code style="background: rgba(0, 0, 0, 0.05); padding: 2px 6px; border-radius: 4px;">./setup-comments.sh</code> 查看設定指南
+              </p>
+            </div>
+          `;
+        }
+      });
+    }
+  } else {
+    // Firebase 配置未設定時顯示提示
+    document.addEventListener('DOMContentLoaded', function() {
+      const container = document.getElementById('comment-system');
+      if (container) {
+        container.innerHTML = `
+          <div style="background: rgba(255, 243, 205, 0.9); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 16px; padding: 2rem; margin: 2rem 0; text-align: center; backdrop-filter: blur(10px);">
+            <h3 style="color: #8B0000; margin-bottom: 1rem; font-weight: 600; font-size: 1.25rem;">Comment System Setup</h3>
+            <p style="color: #856404; margin-bottom: 1rem; line-height: 1.6;">請完成 Firebase 配置以啟用留言功能</p>
+            <p style="color: #6c757d; font-size: 0.9rem; margin: 0;">
+              運行 <code style="background: rgba(0, 0, 0, 0.05); padding: 2px 6px; border-radius: 4px;">./setup-comments.sh</code> 查看設定指南
+            </p>
+          </div>
+        `;
+      }
+    });
+  }
+</script>
+
+<!-- 留言系統腳本 -->
+<script src="/js/comments/comment-system-compat.js"></script>
+
+    
+  </div>
+
+    </main>
+    <div class="foot">
+  <div class="footer-bg">
+    <div class="footer-threads" id="footer-threads"></div>
+    <!-- Footer Dock 在 threads 中間 -->
+    <div id="footer-dock-container"></div>
+  </div>
+  <div class="footer-blur-layer"></div>
+</div>
+
+<!-- Copyright 移到最下面，獨立容器 -->
+<div class="footer-copyright-section">
+  <div class="foot-inner">
+    <div class="copyright">
+      <svg width="16" height="16" viewBox="0 0 725 725">
+        <path fill-rule="evenodd" fill="currentColor" d="M145.870,236.632 L396.955,103.578 L431.292,419.44 L156.600,522.53 L145.870,236.632 Z" />
+        <path fill-rule="evenodd" fill="currentColor" d="M396.955,103.578 L564.345,234.486 L611.558,513.469 L431.292,419.44 L396.955,103.578 Z" />
+        <path fill-rule="evenodd" fill="currentColor" d="M431.292,419.44 L611.558,513.469 L358.327,595.18 L156.600,522.53 L431.292,419.44 Z" />
+      </svg>
+      <span>Powered by <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> · Theme <a target="_blank" rel="noopener" href="https://github.com/hooozen/hexo-theme-tranquility">Tranquility</a></span>
+      <span>© 2026 <a href="https://owenhsiao.com">Owen Hsiao</a></span>
+    </div>
+  </div>
+</div>
+
+<!-- 傳遞主題配置數據給 JavaScript -->
+<script>
+  window.themeConfig = {
+    social: [{"name":"GitHub","icon":"/images/logos/logo-github.svg","url":"https://github.com/gba3124"},{"name":"LinkedIn","icon":"/images/logos/logo-linkedin.png","url":"https://www.linkedin.com/in/owen-hsiao-875b50217"},{"name":"Facebook","icon":"/images/logos/logo-facebook.png","url":"https://web.facebook.com/profile.php?id=100000464468024"},{"name":"台北創聚扶輪社","icon":"/images/logos/logo-rotary.svg","url":"https://www.taipeifusion.org/zh/members?Owen"}],
+    contacts: [{"name":"wei-chien.hsiao.tw@member.mensa.org","icon":"/images/icons/ui/icon/icon-email.svg","url":"mailto:wei-chien.hsiao.tw@member.mensa.org"}],
+    links: [{"name":"台灣獨立駭客","url":"https://www.indiehackerstaiwan.com"},{"name":"Frontier","url":"https://frontier-lab.io"}],
+    lang: {
+      social: 'Social',
+      contact: 'Contact',
+      friends: 'Friends',
+      gesture: {
+        title: 'Gesture Control',
+        camera: 'Camera',
+        tracking: 'Tracking',
+        pinch: 'Pinch',
+        start: 'Start',
+        stop: 'Stop',
+        starting: 'Starting...',
+        sensitivity: 'Sensitivity',
+        scroll: 'Scroll',
+        debug: 'Debug Mode',
+        tip1: '1. Move hand to control cursor',
+        tip2: '2. Pinch to click, drag to scroll',
+        error_camera_denied: 'Please allow camera access to use gesture control',
+        error_camera_not_found: 'No camera device found'
+      }
+    }
+  };
+</script>
+
+    
+    
+    
+      
+    
+    
+    
+      <script defer src="/js/search.js"></script>
+      <script defer>document.addEventListener('DOMContentLoaded', function() { searchInitialize("/search.json"); });</script>
+    
+    
+      <script defer src="/js/copy-code.js"></script>
+    
+    <script defer src="/js/language-switch.js"></script>
+    <script>
+      window.__TRQLT_PERF = {
+        three: "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js",
+        threadsFooter: "/js/threads-footer.js",
+        footerDock: "/js/footer-dock.js",
+        customCursor: "/js/custom-cursor.js",
+        oneEuroFilter: "/js/one-euro-filter.js",
+        gestureControl: "/js/gesture-control.js",
+        gestureUI: "/js/gesture-ui.js",
+        gestureInit: "/js/gesture-init.js",
+        textPressure: "/js/text-pressure.js",
+        fuzzyText: "/js/fuzzy-text.js",
+        tiltedCard: "/js/tilted-card.js",
+        metallicPaint: "/js/metallic-paint.js",
+        tagcloudInit: "/js/tagcloud-init.js",
+        fancyTagcloud: false
+      };
+    </script>
+    <script defer src="/js/perf-loader.js?v=2"></script>
+    <script defer src="/js/lazy-bg.js"></script>
+    
+    
+  
+  
+    <script defer src="https://unpkg.com/mermaid@11.14.0/dist/mermaid.min.js"></script>
+    <script defer>
+      document.addEventListener('DOMContentLoaded', function() {
+        if (!window.mermaid || !document.querySelector('.mermaid')) return;
+        mermaid.initialize({"startOnload":true});
+      });
+    </script>
+  
+
+  </body>
+</html>

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+    <meta charset="utf8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <title>
+      
+        ClickSave 圖片下載器 | Owen Hsiao
+      
+    </title>
+    <meta name="description" content="Personal blog featuring essays, insights, and projects by Owen Hsiao (蕭為謙). Exploring technology, philosophy, and life through deep thinking and analysis." />
+    <meta name="keywords" content="Owen Hsiao,蕭為謙,blog,essays,insights,technology,philosophy,psychology,personal development" />
+    <meta name="author" content="Owen Hsiao (蕭為謙)" />
+    
+    
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Owen Hsiao" />
+    <meta property="og:description" content="Personal blog featuring essays, insights, and projects by Owen Hsiao (蕭為謙). Exploring technology, philosophy, and life through deep thinking and analysis." />
+    <meta property="og:url" content="https://owenhsiao.com/zh-tw/clicksave/index.html" />
+    <meta property="og:site_name" content="Owen Hsiao" />
+    <meta property="og:locale" content="zh_tw" />
+    
+    <meta property="og:image" content="https://owenhsiao.com/images/content/about.webp" />
+    
+    
+    
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Owen Hsiao" />
+    <meta name="twitter:description" content="Personal blog featuring essays, insights, and projects by Owen Hsiao (蕭為謙). Exploring technology, philosophy, and life through deep thinking and analysis." />
+    
+    <meta name="twitter:image" content="https://owenhsiao.com/images/content/about.webp" />
+    
+    <meta name="twitter:creator" content="@Owen Hsiao" />
+
+    
+    
+    
+    
+    <link rel="canonical" href="https://owenhsiao.com/zh-tw/clicksave/" />
+
+    
+    
+    
+      <meta name="robots" content="index,follow" />
+    
+
+    
+    
+
+    
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@graph":[{"@type":["WebSite","Blog"],"@id":"https://owenhsiao.com/#website","name":"Owen Hsiao","url":"https://owenhsiao.com","description":"Personal blog featuring essays, insights, and projects by Owen Hsiao (蕭為謙). Exploring technology, philosophy, and life through deep thinking and analysis.","inLanguage":["zh-TW","en"],"publisher":{"@id":"https://owenhsiao.com/#person"},"author":{"@id":"https://owenhsiao.com/#person"},"potentialAction":{"@type":"SearchAction","target":"https://owenhsiao.com/search/index.html?q={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"Person","@id":"https://owenhsiao.com/#person","name":"Owen Hsiao (蕭為謙)","alternateName":["Owen Hsiao","蕭為謙"],"url":"https://owenhsiao.com","image":{"@type":"ImageObject","url":"https://owenhsiao.com/images/content/about.webp"},"jobTitle":"Writer, Thinker & Developer","description":"一位開發者，透過深度文章探索科技、哲學與個人成長。","sameAs":["https://github.com/gba3124","https://www.linkedin.com/in/owen-hsiao-875b50217","https://web.facebook.com/profile.php?id=100000464468024"],"mainEntityOfPage":"https://owenhsiao.com/zh-tw/about/"}]}
+    </script>
+    
+    
+    
+    
+    
+      
+    
+    
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Owen Hsiao","item":"https://owenhsiao.com/zh-tw/"},{"@type":"ListItem","position":2,"name":"關於","item":"https://owenhsiao.com/zh-tw/clicksave/"}]}
+    </script>
+    
+
+    
+
+    
+    
+    
+    
+      
+    
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@type":"ProfilePage","dateCreated":"2026-03-06T16:00:00.000Z","dateModified":"2026-03-06T16:00:00.000Z","inLanguage":"zh-tw","mainEntity":{"@type":"Person","name":"Owen Hsiao (蕭為謙)","alternateName":["Owen Hsiao","蕭為謙"],"description":"一位開發者，透過深度文章探索科技、哲學與個人成長。","image":"https://owenhsiao.com/images/content/about.webp","jobTitle":"Writer, Thinker & Developer","url":"https://owenhsiao.com/zh-tw/clicksave/","sameAs":["https://github.com/gba3124","https://www.linkedin.com/in/owen-hsiao-875b50217","https://web.facebook.com/profile.php?id=100000464468024"]}}
+    </script>
+    
+
+    <!-- DNS Prefetch & Preconnect for external resources -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Google Fonts - Space Grotesk (body) + Playfair Display (headings) + Inconsolata (code) + CJK -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inconsolata:wght@400;600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inconsolata:wght@400;600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inconsolata:wght@400;600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" /></noscript>
+    
+    
+      <link rel="apple-touch-icon"
+            sizes="180x180"
+            href="/images/favicons/apple-touch-icon.png" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/images/favicons/favicon-32x32.png" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/images/favicons/favicon-16x16.png" />
+    
+    
+      <link rel="mask-icon"
+            href="/images/logos/logo.svg"
+            color="" />
+    
+    
+    
+    
+    <!-- Critical CSS: layout -->
+    <link rel="stylesheet"
+          type="text/css"
+          href='/css/layout.css' />
+    
+    <!-- Non-critical CSS: Gesture Control - defer loading -->
+    <link rel="preload" as="style" href='/css/gesture-control.css' />
+    <link rel="stylesheet"
+          type="text/css"
+          href='/css/gesture-control.css'
+          media="print"
+          onload="this.media='all'" />
+    <noscript><link rel="stylesheet" type="text/css" href='/css/gesture-control.css' /></noscript>
+    
+    
+    
+  <link rel="stylesheet" type="text/css" href='/css/index.css'/>
+  <style>
+    /* About page with dark theme */
+    .about-page {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+      padding: 6rem 2rem 4rem;
+    }
+    
+    .about-container {
+      max-width: 800px;
+      margin: 0 auto;
+      color: #e0e0e0;
+      font-family: 'Space Grotesk', 'Noto Sans TC', 'PingFang TC', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    .about-container h1 {
+      display: none;
+    }
+
+    .about-container h2 {
+      font-family: 'Playfair Display', 'Noto Serif TC', serif;
+      color: #ffffff;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin: 3rem 0 1.5rem;
+      letter-spacing: 0.05em;
+    }
+    
+    .about-container p {
+      margin-bottom: 1.5rem;
+      color: #d0d0d0;
+    }
+    
+    .about-container a {
+      color: #90caf9;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(144, 202, 249, 0.3);
+      transition: all 0.2s ease;
+    }
+    
+    .about-container a:hover {
+      color: #bbdefb;
+      border-bottom-color: #bbdefb;
+    }
+    
+    .about-container strong,
+    .about-container b {
+      color: #ffffff;
+      font-weight: 600;
+    }
+    
+    /* Mobile responsive */
+    @media screen and (max-width: 768px) {
+      .about-page {
+        padding: 4rem 1.5rem 3rem;
+      }
+      
+      .about-container {
+        font-size: 1rem;
+      }
+      
+      .about-container h2 {
+        font-size: 1.3rem;
+        margin: 2.5rem 0 1rem;
+      }
+    }
+  </style>
+
+    <script>
+      (function () {
+        var GA_ID = 'G-JPFR7PFSPP';
+        var initialized = false;
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { window.dataLayer.push(arguments); };
+
+        function initAnalytics() {
+          if (initialized) return;
+          initialized = true;
+          var script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+          script.onload = function () {
+            window.gtag('js', new Date());
+            window.gtag('config', GA_ID);
+          };
+          document.head.appendChild(script);
+        }
+
+        function start() {
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(initAnalytics, { timeout: 3000 });
+          } else {
+            setTimeout(initAnalytics, 1200);
+          }
+        }
+
+        start();
+        ['pointerdown', 'keydown', 'touchstart'].forEach(function (eventName) {
+          document.addEventListener(eventName, initAnalytics, { once: true, passive: true, capture: true });
+        });
+      })();
+    </script>
+  <meta name="generator" content="Hexo 7.3.0"></head>
+  <body data-page="other">
+    
+      <div id="search-mask" style="display:none">
+  <div class="search-main" id="search-main">
+    <div class="search__head">
+      <div class="search-form">
+        <svg t="1706347533072"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="7828"
+             width="20"
+             height="20">
+          <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="currentColor" p-id="7829">
+          </path>
+        </svg>
+        <label for="search-input"
+               style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">
+          搜尋...
+        </label>
+        <input id="search-input" type="search" aria-label="搜尋..." placeholder="搜尋...">
+        <svg t="1706361500528"
+             id="search-clear"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="4351"
+             width="20"
+             height="20">
+          <path d="M512 562.688l-264.2944 264.2944-50.688-50.688L461.312 512 197.0176 247.7056l50.688-50.688L512 461.312l264.2944-264.2944 50.688 50.688L562.688 512l264.2944 264.2944-50.688 50.688L512 562.688z" fill="currentColor" p-id="4352">
+          </path>
+        </svg>
+      </div>
+    </div>
+    <div class="search__body" id="search-result"></div>
+    <div class="search__foot"></div>
+  </div>
+</div>
+<script>
+window.TRANQUILITY_I18N = {
+  search: {
+    empty: "找不到關於 undefined 的結果",
+    hits: "找到 undefined 個關於 undefined 的結果",
+    hits_time: "找到 undefined 個結果（用時 undefined 毫秒）"
+  },
+  post: {
+    untitled: "無標題"
+  }
+};
+</script>
+
+    
+    
+    
+    <div class=head>
+      <div class="nav">
+        <a href='/zh-tw/' class="nav-logo">
+          <img alt="logo" height="60px" width="60px" src="/images/logos/logo.svg" />
+        </a>
+        <input id="navBtn" type="checkbox" />
+        <div class="nav-right">
+          
+            <div class="search-outer">
+  <div class="search" id="search-btn" role="button" tabindex="0" aria-label="搜尋...">
+    <svg t="1706347533072"
+         class="icon"
+         viewBox="0 0 1024 1024"
+         version="1.1"
+         xmlns="http://www.w3.org/2000/svg"
+         p-id="7828"
+         width="18"
+         height="18">
+      <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="currentColor" p-id="7829">
+      </path>
+    </svg>
+    <span>Search</span>
+    <span class="search-shortcut-key">⌘K</span>
+  </div>
+</div>
+
+          
+          <div class="nav-menu">
+            
+              
+                <a class="nav-menu-item" href="/zh-tw/blog">文章</a>
+              
+            
+            <a class="nav-menu-item" href='/zh-tw/about/'>關於</a>
+            
+          </div>
+          <button class="lang-switch" onclick="switchLanguage()">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor" d="M12.87 15.07c-.29-.3-.57-.61-.84-.93c.8-.95 1.49-2 2.03-3.14h1.68V9h-5V7h-2v2H3v2h8.64a11.9 11.9 0 0 1-1.52 2.46c-.9-.99-1.66-2.09-2.26-3.29H5.84a13.9 13.9 0 0 0 2.97 4.4l-1.52 1.52l1.41 1.41L12 14.2l2.3 2.3l1.41-1.41l-2.84-2.84zM17.5 10h-2l-4.5 12h2l1.2-3h4.6l1.2 3h2l-4.5-12zm-2.64 7l1.94-5.18L18.74 17h-3.88z"/>
+            </svg>
+            <span>English</span>
+          </button>
+        </div>
+        <label class="nav-btn" for="navBtn"></label>
+      </div>
+    </div>
+    
+    
+    <main class="body" id="main-content">
+      
+  <div class="about-page">
+    <div class="about-container">
+      <p>ClickSave 是一款為「高頻圖片蒐集」情境設計的 Chrome 擴充功能。<br>目標很單純：在不打斷瀏覽流程的前提下，讓你更快取得需要的圖片。</p>
+<h2 id="核心能力"><a href="#核心能力" class="headerlink" title="核心能力"></a>核心能力</h2><ul>
+<li><strong>一鍵下載</strong>：滑鼠移到圖片即可快速下載。</li>
+<li><strong>批次下載</strong>：可一次處理整頁可下載圖片。</li>
+<li><strong>高解析度優先</strong>：盡可能抓取較高品質來源。</li>
+<li><strong>格式與尺寸控制</strong>：支援格式轉換與尺寸限制。</li>
+<li><strong>側邊面板管理</strong>：集中檢視、篩選、挑選要下載的圖片。</li>
+</ul>
+<h2 id="適合誰使用"><a href="#適合誰使用" class="headerlink" title="適合誰使用"></a>適合誰使用</h2><ul>
+<li>設計師與內容創作者：整理靈感素材、參考圖。</li>
+<li>電商與行銷人員：蒐集商品圖、活動素材。</li>
+<li>研究與教學工作者：整理示意圖與案例圖片。</li>
+<li>一般使用者：希望比右鍵另存更快、更穩定。</li>
+</ul>
+<h2 id="使用流程"><a href="#使用流程" class="headerlink" title="使用流程"></a>使用流程</h2><ol>
+<li>安裝 ClickSave 擴充功能。  </li>
+<li>前往有圖片的網頁。  </li>
+<li>將滑鼠移到圖片上，點擊下載按鈕。  </li>
+<li>需要時可開啟批次下載與側邊面板進階操作。</li>
+</ol>
+<h2 id="設計原則"><a href="#設計原則" class="headerlink" title="設計原則"></a>設計原則</h2><ul>
+<li><strong>功能優先</strong>：縮短下載步驟，減少反覆操作。</li>
+<li><strong>介面直覺</strong>：控制項位置固定、狀態明確。</li>
+<li><strong>最小干擾</strong>：在不遮擋內容的前提下提供操作入口。</li>
+<li><strong>可調整性</strong>：讓使用者依習慣設定按鈕大小、位置與輸出格式。</li>
+</ul>
+<h2 id="隱私與安全"><a href="#隱私與安全" class="headerlink" title="隱私與安全"></a>隱私與安全</h2><ul>
+<li>圖片處理以本機流程為主。  </li>
+<li>不內建自動分析追蹤。  </li>
+<li>不在擴充功能中存放明文秘密金鑰。  </li>
+<li>使用者可透過郵件方式主動回饋意見。</li>
+</ul>
+<h2 id="常見問題（FAQ）"><a href="#常見問題（FAQ）" class="headerlink" title="常見問題（FAQ）"></a>常見問題（FAQ）</h2><p><strong>Q1：ClickSave 會上傳我瀏覽的圖片嗎？</strong><br>不會。ClickSave 的圖片處理流程以本機為主，不會自動上傳圖片內容。</p>
+<p><strong>Q2：ClickSave 會蒐集我的個人資料嗎？</strong><br>不會。擴充功能不內建自動分析追蹤。只有你主動透過 Email 回饋時，才會由你自行決定是否送出內容。</p>
+<p><strong>Q3：為什麼需要網站權限？</strong><br>因為功能需要在你正在瀏覽的網頁中偵測圖片與顯示下載按鈕。權限用途僅限於提供下載相關功能。</p>
+<p><strong>Q4：支援哪些網站？</strong><br>大多數一般圖片網站都可使用。不同網站可能有各自的載入機制或防護規則，實際可下載內容會依網站結構而異。</p>
+<p><strong>Q5：遇到無法下載或抓到低解析度怎麼辦？</strong><br>可先刷新頁面後重試，或切換為單張下載測試。若問題持續，歡迎透過 <code>gba3124@gmail.com</code> 回報網址與操作步驟。</p>
+<h2 id="產品連結"><a href="#產品連結" class="headerlink" title="產品連結"></a>產品連結</h2><ul>
+<li>Chrome 線上應用程式商店：<a target="_blank" rel="noopener" href="https://chromewebstore.google.com/detail/clicksave-image-downloade/dnpcmckikleafkojcfjhfamkdafmlhjk">https://chromewebstore.google.com/detail/clicksave-image-downloade/dnpcmckikleafkojcfjhfamkdafmlhjk</a></li>
+<li>隱私政策：<a href="https://owenhsiao.com/PRIVACY_POLICY.md">https://owenhsiao.com/PRIVACY_POLICY.md</a></li>
+<li>聯絡信箱：<a href="mailto:&#x67;&#x62;&#x61;&#x33;&#x31;&#x32;&#52;&#64;&#103;&#109;&#x61;&#105;&#x6c;&#x2e;&#x63;&#111;&#109;">mailto:gba3124@gmail.com</a></li>
+<li>English page: <a href="https://owenhsiao.com/en/clicksave/">https://owenhsiao.com/en/clicksave/</a></li>
+</ul>
+<p>如果你想把圖片蒐集流程變得更快、更乾淨，ClickSave 會是一個務實且穩定的選擇。</p>
+
+    </div>
+  </div>
+
+    </main>
+    <div class="foot">
+  <div class="footer-bg">
+    <div class="footer-threads" id="footer-threads"></div>
+    <!-- Footer Dock 在 threads 中間 -->
+    <div id="footer-dock-container"></div>
+  </div>
+  <div class="footer-blur-layer"></div>
+</div>
+
+<!-- Copyright 移到最下面，獨立容器 -->
+<div class="footer-copyright-section">
+  <div class="foot-inner">
+    <div class="copyright">
+      <svg width="16" height="16" viewBox="0 0 725 725">
+        <path fill-rule="evenodd" fill="currentColor" d="M145.870,236.632 L396.955,103.578 L431.292,419.44 L156.600,522.53 L145.870,236.632 Z" />
+        <path fill-rule="evenodd" fill="currentColor" d="M396.955,103.578 L564.345,234.486 L611.558,513.469 L431.292,419.44 L396.955,103.578 Z" />
+        <path fill-rule="evenodd" fill="currentColor" d="M431.292,419.44 L611.558,513.469 L358.327,595.18 L156.600,522.53 L431.292,419.44 Z" />
+      </svg>
+      <span>由 <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 驅動 · 主題 <a target="_blank" rel="noopener" href="https://github.com/hooozen/hexo-theme-tranquility">Tranquility</a></span>
+      <span>© 2026 <a href="https://owenhsiao.com">Owen Hsiao</a></span>
+    </div>
+  </div>
+</div>
+
+<!-- 傳遞主題配置數據給 JavaScript -->
+<script>
+  window.themeConfig = {
+    social: [{"name":"GitHub","icon":"/images/logos/logo-github.svg","url":"https://github.com/gba3124"},{"name":"LinkedIn","icon":"/images/logos/logo-linkedin.png","url":"https://www.linkedin.com/in/owen-hsiao-875b50217"},{"name":"Facebook","icon":"/images/logos/logo-facebook.png","url":"https://web.facebook.com/profile.php?id=100000464468024"},{"name":"台北創聚扶輪社","icon":"/images/logos/logo-rotary.svg","url":"https://www.taipeifusion.org/zh/members?Owen"}],
+    contacts: [{"name":"wei-chien.hsiao.tw@member.mensa.org","icon":"/images/icons/ui/icon/icon-email.svg","url":"mailto:wei-chien.hsiao.tw@member.mensa.org"}],
+    links: [{"name":"台灣獨立駭客","url":"https://www.indiehackerstaiwan.com"},{"name":"Frontier","url":"https://frontier-lab.io"}],
+    lang: {
+      social: '帳號',
+      contact: '聯繫',
+      friends: '朋友',
+      gesture: {
+        title: '手勢控制',
+        camera: '攝像頭',
+        tracking: '追蹤',
+        pinch: '捏合',
+        start: '啟動',
+        stop: '停止',
+        starting: '啟動中...',
+        sensitivity: '靈敏度',
+        scroll: '滾動',
+        debug: '除錯模式',
+        tip1: '1. 移動手部控制游標',
+        tip2: '2. 捏合點擊，拖曳滾動',
+        error_camera_denied: '請允許攝像頭權限以使用手勢控制',
+        error_camera_not_found: '找不到攝像頭裝置'
+      }
+    }
+  };
+</script>
+
+    
+    
+    
+    
+    
+      <script defer src="/js/search.js"></script>
+      <script defer>document.addEventListener('DOMContentLoaded', function() { searchInitialize("/search.json"); });</script>
+    
+    
+    <script defer src="/js/language-switch.js"></script>
+    <script>
+      window.__TRQLT_PERF = {
+        three: "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js",
+        threadsFooter: "/js/threads-footer.js",
+        footerDock: "/js/footer-dock.js",
+        customCursor: "/js/custom-cursor.js",
+        oneEuroFilter: "/js/one-euro-filter.js",
+        gestureControl: "/js/gesture-control.js",
+        gestureUI: "/js/gesture-ui.js",
+        gestureInit: "/js/gesture-init.js",
+        textPressure: "/js/text-pressure.js",
+        fuzzyText: "/js/fuzzy-text.js",
+        tiltedCard: "/js/tilted-card.js",
+        metallicPaint: "/js/metallic-paint.js",
+        tagcloudInit: "/js/tagcloud-init.js",
+        fancyTagcloud: false
+      };
+    </script>
+    <script defer src="/js/perf-loader.js?v=2"></script>
+    <script defer src="/js/lazy-bg.js"></script>
+    
+    
+
+  </body>
+</html>

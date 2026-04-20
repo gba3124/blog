@@ -1,0 +1,56 @@
+# 舊分類路徑 → 新 blog 路徑（target 一律帶 trailing slash 避免 Cloudflare Pages 自動再 301 造成 chain）
+/essays             /en/blog/           301
+/essays/*           /en/blog/:splat     301
+/insights           /en/blog/           301
+/insights/*         /en/blog/:splat     301
+/products           /en/blog/           301
+/products/*         /en/blog/:splat     301
+
+/en/essays          /en/blog/           301
+/en/essays/*        /en/blog/:splat     301
+/en/insights        /en/blog/           301
+/en/insights/*      /en/blog/:splat     301
+/en/products        /en/blog/           301
+/en/products/*      /en/blog/:splat     301
+
+/zh-tw/essays       /zh-tw/blog/        301
+/zh-tw/essays/*     /zh-tw/blog/:splat  301
+/zh-tw/insights     /zh-tw/blog/        301
+/zh-tw/insights/*   /zh-tw/blog/:splat  301
+/zh-tw/products     /zh-tw/blog/        301
+/zh-tw/products/*   /zh-tw/blog/:splat  301
+
+# 舊 Hexo categories 歸檔路徑（已刪除的分類）
+/categories/essays          /en/blog/         301
+/categories/essays/*        /en/blog/:splat   301
+/categories/insights        /en/blog/         301
+/categories/insights/*      /en/blog/:splat   301
+/categories/products        /en/blog/         301
+/categories/products/*      /en/blog/:splat   301
+
+# 處理 /default/ 路徑錯誤
+/default/*          /en/:splat          301
+
+# 非語言前綴的舊路徑 → 預設語言（en）
+# 部落格歸檔與分頁
+/blog                 /en/blog/              301
+/blog/                /en/blog/              301
+/blog/*               /en/blog/:splat        301
+/page/*               /en/                   301
+
+# 標籤歸檔（native hexo-generator-tag 已移除）
+/tags                 /en/tags/              301
+/tags/                /en/tags/              301
+/tags/*               /en/tags/:splat        301
+
+# 處理無語言前綴的文章路徑
+/luck-surface-area                          /en/blog/luck-surface-area/              301
+/why-12-tone-equal-temperament              /en/blog/why-12-tone-equal-temperament/  301
+/belief                                     /en/blog/belief/                         301
+/see-solver-scale-book-review               /en/blog/see-solver-scale-book-review/   301
+/statistical-fallacies-overview             /en/blog/statistical-fallacies-overview/ 301
+
+# 統一導向：http -> https，www -> apex (owenhsiao.com)
+http://owenhsiao.com/*        https://owenhsiao.com/:splat  301
+http://www.owenhsiao.com/*    https://owenhsiao.com/:splat  301
+https://www.owenhsiao.com/*   https://owenhsiao.com/:splat  301

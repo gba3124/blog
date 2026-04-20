@@ -1,0 +1,70 @@
+/* 自定義 About 區域樣式 - 照片在右側，符合照片比例 */
+
+.about {
+  flex-direction: row-reverse;
+  /* 將照片移到右側 */
+}
+
+.about-photo {
+  width: 320px;
+  /* 增加寬度 */
+  height: auto;
+  /* 讓高度自動調整 */
+  min-height: 100%;
+  /* 最小高度與容器一致 */
+  border-radius: 15px;
+  flex-shrink: 0;
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease-out;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(255, 255, 255, 0.15), 0 0 20px rgba(255, 255, 255, 0.1);
+  align-self: stretch;
+  /* 讓圖片高度與文字區域一致 */
+  object-fit: cover;
+  /* 保持圖片比例並填滿容器 */
+  /* 背景控制 */
+  background-size: cover;
+  /* 保持裁切但鋪滿容器 */
+  background-position: 75% 0%;
+  /* 水平往右偏移 75%，垂直往下 0% */
+  background-repeat: no-repeat;
+
+  &:hover {
+    box-shadow: 0 12px 40px rgba(255, 255, 255, 0.25), 0 0 30px rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* 響應式設計調整 */
+@media screen and (max-width: 768px) {
+  .about {
+    flex-direction: column;
+    /* 移動設備上保持垂直排列 */
+    text-align: center;
+  }
+
+  .about-photo {
+    width: 280px;
+    /* 移動設備上的寬度 */
+    height: 175px;
+    /* 保持 1.6:1 比例 */
+    align-self: center;
+    /* 移動設備上居中對齊 */
+    min-height: auto;
+    /* 移動設備上恢復自動高度 */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .about-photo {
+    width: 240px;
+    /* 小螢幕上的寬度 */
+    height: 150px;
+    /* 保持 1.6:1 比例 */
+    align-self: center;
+    /* 小螢幕上居中對齊 */
+    min-height: auto;
+    /* 小螢幕上恢復自動高度 */
+  }
+}

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">頁面未找到 - Owen Hsiao</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            background: #000000 !important;
+            color: #ffffff;
+            font-family: 'Georgia', 'Times New Roman', 'sourceHanSerif', serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .body {
+            background: #000000;
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* 添加微妙的背景紋理 */
+        .body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.02) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.02) 0%, transparent 50%),
+                radial-gradient(circle at 75% 25%, rgba(255, 255, 255, 0.01) 0%, transparent 50%),
+                radial-gradient(circle at 25% 75%, rgba(255, 255, 255, 0.01) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .wall-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #000000;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .wall-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .wall-main {
+            position: relative;
+            text-align: center;
+            z-index: 2;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .wall-title {
+            font-weight: 300;
+            font-size: clamp(48px, 8vw, 72px);
+            color: white;
+            margin-bottom: 16px;
+            letter-spacing: 0.2em;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 0 40px rgba(255, 255, 255, 0.3);
+            font-feature-settings: "kern" 1;
+            font-variation-settings: 'wght' 300, 'wdth' 100;
+        }
+
+        .wall-subtitle {
+            font-size: clamp(20px, 3vw, 32px);
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 24px;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+        }
+
+        .wall-description {
+            font-size: clamp(14px, 2vw, 18px);
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.85);
+            font-family: sourceHanSerif;
+            letter-spacing: 0.1em;
+            line-height: 1.8;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .search-box {
+            margin: 2rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .search-box input {
+            padding: 12px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            min-width: 300px;
+        }
+
+        .search-box input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .search-box input:focus {
+            border-color: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .search-box button {
+            padding: 12px 24px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            cursor: pointer;
+            font-size: 1rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .search-box button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            margin: 0.5rem;
+            backdrop-filter: blur(10px);
+            font-weight: 300;
+            letter-spacing: 0.1em;
+        }
+
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .nav-links {
+            margin-top: 2rem;
+        }
+
+        .lang-switch {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            cursor: pointer;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            color: white;
+            font-size: 0.9rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .lang-switch:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* 響應式設計 */
+        @media (max-width: 768px) {
+            .search-box {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .search-box input {
+                min-width: 280px;
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .wall-main {
+                padding: 1rem;
+            }
+
+            .lang-switch {
+                top: 1rem;
+                right: 1rem;
+                font-size: 0.8rem;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="body">
+        <div class="lang-switch" onclick="toggleLanguage()" id="langSwitch">EN</div>
+        <div class="wall-bg"></div>
+        <div class="wall-main">
+            <div class="wall-title">404</div>
+            <div class="wall-subtitle" id="subtitle">頁面未找到</div>
+            <div class="wall-description" id="description">
+                抱歉，您要找的頁面不存在或已被移動。<br>
+                請使用搜尋功能或瀏覽其他頁面。
+            </div>
+            
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="搜尋文章..." />
+                <button onclick="searchSite()" id="searchBtn">搜尋</button>
+            </div>
+            
+            <div class="nav-links">
+                <a href="/" class="btn" id="homeBtn">回到首頁</a>
+                <a href="/zh-tw/" class="btn" id="zhBtn">中文文章</a>
+                <a href="/en/" class="btn" id="enBtn">English Posts</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 雙語內容
+        const translations = {
+            zh: {
+                title: "頁面未找到 - Owen Hsiao",
+                subtitle: "頁面未找到",
+                description: "抱歉，您要找的頁面不存在或已被移動。<br>請使用搜尋功能或瀏覽其他頁面。",
+                searchPlaceholder: "搜尋文章...",
+                searchBtn: "搜尋",
+                homeBtn: "回到首頁",
+                zhBtn: "中文文章",
+                enBtn: "English Posts",
+                langSwitch: "EN"
+            },
+            en: {
+                title: "Page Not Found - Owen Hsiao",
+                subtitle: "Page Not Found",
+                description: "Sorry, the page you are looking for does not exist or has been moved.<br>Please use the search function or browse other pages.",
+                searchPlaceholder: "Search articles...",
+                searchBtn: "Search",
+                homeBtn: "Back to Home",
+                zhBtn: "中文文章",
+                enBtn: "English Posts",
+                langSwitch: "中文"
+            }
+        };
+
+        let currentLang = 'zh';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'zh' ? 'en' : 'zh';
+            updateLanguage();
+        }
+
+        function updateLanguage() {
+            const t = translations[currentLang];
+            
+            // 更新頁面標題
+            document.getElementById('pageTitle').textContent = t.title;
+            
+            // 更新內容
+            document.getElementById('subtitle').textContent = t.subtitle;
+            document.getElementById('description').innerHTML = t.description;
+            
+            // 更新搜尋框
+            document.getElementById('searchInput').placeholder = t.searchPlaceholder;
+            document.getElementById('searchBtn').textContent = t.searchBtn;
+            
+            // 更新按鈕
+            document.getElementById('homeBtn').textContent = t.homeBtn;
+            document.getElementById('zhBtn').textContent = t.zhBtn;
+            document.getElementById('enBtn').textContent = t.enBtn;
+            
+            // 更新語言切換按鈕
+            document.getElementById('langSwitch').textContent = t.langSwitch;
+            
+            // 更新 HTML lang 屬性
+            document.documentElement.lang = currentLang === 'zh' ? 'zh-TW' : 'en';
+        }
+
+        function searchSite() {
+            const query = document.getElementById('searchInput').value;
+            if (query.trim()) {
+                window.location.href = `/search/index.html?q=${encodeURIComponent(query)}`;
+            }
+        }
+        
+        // 按 Enter 鍵搜尋
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchSite();
+            }
+        });
+
+        // 添加一些動態效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const title = document.querySelector('.wall-title');
+            const subtitle = document.querySelector('.wall-subtitle');
+            const description = document.querySelector('.wall-description');
+            
+            // 漸入動畫
+            setTimeout(() => {
+                title.style.opacity = '0';
+                title.style.transform = 'translateY(20px)';
+                title.style.transition = 'all 0.8s ease';
+                
+                setTimeout(() => {
+                    title.style.opacity = '1';
+                    title.style.transform = 'translateY(0)';
+                }, 100);
+            }, 200);
+            
+            setTimeout(() => {
+                subtitle.style.opacity = '0';
+                subtitle.style.transform = 'translateY(20px)';
+                subtitle.style.transition = 'all 0.8s ease';
+                
+                setTimeout(() => {
+                    subtitle.style.opacity = '1';
+                    subtitle.style.transform = 'translateY(0)';
+                }, 100);
+            }, 400);
+            
+            setTimeout(() => {
+                description.style.opacity = '0';
+                description.style.transform = 'translateY(20px)';
+                description.style.transition = 'all 0.8s ease';
+                
+                setTimeout(() => {
+                    description.style.opacity = '1';
+                    description.style.transform = 'translateY(0)';
+                }, 100);
+            }, 600);
+        });
+    </script>
+</body>
+</html>

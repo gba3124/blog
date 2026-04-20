@@ -1,0 +1,4 @@
+# /default/* paths are handled by _redirects (301 to /en/)
+# Cloudflare auto-injects User-agent rules above this content.
+
+Sitemap: https://owenhsiao.com/sitemap.xml

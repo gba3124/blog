@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+    <meta charset="utf8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <title>
+      
+        認知偏差篇：大腦底層代碼的 7 個系統性 Bug | Owen Hsiao
+      
+    </title>
+    <meta name="description" content="確認偏差、錨定效應、可用性啟發法、古德哈特定律等 7 種認知偏差。解析大腦在數據分析和決策時的系統性捷徑如何讓你走偏。" />
+    <meta name="keywords" content="psychology, statistics, cognitive-bias, decision-making" />
+    <meta name="author" content="Owen Hsiao (蕭為謙)" />
+    
+    
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="認知偏差篇：大腦底層代碼的 7 個系統性 Bug" />
+    <meta property="og:description" content="確認偏差、錨定效應、可用性啟發法、古德哈特定律等 7 種認知偏差。解析大腦在數據分析和決策時的系統性捷徑如何讓你走偏。" />
+    <meta property="og:url" content="https://owenhsiao.com/zh-tw/blog/statistical-fallacies-cognitive-bias/" />
+    <meta property="og:site_name" content="Owen Hsiao" />
+    <meta property="og:locale" content="zh_tw" />
+    
+    <meta property="og:image" content="https://owenhsiao.com/images/content/about.webp" />
+    
+    
+    <meta property="article:published_time" content="2025-11-14T16:00:00.000Z" />
+    <meta property="article:modified_time" content="2026-04-15T11:39:31.125Z" />
+    <meta property="article:author" content="Owen Hsiao (蕭為謙)" />
+    
+    <meta property="article:tag" content="psychology" />
+    
+    <meta property="article:tag" content="statistics" />
+    
+    <meta property="article:tag" content="cognitive-bias" />
+    
+    <meta property="article:tag" content="decision-making" />
+    
+    
+    
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="認知偏差篇：大腦底層代碼的 7 個系統性 Bug" />
+    <meta name="twitter:description" content="確認偏差、錨定效應、可用性啟發法、古德哈特定律等 7 種認知偏差。解析大腦在數據分析和決策時的系統性捷徑如何讓你走偏。" />
+    
+    <meta name="twitter:image" content="https://owenhsiao.com/images/content/about.webp" />
+    
+    <meta name="twitter:creator" content="@Owen Hsiao" />
+
+    
+    
+    
+    
+    <link rel="canonical" href="https://owenhsiao.com/zh-tw/blog/statistical-fallacies-cognitive-bias/" />
+
+    
+    
+    
+      <meta name="robots" content="index,follow" />
+    
+
+    
+    
+      
+      
+        
+        
+          
+          
+          <link rel="alternate" hreflang="zh-tw" href="https://owenhsiao.com/zh-tw/blog/statistical-fallacies-cognitive-bias/" />
+        
+      
+        
+        
+          
+          
+          <link rel="alternate" hreflang="en" href="https://owenhsiao.com/en/blog/statistical-fallacies-cognitive-bias/" />
+        
+      
+        
+        
+      
+      <link rel="alternate" hreflang="x-default" href="https://owenhsiao.com/en/blog/statistical-fallacies-cognitive-bias/" />
+    
+
+    
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@graph":[{"@type":["WebSite","Blog"],"@id":"https://owenhsiao.com/#website","name":"Owen Hsiao","url":"https://owenhsiao.com","description":"Personal blog featuring essays, insights, and projects by Owen Hsiao (蕭為謙). Exploring technology, philosophy, and life through deep thinking and analysis.","inLanguage":["zh-TW","en"],"publisher":{"@id":"https://owenhsiao.com/#person"},"author":{"@id":"https://owenhsiao.com/#person"},"potentialAction":{"@type":"SearchAction","target":"https://owenhsiao.com/search/index.html?q={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"Person","@id":"https://owenhsiao.com/#person","name":"Owen Hsiao (蕭為謙)","alternateName":["Owen Hsiao","蕭為謙"],"url":"https://owenhsiao.com","image":{"@type":"ImageObject","url":"https://owenhsiao.com/images/content/about.webp"},"jobTitle":"Writer, Thinker & Developer","description":"一位開發者，透過深度文章探索科技、哲學與個人成長。","sameAs":["https://github.com/gba3124","https://www.linkedin.com/in/owen-hsiao-875b50217","https://web.facebook.com/profile.php?id=100000464468024"],"mainEntityOfPage":"https://owenhsiao.com/zh-tw/about/"}]}
+    </script>
+    
+    
+    
+    
+    
+      
+    
+    
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Owen Hsiao","item":"https://owenhsiao.com/zh-tw/"},{"@type":"ListItem","position":2,"name":"文章","item":"https://owenhsiao.com/zh-tw/blog/"},{"@type":"ListItem","position":3,"name":"認知偏差篇：大腦底層代碼的 7 個系統性 Bug","item":"https://owenhsiao.com/zh-tw/blog/statistical-fallacies-cognitive-bias/"}]}
+    </script>
+    
+
+    
+    
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@type":"BlogPosting","headline":"認知偏差篇：大腦底層代碼的 7 個系統性 Bug","description":"確認偏差、錨定效應、可用性啟發法、古德哈特定律等 7 種認知偏差。解析大腦在數據分析和決策時的系統性捷徑如何讓你走偏。","image":"https://owenhsiao.com/images/content/about.webp","datePublished":"2025-11-14T16:00:00.000Z","dateModified":"2026-04-15T11:39:31.125Z","inLanguage":"zh-tw","articleSection":"blog","author":{"@type":"Person","name":"Owen Hsiao (蕭為謙)","alternateName":["Owen Hsiao","蕭為謙"],"url":"https://owenhsiao.com","image":"https://owenhsiao.com/images/content/about.webp","jobTitle":"Writer, Thinker & Developer","sameAs":["https://github.com/gba3124","https://www.linkedin.com/in/owen-hsiao-875b50217","https://web.facebook.com/profile.php?id=100000464468024"]},"publisher":{"@type":"Person","name":"Owen Hsiao (蕭為謙)","logo":{"@type":"ImageObject","url":"https://owenhsiao.com/images/logos/logo.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://owenhsiao.com/zh-tw/blog/statistical-fallacies-cognitive-bias/"},"isPartOf":{"@type":"WebSite","name":"Owen Hsiao","url":"https://owenhsiao.com"},"keywords":"psychology, statistics, cognitive-bias, decision-making"}
+    </script>
+    
+
+    
+    
+
+    <!-- DNS Prefetch & Preconnect for external resources -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Google Fonts - Space Grotesk (body) + Playfair Display (headings) + Inconsolata (code) + CJK -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inconsolata:wght@400;600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inconsolata:wght@400;600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inconsolata:wght@400;600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" /></noscript>
+    
+    
+      <link rel="apple-touch-icon"
+            sizes="180x180"
+            href="/images/favicons/apple-touch-icon.png" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/images/favicons/favicon-32x32.png" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/images/favicons/favicon-16x16.png" />
+    
+    
+      <link rel="mask-icon"
+            href="/images/logos/logo.svg"
+            color="" />
+    
+    
+    
+    
+    <!-- Critical CSS: layout -->
+    <link rel="stylesheet"
+          type="text/css"
+          href='/css/layout.css' />
+    
+    <!-- Non-critical CSS: Gesture Control - defer loading -->
+    <link rel="preload" as="style" href='/css/gesture-control.css' />
+    <link rel="stylesheet"
+          type="text/css"
+          href='/css/gesture-control.css'
+          media="print"
+          onload="this.media='all'" />
+    <noscript><link rel="stylesheet" type="text/css" href='/css/gesture-control.css' /></noscript>
+    
+    
+    
+  <link rel="stylesheet" type="text/css" href="/css/post.css"/>
+  
+  <link rel="stylesheet" type="text/css" href="/css/comments.css"/>
+  <style>
+    /* Post 頁面專用白色 nav 樣式 */
+    .nav {
+      background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 15%, rgba(255, 255, 255, 0.7) 30%, rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 1) 70%, rgba(255, 255, 255, 1) 100%) !important;
+    }
+    
+    /* Post 頁面的 nav 文字顏色調整 */
+    .nav-menu-item {
+      color: #333 !important;
+    }
+    
+    .nav-menu-item:hover {
+      color: #000 !important;
+    }
+    
+    .lang-switch {
+      color: #333 !important;
+      border-color: #333 !important;
+    }
+
+    .lang-switch:hover {
+      background: #333 !important;
+      color: white !important;
+    }
+    
+    /* Post 頁面搜索按鈕白色主題 */
+    #search-btn {
+      background: rgba(255, 255, 255, 0.9) !important;
+      border: 1px solid rgba(139, 0, 0, 0.15) !important;
+      color: #2c2c2c !important;
+    }
+    
+    #search-btn .icon {
+      color: #2c2c2c !important;
+    }
+    
+    #search-btn .icon path {
+      fill: #2c2c2c !important;
+    }
+    
+    #search-btn > span:not(.search-shortcut-key) {
+      color: #2c2c2c !important;
+    }
+    
+    #search-btn .search-shortcut-key {
+      border: 1px solid rgba(139, 0, 0, 0.2) !important;
+      background: rgba(139, 0, 0, 0.05) !important;
+      color: rgba(44, 44, 44, 0.8) !important;
+    }
+    
+    #search-btn:hover {
+      background: rgba(255, 255, 255, 0.95) !important;
+      border-color: rgba(139, 0, 0, 0.3) !important;
+      color: #000000 !important;
+    }
+    
+    #search-btn:hover .icon {
+      color: #000000 !important;
+    }
+    
+    #search-btn:hover .icon path {
+      fill: #000000 !important;
+    }
+    
+    #search-btn:hover > span:not(.search-shortcut-key) {
+      color: #000000 !important;
+    }
+    
+    #search-btn:hover .search-shortcut-key {
+      background: rgba(139, 0, 0, 0.1) !important;
+      border-color: rgba(139, 0, 0, 0.3) !important;
+      color: #2c2c2c !important;
+    }
+    
+    /* 手機版 nav 按鈕顏色 */
+    .nav-btn::before, 
+    .nav-btn::after {
+      background: #333 !important;
+    }
+    
+    /* 手機版 nav 和菜單樣式 */
+    @media screen and (max-width: 1023px) {
+      .nav {
+        background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 15%, rgba(255, 255, 255, 0.7) 30%, rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 1) 70%, rgba(255, 255, 255, 1) 100%) !important;
+      }
+      
+      .nav-menu {
+        background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 15%, rgba(255, 255, 255, 0.7) 30%, rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 1) 70%, rgba(255, 255, 255, 1) 100%) !important;
+      }
+    }
+  </style>
+
+    <script>
+      (function () {
+        var GA_ID = 'G-JPFR7PFSPP';
+        var initialized = false;
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { window.dataLayer.push(arguments); };
+
+        function initAnalytics() {
+          if (initialized) return;
+          initialized = true;
+          var script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+          script.onload = function () {
+            window.gtag('js', new Date());
+            window.gtag('config', GA_ID);
+          };
+          document.head.appendChild(script);
+        }
+
+        function start() {
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(initAnalytics, { timeout: 3000 });
+          } else {
+            setTimeout(initAnalytics, 1200);
+          }
+        }
+
+        start();
+        ['pointerdown', 'keydown', 'touchstart'].forEach(function (eventName) {
+          document.addEventListener(eventName, initAnalytics, { once: true, passive: true, capture: true });
+        });
+      })();
+    </script>
+  <meta name="generator" content="Hexo 7.3.0"></head>
+  <body data-page="post">
+    
+      <div id="search-mask" style="display:none">
+  <div class="search-main" id="search-main">
+    <div class="search__head">
+      <div class="search-form">
+        <svg t="1706347533072"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="7828"
+             width="20"
+             height="20">
+          <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="currentColor" p-id="7829">
+          </path>
+        </svg>
+        <label for="search-input"
+               style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">
+          搜尋...
+        </label>
+        <input id="search-input" type="search" aria-label="搜尋..." placeholder="搜尋...">
+        <svg t="1706361500528"
+             id="search-clear"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="4351"
+             width="20"
+             height="20">
+          <path d="M512 562.688l-264.2944 264.2944-50.688-50.688L461.312 512 197.0176 247.7056l50.688-50.688L512 461.312l264.2944-264.2944 50.688 50.688L562.688 512l264.2944 264.2944-50.688 50.688L512 562.688z" fill="currentColor" p-id="4352">
+          </path>
+        </svg>
+      </div>
+    </div>
+    <div class="search__body" id="search-result"></div>
+    <div class="search__foot"></div>
+  </div>
+</div>
+<script>
+window.TRANQUILITY_I18N = {
+  search: {
+    empty: "找不到關於 undefined 的結果",
+    hits: "找到 undefined 個關於 undefined 的結果",
+    hits_time: "找到 undefined 個結果（用時 undefined 毫秒）"
+  },
+  post: {
+    untitled: "無標題"
+  }
+};
+</script>
+
+    
+    
+    
+    <div class=head>
+      <div class="nav">
+        <a href='/zh-tw/' class="nav-logo">
+          <img alt="logo" height="60px" width="60px" src="/images/logos/logo.svg" />
+        </a>
+        <input id="navBtn" type="checkbox" />
+        <div class="nav-right">
+          
+            <div class="search-outer">
+  <div class="search" id="search-btn" role="button" tabindex="0" aria-label="搜尋...">
+    <svg t="1706347533072"
+         class="icon"
+         viewBox="0 0 1024 1024"
+         version="1.1"
+         xmlns="http://www.w3.org/2000/svg"
+         p-id="7828"
+         width="18"
+         height="18">
+      <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="currentColor" p-id="7829">
+      </path>
+    </svg>
+    <span>Search</span>
+    <span class="search-shortcut-key">⌘K</span>
+  </div>
+</div>
+
+          
+          <div class="nav-menu">
+            
+              
+                <a class="nav-menu-item" href="/zh-tw/blog">文章</a>
+              
+            
+            <a class="nav-menu-item" href='/zh-tw/about/'>關於</a>
+            
+          </div>
+          <button class="lang-switch" onclick="switchLanguage()">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor" d="M12.87 15.07c-.29-.3-.57-.61-.84-.93c.8-.95 1.49-2 2.03-3.14h1.68V9h-5V7h-2v2H3v2h8.64a11.9 11.9 0 0 1-1.52 2.46c-.9-.99-1.66-2.09-2.26-3.29H5.84a13.9 13.9 0 0 0 2.97 4.4l-1.52 1.52l1.41 1.41L12 14.2l2.3 2.3l1.41-1.41l-2.84-2.84zM17.5 10h-2l-4.5 12h2l1.2-3h4.6l1.2 3h2l-4.5-12zm-2.64 7l1.94-5.18L18.74 17h-3.88z"/>
+            </svg>
+            <span>English</span>
+          </button>
+        </div>
+        <label class="nav-btn" for="navBtn"></label>
+      </div>
+    </div>
+    
+    
+    <main class="body" id="main-content">
+      
+  <article class="post-content">
+    <div class="post-inner">
+      <div class="post-content__head">
+        <div class="post-tags-row">
+          
+  <a href="/zh-tw/tags/psychology/" class="post-tag">psychology</a><a href="/zh-tw/tags/statistics/" class="post-tag">statistics</a><a href="/zh-tw/tags/cognitive-bias/" class="post-tag">cognitive-bias</a><a href="/zh-tw/tags/decision-making/" class="post-tag">decision-making</a>
+
+
+        </div>
+        <div class="post-title">認知偏差篇：大腦底層代碼的 7 個系統性 Bug</div>
+        <div class="post-info">
+          <div class="post-info__meta">
+            <span class="post-date">2025-11-15</span>
+          </div>
+          
+          <div class="post-info__description">確認偏差、錨定效應、可用性啟發法、古德哈特定律等 7 種認知偏差。解析大腦在數據分析和決策時的系統性捷徑如何讓你走偏。</div>
+          
+        </div>
+      </div>
+      
+      <div class="post-content__body">
+        <p>Peter Wason 在 1960 年做了一個實驗，至今仍讓認知科學家談起來心有戚戚焉。</p>
+<p>他給受試者看三個數字：<strong>2、4、6</strong>，告訴他們這組數字符合某個規律。受試者的任務是猜出規律，方法是自己提出新的三個數字，由 Wason 告訴他們「符合」或「不符合」，直到他們有信心說出答案為止。</p>
+<p>大多數受試者立刻有了猜測：「應該是偶數」，或者「每次加 2」。然後開始驗證：</p>
+<ul>
+<li>8、10、12：「符合」</li>
+<li>14、16、18：「符合」</li>
+<li>100、102、104：「符合」</li>
+</ul>
+<p>「找到了！規律是每次加 2 的偶數！」</p>
+<p>Wason 的規律其實是：<strong>任意三個遞增的數字</strong>。1、2、3 符合。1、50、1000 也符合。受試者幾乎從未試過這些。他們只問了那些答案會是「符合」的問題，從來沒有主動去問一個可能讓自己假設崩潰的問題。</p>
+<p>這就是<strong>確認偏差</strong>最純粹的形態：不是刻意造假，而是連「試著否定自己」這個念頭都沒有升起過。</p>
+<p><strong>認知偏差</strong>不是偶然的失誤，是大腦處理資訊方式中內建的系統性 Bug。這 7 種，是在數據分析和決策過程中最容易讓你走偏的。</p>
+<hr>
+<h2 id="24-確認偏差（分析階段）（Confirmation-Bias）：只看你想看的"><a href="#24-確認偏差（分析階段）（Confirmation-Bias）：只看你想看的" class="headerlink" title="24. 確認偏差（分析階段）（Confirmation Bias）：只看你想看的"></a>24. 確認偏差（分析階段）（Confirmation Bias）：只看你想看的</h2><p>Wason 的受試者並不笨，他們只是從來沒想到要「試著推翻自己」。我們傾向於尋找、解釋和記憶那些支持我們預設觀點的資訊，而忽略或低估反對證據。</p>
+<p>在產品開發中，這個偏差極為致命。當你對某個功能有強烈的情感投入，你會不自覺地只截取好評發群組，把差評當成水軍或不懂產品的用戶。確認偏差在這裡的危險不只是你會做出錯誤的結論，而是你的決策過程看起來完全正常，你也在收集反饋、也在分析數據，只是你的過濾器在你看不見的地方運作。</p>
+<p>在 A&#x2F;B 測試中，如果結果不如預期，帶有確認偏差的人會嘗試「拷問數據」，直到找到某個細分維度顯示新版本「其實還不錯」，然後把這解釋成成功。</p>
+<p>對抗確認偏差最強的方法是：主動尋找反證。在做出任何結論前，花同等精力去問「有什麼證據能證明我是錯的」。</p>
+<h2 id="25-錨定效應（Anchoring-Bias）：第一眼看到的數字會控制你"><a href="#25-錨定效應（Anchoring-Bias）：第一眼看到的數字會控制你" class="headerlink" title="25. 錨定效應（Anchoring Bias）：第一眼看到的數字會控制你"></a>25. 錨定效應（Anchoring Bias）：第一眼看到的數字會控制你</h2><p>想像你在評估一個新系統的效能。工程師告訴你的第一個數字是「目前的延遲大約是 500ms」。這個「500ms」就成了一個錨點。之後的測試中，如果延遲降到了 400ms，你會覺得「哇，性能提升很大！」。但如果一開始的錨點是 100ms，你對 400ms 的評價就會完全不同，「怎麼這麼慢？」</p>
+<p>在預算規劃和工時評估中，錨定效應無處不在。一旦有人先喊出了一個數字（例如：「這個功能大概要做 3 天吧？」），後續的所有討論都會圍繞這個數字進行微調，而難以跳脫出來進行客觀評估。即使我們知道第一個數字是不合理的，大腦還是會不由自主地被它「錨定」。</p>
+<p>解法：在聽到任何數字之前，先讓自己獨立估計。讓第一個錨點是自己的，而不是別人給的。</p>
+<h2 id="26-可用性啟發法（Availability-Heuristic）：容易想起來的-≠-發生機率高的"><a href="#26-可用性啟發法（Availability-Heuristic）：容易想起來的-≠-發生機率高的" class="headerlink" title="26. 可用性啟發法（Availability Heuristic）：容易想起來的 ≠ 發生機率高的"></a>26. 可用性啟發法（Availability Heuristic）：容易想起來的 ≠ 發生機率高的</h2><p>為什麼我們覺得飛機比開車危險？因為飛機失事的新聞總是畫面驚悚、報導連篇，這些生動的記憶在我們腦海中更容易被提取（Available）。大腦錯誤地認為：「容易想起來的事情 &#x3D; 發生機率高的事情」。</p>
+<p>在工程環境中，我們常高估某些 Bug 的嚴重性，只因為那個 Bug 導致了一次印象深刻的半夜 On-call 經歷。同時，我們可能低估那些頻發但影響輕微、沒什麼「戲劇性」的慢性性能問題，儘管後者造成的用戶流失可能遠高於前者。</p>
+<p>可用性啟發法讓我們的風險判斷被記憶的生動性劫持，而不是被真實的發生率驅動。</p>
+<h2 id="27-代表性啟發法（Representativeness-Heuristic）：刻板印象覆蓋了真實機率"><a href="#27-代表性啟發法（Representativeness-Heuristic）：刻板印象覆蓋了真實機率" class="headerlink" title="27. 代表性啟發法（Representativeness Heuristic）：刻板印象覆蓋了真實機率"></a>27. 代表性啟發法（Representativeness Heuristic）：刻板印象覆蓋了真實機率</h2><p>這是經典的「琳達問題（Linda Problem）」：琳達 31 歲，單身，直言不諱，非常聰明。她主修哲學，學生時代非常關心歧視和社會正義問題，也參加過反核示威。以下哪個選項更可能為真？</p>
+<p>A. 琳達是銀行出納員<br>B. 琳達是銀行出納員，並且是活躍的女權主義者</p>
+<p>大多數人選 B，因為 B 的描述「更像」琳達。但從邏輯上，B 是 A 的子集，B 的機率不可能大於 A。我們因為「描述像不像」而忽略了統計上的基準率。</p>
+<p>在技術評估中，我們常根據「描述像不像」來判斷機率。看到「思考邏輯嚴謹、不愛社交、使用 Linux」的工程師，我們直覺認為他更可能是後端工程師。但如果前端工程師的基礎數量更大，這個判斷就違反了基準率。刻板印象是啟發法的燃料，而啟發法和機率計算不是同一件事。</p>
+<h2 id="28-麥納馬拉謬誤（McNamara-Fallacy）：只量可以量的，忽略不可量的"><a href="#28-麥納馬拉謬誤（McNamara-Fallacy）：只量可以量的，忽略不可量的" class="headerlink" title="28. 麥納馬拉謬誤（McNamara Fallacy）：只量可以量的，忽略不可量的"></a>28. 麥納馬拉謬誤（McNamara Fallacy）：只量可以量的，忽略不可量的</h2><p>越戰期間，美國國防部長羅伯特·麥納馬拉建立了一套嚴格的量化指標系統來評估戰爭進展：敵軍死亡人數、轟炸次數、控制地區面積。他完全忽略了「士氣」、「民心」、「戰略目標達成度」這些無法量化但至關重要的因素。</p>
+<p>結果：美軍在數字上「贏了」每一場戰役，卻輸掉了整場戰爭。麥納馬拉後來在晚年承認，他們犯的根本錯誤是把「可以被測量的東西」當成了「真正重要的東西」的替代品。</p>
+<p>在產品開發中，這個謬誤以 DAU（日活躍用戶數）的形式出現。用戶可以每天打開 App 又立刻關掉，DAU 完美，但用戶從產品中得到的實際價值可能是零。我們用「代碼行數」衡量工程師產能，卻忽略了代碼品質和架構設計，結果是工程師為了讓指標好看，開始寫更多更冗長的代碼。</p>
+<p>麥納馬拉謬誤的結構是：找到可以測量的指標 → 把它當作真正目標的代理 → 開始優化指標 → 指標變好了，真正的目標在惡化。</p>
+<h2 id="29-古德哈特定律（Goodhart’s-Law）：指標一旦成為目標，就不再是好指標"><a href="#29-古德哈特定律（Goodhart’s-Law）：指標一旦成為目標，就不再是好指標" class="headerlink" title="29. 古德哈特定律（Goodhart’s Law）：指標一旦成為目標，就不再是好指標"></a>29. 古德哈特定律（Goodhart’s Law）：指標一旦成為目標，就不再是好指標</h2><p>這和麥納馬拉謬誤不同，但緊密相關。麥納馬拉謬誤是「只量可以量的，忽略量不到的」；古德哈特定律是「量了之後，指標本身被腐化了」。</p>
+<p>客服團隊用「平均回應時間」作為考核指標。客服開始快速關閉工單，問題沒解決，工單關了，指標完美。客戶滿意度暴跌。</p>
+<p>SEO 過去用關鍵字密度衡量內容品質，網站開始塞滿關鍵字的垃圾文章，關鍵字密度很高，讀者體驗極差。Google 的排名算法被迫不斷演化，正是為了對抗古德哈特定律的效應。</p>
+<p>用 App Store 評分衡量 App 品質，公司開始在關鍵時刻彈出「給個五星吧」的請求，刻意選在用戶最高興的時候。評分看起來很高，但它代表的已經不是真實的用戶評價，而是「用戶在被請求時有多配合」。</p>
+<p>古德哈特定律不是人性的問題，它是系統的問題。當一個指標和獎勵掛鉤，優化指標就成了理性行為，無論代價是什麼。設計激勵制度時，理解這個定律是基本功。</p>
+<h2 id="30-路徑依賴（Path-Dependence）：走過的路，限制了你能走的路"><a href="#30-路徑依賴（Path-Dependence）：走過的路，限制了你能走的路" class="headerlink" title="30. 路徑依賴（Path Dependence）：走過的路，限制了你能走的路"></a>30. 路徑依賴（Path Dependence）：走過的路，限制了你能走的路</h2><p>初期的決策限制了後續的選項。這不只是工程架構的問題，更是一個認知陷阱：即使有新數據顯示當前方向是錯的，人們也往往繼續沿著錯誤路徑前進。</p>
+<p>QWERTY 鍵盤是最常被引用的例子：它最初是為了讓打字機避免卡鍵而設計的，在現代鍵盤上已無此需求，但幾十年的用戶習慣讓它幾乎無法被更好的鍵盤配置取代。</p>
+<p>在軟體開發中，路徑依賴以「技術債」的形式出現：初期為了快速上線做的妥協，成為了後來所有架構決策的邊界條件。重構的成本隨著時間越積越高，到最後高得沒有人願意動它，即使所有人都知道它是錯的。</p>
+<p>在決策中，路徑依賴的認知版本是<strong>沉沒成本謬誤</strong>：「我們已經在這條路上投入了這麼多，不能現在放棄。」這是一個情緒論點，不是數據論點。已經付出的成本是沉沒的，不管你繼續還是停止，那些成本都已經消失了。決策應該只基於未來的成本和收益，不是過去的投入。</p>
+<hr>
+<p>認知偏差之所以難以克服，是因為它們在潛意識中運作。了解它們是第一步，但光靠意識是不夠的，大腦在壓力下的速度比理性快。更有效的是在流程上做設計：設立「反對者」角色強迫大家面對反證，建立決策前必須回答的固定問題清單，讓制度代替意志力來對抗大腦天生的自我保護機制。</p>
+
+      </div>
+    </div>
+  </article>
+  <div class="post__foot">
+    
+    
+<div class="author-bio">
+  <input type="checkbox" id="authorLikeCode" />
+  
+  <div class="author-bio__inner">
+    <div class="author-bio__avatar">
+      <label for="authorLikeCode" class="author-bio__avatar-wrapper" title="點擊切換 QR Code">
+        <div class="author-bio__avatar-face">
+          <img id="author-front-face"
+               src="/images/content/about.webp" 
+               alt="Owen Hsiao (蕭為謙)"
+               loading="lazy"
+               decoding="async" />
+          
+          
+            <img id="author-back-face"
+                 alt="support code"
+                 src="/images/content/reward/bmc_qr.png"
+                 loading="lazy"
+                 decoding="async" />
+          
+        </div>
+      </label>
+    </div>
+
+    <div class="author-bio__content">
+      <div class="author-bio__header">
+        <h3 class="author-bio__name">
+          <a href="/zh-tw/about/">
+            Owen Hsiao (蕭為謙)
+          </a>
+        </h3>
+        <span class="author-bio__title">Writer, Thinker & Developer</span>
+      </div>
+
+      <p class="author-bio__description">
+        
+          一位開發者，透過深度文章探索科技、哲學與個人成長。
+        
+      </p>
+
+      <div class="author-bio__footer">
+        <div class="author-bio__social">
+          
+            <a href="https://github.com/gba3124" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               title="GitHub"
+               class="author-bio__social-link">
+              
+                <img src="/images/logos/logo-github.svg" alt="GitHub" loading="lazy" decoding="async" />
+              
+            </a>
+          
+            <a href="https://www.linkedin.com/in/owen-hsiao-875b50217" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               title="LinkedIn"
+               class="author-bio__social-link">
+              
+                <img src="/images/logos/logo-linkedin.png" alt="LinkedIn" loading="lazy" decoding="async" />
+              
+            </a>
+          
+            <a href="https://web.facebook.com/profile.php?id=100000464468024" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               title="Facebook"
+               class="author-bio__social-link">
+              
+                <img src="/images/logos/logo-facebook.png" alt="Facebook" loading="lazy" decoding="async" />
+              
+            </a>
+          
+            <a href="https://www.taipeifusion.org/zh/members?Owen" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               title="台北創聚扶輪社"
+               class="author-bio__social-link">
+              
+                <img src="/images/logos/logo-rotary.svg" alt="台北創聚扶輪社" loading="lazy" decoding="async" />
+              
+            </a>
+          
+        </div>
+
+        
+          <div class="author-bio__support">
+            <a href="https://buymeacoffee.com/gba3124" target="_blank" class="author-bio__support-btn">
+              <span class="support-icon">
+                <svg viewBox="0 0 1024 1024" width="18px" height="18px">
+                  <path d="M466.88 908.96L113.824 563.296a270.08 270.08 0 0 1 0-387.392c108.8-106.56 284.896-106.56 393.696 0 1.504 1.472 2.976 2.944 4.448 4.48 1.472-1.536 2.944-3.008 4.448-4.48 108.8-106.56 284.896-106.56 393.696 0a269.952 269.952 0 0 1 34.016 347.072l-387.392 385.6a64 64 0 0 1-89.92 0.384z" fill="currentColor" />
+                </svg>
+              </span>
+              <span class="support-text">支持我</span>
+            </a>
+            <span class="author-bio__support-hint">感謝您的支持與鼓勵</span>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+/* --- 基礎設定 --- */
+:root {
+  --bio-bg: rgba(255, 255, 255, 0.85);
+  --bio-border: rgba(0, 0, 0, 0.06);
+  --bio-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+  --bio-accent: #8B0000; /* 你的品牌紅 */
+  --bio-accent-light: rgba(139, 0, 0, 0.06);
+  --bio-text-main: #2c3e50;
+  --bio-text-sub: #7f8c8d;
+  --bio-radius: 16px;
+}
+
+#authorLikeCode {
+  display: none; /* 隱藏 checkbox */
+}
+
+/* --- 主容器 --- */
+.author-bio {
+  margin: 4rem auto;
+  padding: 2.5rem;
+  background: var(--bio-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--bio-border);
+  border-radius: var(--bio-radius);
+  box-shadow: var(--bio-shadow);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.author-bio:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+.author-bio__inner {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+
+/* --- 頭像區域 (翻轉特效) --- */
+.author-bio__avatar {
+  flex-shrink: 0;
+}
+
+.author-bio__avatar-wrapper {
+  width: 100px;
+  height: 100px;
+  perspective: 1000px; /* 為 3D 翻轉做準備 */
+  display: block; /* 讓 label 撐開 */
+  cursor: pointer; /* 顯示手指鼠標，提示可點擊 */
+}
+
+.author-bio__avatar-face {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+#author-front-face,
+#author-back-face {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden; /* 隱藏背面 */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border: 3px solid #fff;
+}
+
+#author-back-face {
+  transform: rotateY(180deg); /* 預設背面是轉過去的 */
+  border-radius: 12px; /* QR Code 方形導圓角 */
+  background: #fff;
+  padding: 6px; /* 留白邊距 */
+  object-fit: contain;
+}
+
+/* Checkbox 觸發翻轉 */
+#authorLikeCode:checked ~ .author-bio__inner .author-bio__avatar-face {
+  transform: rotateY(180deg);
+}
+
+/* --- 內容區域 --- */
+.author-bio__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.author-bio__header {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.author-bio__name {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.author-bio__name a {
+  color: var(--bio-text-main);
+  text-decoration: none;
+  background-image: linear-gradient(var(--bio-accent), var(--bio-accent));
+  background-size: 0% 2px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  transition: background-size 0.3s ease, color 0.3s ease;
+}
+
+.author-bio__name a:hover {
+  color: var(--bio-accent);
+  background-size: 100% 2px;
+}
+
+.author-bio__title {
+  font-size: 0.9rem;
+  color: var(--bio-accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+}
+
+.author-bio__description {
+  margin: 0 0 1.5rem 0;
+  line-height: 1.7;
+  color: #555;
+  font-size: 1rem;
+  max-width: 650px;
+}
+
+/* --- 底部區域 (社交 + 贊助) --- */
+.author-bio__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(0,0,0,0.04);
+}
+
+.author-bio__social {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.author-bio__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f8f9fa;
+  transition: all 0.2s ease;
+  color: var(--bio-text-sub);
+  text-decoration: none;
+}
+
+.author-bio__social-link img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.author-bio__social-link:hover {
+  background: var(--bio-text-main);
+  transform: translateY(-2px);
+  color: #fff;
+}
+
+/* --- 贊助按鈕區 --- */
+.author-bio__support {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.author-bio__support-hint {
+  font-size: 0.85rem;
+  color: #999;
+  font-weight: 500;
+  display: none; /* 預設隱藏提示文字，保持簡潔，Hover 或 Desktop 可顯示 */
+}
+
+.author-bio__support-btn {
+  /* 改為標準連結樣式，移除 label 特性 */
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 24px;
+  background: var(--bio-accent-light);
+  color: var(--bio-accent);
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  text-decoration: none; /* 移除下底線 */
+  user-select: none;
+}
+
+.author-bio__support-btn svg {
+  fill: var(--bio-accent);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.author-bio__support-btn:hover {
+  background: var(--bio-accent);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(139, 0, 0, 0.2);
+}
+
+.author-bio__support-btn:hover svg {
+  fill: #fff;
+  transform: scale(1.2);
+  animation: heartbeat 1s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1.2); }
+  15% { transform: scale(1.4); }
+  30% { transform: scale(1.2); }
+  45% { transform: scale(1.3); }
+  60% { transform: scale(1.2); }
+}
+
+/* --- RWD 手機版 --- */
+@media screen and (max-width: 768px) {
+  .author-bio {
+    padding: 2rem 1.5rem;
+    margin: 2rem auto;
+  }
+
+  .author-bio__inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  
+  .author-bio__header {
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .author-bio__footer {
+    justify-content: center;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .author-bio__support-hint {
+    display: block; /* 手機版可以顯示提示文字，因為空間垂直排列足夠 */
+    margin-top: 0.5rem;
+  }
+}
+
+/* 大螢幕時顯示提示文字 */
+@media screen and (min-width: 992px) {
+  .author-bio__support-hint {
+    display: inline-block;
+  }
+}
+</style>
+    
+    <div class="post-nav">
+  
+    <a class="post-nav-item-left" href="/en/blog/statistical-fallacies-cognitive-bias/">
+      <div class="text-align">
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" />
+        </svg>
+        <span class="text-small">上一篇</span>
+      </div>
+      <div>Cognitive Bias: 7 Systematic Bugs in Your Brain's Source Code</div>
+    </a>
+  
+  <div class="vhr"></div>
+  
+    <a class="post-nav-item-right" href="/en/blog/statistical-fallacies-presentation-reporting/">
+      <div class="text-align">
+        <span class="text-small">下一篇</span>
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             transform="scale(-1,-1)"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" />
+        </svg>
+      </div>
+      Presentation & Reporting: Telling the Biggest Lies with Real Data
+    </a>
+  
+</div>
+
+    
+    
+    
+      <!-- Firebase 留言系統組件 -->
+<div class="comment-system" id="comment-system">
+  <!-- 留言將在這裡動態載入 -->
+</div>
+
+<!-- Firebase 配置腳本 -->
+<script>
+  // Firebase 配置 - 從主題配置讀取
+  window.FIREBASE_CONFIG = {
+    apiKey: "AIzaSyAESLWLI-pgJCwJdE51TmUFCFaUlOj5fu8",
+    authDomain: "owenhsiao-blog.firebaseapp.com", 
+    projectId: "owenhsiao-blog",
+    storageBucket: "owenhsiao-blog.firebasestorage.app",
+    messagingSenderId: "844251626767",
+    appId: "1:844251626767:web:480fd052da01f06134527a"
+  };
+</script>
+
+<!-- Firebase SDK (v9 compat mode for better compatibility) -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+<script>
+  // 初始化 Firebase
+  if (window.FIREBASE_CONFIG && window.FIREBASE_CONFIG.apiKey !== "your-api-key") {
+    try {
+      firebase.initializeApp(window.FIREBASE_CONFIG);
+      window.db = firebase.firestore();
+      
+      console.log('[OK] Firebase 初始化成功');
+      
+      // 當頁面載入完成後初始化留言系統
+      document.addEventListener('DOMContentLoaded', function() {
+        if (window.CommentSystemCompat) {
+          // 獲取當前文章的唯一 ID（使用 lang/slug 格式，不受分類路徑變動影響）
+          const pathSegments = window.location.pathname.replace(/\/$/, '').split('/').filter(Boolean);
+          const lang = pathSegments.find(seg => ['zh-tw', 'en'].includes(seg)) || 'zh-tw';
+          const slug = pathSegments.length > 0 ? pathSegments[pathSegments.length - 1] : 'home';
+          const postId = lang + '/' + slug;
+          
+          // 初始化留言系統
+          window.commentSystem = new window.CommentSystemCompat(postId, 'comment-system');
+          console.log('[OK] 留言系統初始化成功，文章 ID:', postId);
+        } else {
+          console.error('[ERR] CommentSystemCompat 未載入');
+        }
+      });
+    } catch (error) {
+      console.error('[ERR] Firebase 初始化失敗:', error);
+      
+      // 顯示設定提示
+      document.addEventListener('DOMContentLoaded', function() {
+        const container = document.getElementById('comment-system');
+        if (container) {
+          container.innerHTML = `
+            <div style="background: rgba(255, 243, 205, 0.9); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 16px; padding: 2rem; margin: 2rem 0; text-align: center; backdrop-filter: blur(10px);">
+              <h3 style="color: #8B0000; margin-bottom: 1rem; font-weight: 600; font-size: 1.25rem;">Comment System Setup</h3>
+              <p style="color: #856404; margin-bottom: 1rem; line-height: 1.6;">請完成 Firebase 配置以啟用留言功能</p>
+              <p style="color: #6c757d; font-size: 0.9rem; margin: 0;">
+                運行 <code style="background: rgba(0, 0, 0, 0.05); padding: 2px 6px; border-radius: 4px;">./setup-comments.sh</code> 查看設定指南
+              </p>
+            </div>
+          `;
+        }
+      });
+    }
+  } else {
+    // Firebase 配置未設定時顯示提示
+    document.addEventListener('DOMContentLoaded', function() {
+      const container = document.getElementById('comment-system');
+      if (container) {
+        container.innerHTML = `
+          <div style="background: rgba(255, 243, 205, 0.9); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 16px; padding: 2rem; margin: 2rem 0; text-align: center; backdrop-filter: blur(10px);">
+            <h3 style="color: #8B0000; margin-bottom: 1rem; font-weight: 600; font-size: 1.25rem;">Comment System Setup</h3>
+            <p style="color: #856404; margin-bottom: 1rem; line-height: 1.6;">請完成 Firebase 配置以啟用留言功能</p>
+            <p style="color: #6c757d; font-size: 0.9rem; margin: 0;">
+              運行 <code style="background: rgba(0, 0, 0, 0.05); padding: 2px 6px; border-radius: 4px;">./setup-comments.sh</code> 查看設定指南
+            </p>
+          </div>
+        `;
+      }
+    });
+  }
+</script>
+
+<!-- 留言系統腳本 -->
+<script src="/js/comments/comment-system-compat.js"></script>
+
+    
+  </div>
+
+    </main>
+    <div class="foot">
+  <div class="footer-bg">
+    <div class="footer-threads" id="footer-threads"></div>
+    <!-- Footer Dock 在 threads 中間 -->
+    <div id="footer-dock-container"></div>
+  </div>
+  <div class="footer-blur-layer"></div>
+</div>
+
+<!-- Copyright 移到最下面，獨立容器 -->
+<div class="footer-copyright-section">
+  <div class="foot-inner">
+    <div class="copyright">
+      <svg width="16" height="16" viewBox="0 0 725 725">
+        <path fill-rule="evenodd" fill="currentColor" d="M145.870,236.632 L396.955,103.578 L431.292,419.44 L156.600,522.53 L145.870,236.632 Z" />
+        <path fill-rule="evenodd" fill="currentColor" d="M396.955,103.578 L564.345,234.486 L611.558,513.469 L431.292,419.44 L396.955,103.578 Z" />
+        <path fill-rule="evenodd" fill="currentColor" d="M431.292,419.44 L611.558,513.469 L358.327,595.18 L156.600,522.53 L431.292,419.44 Z" />
+      </svg>
+      <span>由 <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 驅動 · 主題 <a target="_blank" rel="noopener" href="https://github.com/hooozen/hexo-theme-tranquility">Tranquility</a></span>
+      <span>© 2026 <a href="https://owenhsiao.com">Owen Hsiao</a></span>
+    </div>
+  </div>
+</div>
+
+<!-- 傳遞主題配置數據給 JavaScript -->
+<script>
+  window.themeConfig = {
+    social: [{"name":"GitHub","icon":"/images/logos/logo-github.svg","url":"https://github.com/gba3124"},{"name":"LinkedIn","icon":"/images/logos/logo-linkedin.png","url":"https://www.linkedin.com/in/owen-hsiao-875b50217"},{"name":"Facebook","icon":"/images/logos/logo-facebook.png","url":"https://web.facebook.com/profile.php?id=100000464468024"},{"name":"台北創聚扶輪社","icon":"/images/logos/logo-rotary.svg","url":"https://www.taipeifusion.org/zh/members?Owen"}],
+    contacts: [{"name":"wei-chien.hsiao.tw@member.mensa.org","icon":"/images/icons/ui/icon/icon-email.svg","url":"mailto:wei-chien.hsiao.tw@member.mensa.org"}],
+    links: [{"name":"台灣獨立駭客","url":"https://www.indiehackerstaiwan.com"},{"name":"Frontier","url":"https://frontier-lab.io"}],
+    lang: {
+      social: '帳號',
+      contact: '聯繫',
+      friends: '朋友',
+      gesture: {
+        title: '手勢控制',
+        camera: '攝像頭',
+        tracking: '追蹤',
+        pinch: '捏合',
+        start: '啟動',
+        stop: '停止',
+        starting: '啟動中...',
+        sensitivity: '靈敏度',
+        scroll: '滾動',
+        debug: '除錯模式',
+        tip1: '1. 移動手部控制游標',
+        tip2: '2. 捏合點擊，拖曳滾動',
+        error_camera_denied: '請允許攝像頭權限以使用手勢控制',
+        error_camera_not_found: '找不到攝像頭裝置'
+      }
+    }
+  };
+</script>
+
+    
+    
+    
+      
+    
+    
+    
+      <script defer src="/js/search.js"></script>
+      <script defer>document.addEventListener('DOMContentLoaded', function() { searchInitialize("/search.json"); });</script>
+    
+    
+      <script defer src="/js/copy-code.js"></script>
+    
+    <script defer src="/js/language-switch.js"></script>
+    <script>
+      window.__TRQLT_PERF = {
+        three: "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js",
+        threadsFooter: "/js/threads-footer.js",
+        footerDock: "/js/footer-dock.js",
+        customCursor: "/js/custom-cursor.js",
+        oneEuroFilter: "/js/one-euro-filter.js",
+        gestureControl: "/js/gesture-control.js",
+        gestureUI: "/js/gesture-ui.js",
+        gestureInit: "/js/gesture-init.js",
+        textPressure: "/js/text-pressure.js",
+        fuzzyText: "/js/fuzzy-text.js",
+        tiltedCard: "/js/tilted-card.js",
+        metallicPaint: "/js/metallic-paint.js",
+        tagcloudInit: "/js/tagcloud-init.js",
+        fancyTagcloud: false
+      };
+    </script>
+    <script defer src="/js/perf-loader.js?v=2"></script>
+    <script defer src="/js/lazy-bg.js"></script>
+    
+    
+  
+  
+    <script defer src="https://unpkg.com/mermaid@11.14.0/dist/mermaid.min.js"></script>
+    <script defer>
+      document.addEventListener('DOMContentLoaded', function() {
+        if (!window.mermaid || !document.querySelector('.mermaid')) return;
+        mermaid.initialize({"startOnload":true});
+      });
+    </script>
+  
+
+  </body>
+</html>

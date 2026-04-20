@@ -1,0 +1,63 @@
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=(self)
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://unpkg.com https://www.unpkg.com https://www.googletagmanager.com https://static.cloudflareinsights.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://www.unpkg.com; img-src 'self' data: https:; connect-src 'self' https://cdn.jsdelivr.net https://www.google-analytics.com https://www.googletagmanager.com https://firestore.googleapis.com https://firebaseinstallations.googleapis.com https://api.ipify.org https://www.gstatic.com; frame-ancestors 'none';
+  Cache-Control: public, max-age=300
+
+# HTML 頁面快取設定
+/*.html
+  Cache-Control: public, max-age=300
+
+# CSS 和 JS 檔案快取 (10分鐘 + revalidate — 檔名無 content hash，需要短快取避免部署後 stale)
+/*.css
+  Cache-Control: public, max-age=600, must-revalidate
+/*.js
+  Cache-Control: public, max-age=600, must-revalidate
+
+# 靜態圖片快取 (1年 - 很少改變)
+/*.png
+  Cache-Control: public, max-age=31536000, immutable
+/*.jpg
+  Cache-Control: public, max-age=31536000, immutable
+/*.jpeg
+  Cache-Control: public, max-age=31536000, immutable
+/*.webp
+  Cache-Control: public, max-age=31536000, immutable
+/*.gif
+  Cache-Control: public, max-age=31536000, immutable
+
+# 向量圖和圖標 (1年 - 很少改變)
+/*.svg
+  Cache-Control: public, max-age=31536000, immutable
+/*.ico
+  Cache-Control: public, max-age=31536000, immutable
+
+# 字體檔案快取
+/*.ttf
+  Cache-Control: public, max-age=31536000, immutable
+/*.woff
+  Cache-Control: public, max-age=31536000, immutable
+/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+
+# 音頻檔案快取 (1年 - 很少改變)
+/*.wav
+  Cache-Control: public, max-age=31536000, immutable
+/*.mp3
+  Cache-Control: public, max-age=31536000, immutable
+/*.ogg
+  Cache-Control: public, max-age=31536000, immutable
+
+# RSS 和 XML 檔案 (1小時 - 內容會更新)
+/*.xml
+  Cache-Control: public, max-age=3600
+/*.rss
+  Cache-Control: public, max-age=3600
+
+# JSON 檔案 (1小時 - 搜尋索引等會更新)
+/*.json
+  Cache-Control: public, max-age=3600

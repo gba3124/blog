@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+    <meta charset="utf8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <title>
+      
+        統計謬論完整清單：55 種思維除錯地圖 | Owen Hsiao
+      
+    </title>
+    <meta name="description" content="55 種統計謬論的快速索引，按 8 大類排列。設計抽樣看第一類，做因果推論看第四類，跑模型看第六類。每個謬論一句話講完，點進去看完整故事。" />
+    <meta name="keywords" content="statistics, cognitive-bias, data-analysis, critical-thinking" />
+    <meta name="author" content="Owen Hsiao (蕭為謙)" />
+    
+    
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="統計謬論完整清單：55 種思維除錯地圖" />
+    <meta property="og:description" content="55 種統計謬論的快速索引，按 8 大類排列。設計抽樣看第一類，做因果推論看第四類，跑模型看第六類。每個謬論一句話講完，點進去看完整故事。" />
+    <meta property="og:url" content="https://owenhsiao.com/zh-tw/blog/statistical-fallacies-checklist/" />
+    <meta property="og:site_name" content="Owen Hsiao" />
+    <meta property="og:locale" content="zh_tw" />
+    
+    <meta property="og:image" content="https://owenhsiao.com/images/content/about.webp" />
+    
+    
+    <meta property="article:published_time" content="2026-02-20T16:00:00.000Z" />
+    <meta property="article:modified_time" content="2026-04-15T11:39:57.630Z" />
+    <meta property="article:author" content="Owen Hsiao (蕭為謙)" />
+    
+    <meta property="article:tag" content="statistics" />
+    
+    <meta property="article:tag" content="cognitive-bias" />
+    
+    <meta property="article:tag" content="data-analysis" />
+    
+    <meta property="article:tag" content="critical-thinking" />
+    
+    
+    
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="統計謬論完整清單：55 種思維除錯地圖" />
+    <meta name="twitter:description" content="55 種統計謬論的快速索引，按 8 大類排列。設計抽樣看第一類，做因果推論看第四類，跑模型看第六類。每個謬論一句話講完，點進去看完整故事。" />
+    
+    <meta name="twitter:image" content="https://owenhsiao.com/images/content/about.webp" />
+    
+    <meta name="twitter:creator" content="@Owen Hsiao" />
+
+    
+    
+    
+    
+    <link rel="canonical" href="https://owenhsiao.com/zh-tw/blog/statistical-fallacies-checklist/" />
+
+    
+    
+    
+      <meta name="robots" content="index,follow" />
+    
+
+    
+    
+      
+      
+        
+        
+          
+          
+          <link rel="alternate" hreflang="zh-tw" href="https://owenhsiao.com/zh-tw/blog/statistical-fallacies-checklist/" />
+        
+      
+        
+        
+          
+          
+          <link rel="alternate" hreflang="en" href="https://owenhsiao.com/en/blog/statistical-fallacies-checklist/" />
+        
+      
+        
+        
+      
+      <link rel="alternate" hreflang="x-default" href="https://owenhsiao.com/en/blog/statistical-fallacies-checklist/" />
+    
+
+    
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@graph":[{"@type":["WebSite","Blog"],"@id":"https://owenhsiao.com/#website","name":"Owen Hsiao","url":"https://owenhsiao.com","description":"Personal blog featuring essays, insights, and projects by Owen Hsiao (蕭為謙). Exploring technology, philosophy, and life through deep thinking and analysis.","inLanguage":["zh-TW","en"],"publisher":{"@id":"https://owenhsiao.com/#person"},"author":{"@id":"https://owenhsiao.com/#person"},"potentialAction":{"@type":"SearchAction","target":"https://owenhsiao.com/search/index.html?q={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"Person","@id":"https://owenhsiao.com/#person","name":"Owen Hsiao (蕭為謙)","alternateName":["Owen Hsiao","蕭為謙"],"url":"https://owenhsiao.com","image":{"@type":"ImageObject","url":"https://owenhsiao.com/images/content/about.webp"},"jobTitle":"Writer, Thinker & Developer","description":"一位開發者，透過深度文章探索科技、哲學與個人成長。","sameAs":["https://github.com/gba3124","https://www.linkedin.com/in/owen-hsiao-875b50217","https://web.facebook.com/profile.php?id=100000464468024"],"mainEntityOfPage":"https://owenhsiao.com/zh-tw/about/"}]}
+    </script>
+    
+    
+    
+    
+    
+      
+    
+    
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Owen Hsiao","item":"https://owenhsiao.com/zh-tw/"},{"@type":"ListItem","position":2,"name":"文章","item":"https://owenhsiao.com/zh-tw/blog/"},{"@type":"ListItem","position":3,"name":"統計謬論完整清單：55 種思維除錯地圖","item":"https://owenhsiao.com/zh-tw/blog/statistical-fallacies-checklist/"}]}
+    </script>
+    
+
+    
+    
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@type":"BlogPosting","headline":"統計謬論完整清單：55 種思維除錯地圖","description":"55 種統計謬論的快速索引，按 8 大類排列。設計抽樣看第一類，做因果推論看第四類，跑模型看第六類。每個謬論一句話講完，點進去看完整故事。","image":"https://owenhsiao.com/images/content/about.webp","datePublished":"2026-02-20T16:00:00.000Z","dateModified":"2026-04-15T11:39:57.630Z","inLanguage":"zh-tw","articleSection":"blog","author":{"@type":"Person","name":"Owen Hsiao (蕭為謙)","alternateName":["Owen Hsiao","蕭為謙"],"url":"https://owenhsiao.com","image":"https://owenhsiao.com/images/content/about.webp","jobTitle":"Writer, Thinker & Developer","sameAs":["https://github.com/gba3124","https://www.linkedin.com/in/owen-hsiao-875b50217","https://web.facebook.com/profile.php?id=100000464468024"]},"publisher":{"@type":"Person","name":"Owen Hsiao (蕭為謙)","logo":{"@type":"ImageObject","url":"https://owenhsiao.com/images/logos/logo.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://owenhsiao.com/zh-tw/blog/statistical-fallacies-checklist/"},"isPartOf":{"@type":"WebSite","name":"Owen Hsiao","url":"https://owenhsiao.com"},"keywords":"statistics, cognitive-bias, data-analysis, critical-thinking"}
+    </script>
+    
+
+    
+    
+
+    <!-- DNS Prefetch & Preconnect for external resources -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Google Fonts - Space Grotesk (body) + Playfair Display (headings) + Inconsolata (code) + CJK -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inconsolata:wght@400;600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inconsolata:wght@400;600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inconsolata:wght@400;600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" /></noscript>
+    
+    
+      <link rel="apple-touch-icon"
+            sizes="180x180"
+            href="/images/favicons/apple-touch-icon.png" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/images/favicons/favicon-32x32.png" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/images/favicons/favicon-16x16.png" />
+    
+    
+      <link rel="mask-icon"
+            href="/images/logos/logo.svg"
+            color="" />
+    
+    
+    
+    
+    <!-- Critical CSS: layout -->
+    <link rel="stylesheet"
+          type="text/css"
+          href='/css/layout.css' />
+    
+    <!-- Non-critical CSS: Gesture Control - defer loading -->
+    <link rel="preload" as="style" href='/css/gesture-control.css' />
+    <link rel="stylesheet"
+          type="text/css"
+          href='/css/gesture-control.css'
+          media="print"
+          onload="this.media='all'" />
+    <noscript><link rel="stylesheet" type="text/css" href='/css/gesture-control.css' /></noscript>
+    
+    
+    
+  <link rel="stylesheet" type="text/css" href="/css/post.css"/>
+  
+  <link rel="stylesheet" type="text/css" href="/css/comments.css"/>
+  <style>
+    /* Post 頁面專用白色 nav 樣式 */
+    .nav {
+      background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 15%, rgba(255, 255, 255, 0.7) 30%, rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 1) 70%, rgba(255, 255, 255, 1) 100%) !important;
+    }
+    
+    /* Post 頁面的 nav 文字顏色調整 */
+    .nav-menu-item {
+      color: #333 !important;
+    }
+    
+    .nav-menu-item:hover {
+      color: #000 !important;
+    }
+    
+    .lang-switch {
+      color: #333 !important;
+      border-color: #333 !important;
+    }
+
+    .lang-switch:hover {
+      background: #333 !important;
+      color: white !important;
+    }
+    
+    /* Post 頁面搜索按鈕白色主題 */
+    #search-btn {
+      background: rgba(255, 255, 255, 0.9) !important;
+      border: 1px solid rgba(139, 0, 0, 0.15) !important;
+      color: #2c2c2c !important;
+    }
+    
+    #search-btn .icon {
+      color: #2c2c2c !important;
+    }
+    
+    #search-btn .icon path {
+      fill: #2c2c2c !important;
+    }
+    
+    #search-btn > span:not(.search-shortcut-key) {
+      color: #2c2c2c !important;
+    }
+    
+    #search-btn .search-shortcut-key {
+      border: 1px solid rgba(139, 0, 0, 0.2) !important;
+      background: rgba(139, 0, 0, 0.05) !important;
+      color: rgba(44, 44, 44, 0.8) !important;
+    }
+    
+    #search-btn:hover {
+      background: rgba(255, 255, 255, 0.95) !important;
+      border-color: rgba(139, 0, 0, 0.3) !important;
+      color: #000000 !important;
+    }
+    
+    #search-btn:hover .icon {
+      color: #000000 !important;
+    }
+    
+    #search-btn:hover .icon path {
+      fill: #000000 !important;
+    }
+    
+    #search-btn:hover > span:not(.search-shortcut-key) {
+      color: #000000 !important;
+    }
+    
+    #search-btn:hover .search-shortcut-key {
+      background: rgba(139, 0, 0, 0.1) !important;
+      border-color: rgba(139, 0, 0, 0.3) !important;
+      color: #2c2c2c !important;
+    }
+    
+    /* 手機版 nav 按鈕顏色 */
+    .nav-btn::before, 
+    .nav-btn::after {
+      background: #333 !important;
+    }
+    
+    /* 手機版 nav 和菜單樣式 */
+    @media screen and (max-width: 1023px) {
+      .nav {
+        background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 15%, rgba(255, 255, 255, 0.7) 30%, rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 1) 70%, rgba(255, 255, 255, 1) 100%) !important;
+      }
+      
+      .nav-menu {
+        background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 15%, rgba(255, 255, 255, 0.7) 30%, rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 1) 70%, rgba(255, 255, 255, 1) 100%) !important;
+      }
+    }
+  </style>
+
+    <script>
+      (function () {
+        var GA_ID = 'G-JPFR7PFSPP';
+        var initialized = false;
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { window.dataLayer.push(arguments); };
+
+        function initAnalytics() {
+          if (initialized) return;
+          initialized = true;
+          var script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+          script.onload = function () {
+            window.gtag('js', new Date());
+            window.gtag('config', GA_ID);
+          };
+          document.head.appendChild(script);
+        }
+
+        function start() {
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(initAnalytics, { timeout: 3000 });
+          } else {
+            setTimeout(initAnalytics, 1200);
+          }
+        }
+
+        start();
+        ['pointerdown', 'keydown', 'touchstart'].forEach(function (eventName) {
+          document.addEventListener(eventName, initAnalytics, { once: true, passive: true, capture: true });
+        });
+      })();
+    </script>
+  <meta name="generator" content="Hexo 7.3.0"></head>
+  <body data-page="post">
+    
+      <div id="search-mask" style="display:none">
+  <div class="search-main" id="search-main">
+    <div class="search__head">
+      <div class="search-form">
+        <svg t="1706347533072"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="7828"
+             width="20"
+             height="20">
+          <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="currentColor" p-id="7829">
+          </path>
+        </svg>
+        <label for="search-input"
+               style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">
+          搜尋...
+        </label>
+        <input id="search-input" type="search" aria-label="搜尋..." placeholder="搜尋...">
+        <svg t="1706361500528"
+             id="search-clear"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="4351"
+             width="20"
+             height="20">
+          <path d="M512 562.688l-264.2944 264.2944-50.688-50.688L461.312 512 197.0176 247.7056l50.688-50.688L512 461.312l264.2944-264.2944 50.688 50.688L562.688 512l264.2944 264.2944-50.688 50.688L512 562.688z" fill="currentColor" p-id="4352">
+          </path>
+        </svg>
+      </div>
+    </div>
+    <div class="search__body" id="search-result"></div>
+    <div class="search__foot"></div>
+  </div>
+</div>
+<script>
+window.TRANQUILITY_I18N = {
+  search: {
+    empty: "找不到關於 undefined 的結果",
+    hits: "找到 undefined 個關於 undefined 的結果",
+    hits_time: "找到 undefined 個結果（用時 undefined 毫秒）"
+  },
+  post: {
+    untitled: "無標題"
+  }
+};
+</script>
+
+    
+    
+    
+    <div class=head>
+      <div class="nav">
+        <a href='/zh-tw/' class="nav-logo">
+          <img alt="logo" height="60px" width="60px" src="/images/logos/logo.svg" />
+        </a>
+        <input id="navBtn" type="checkbox" />
+        <div class="nav-right">
+          
+            <div class="search-outer">
+  <div class="search" id="search-btn" role="button" tabindex="0" aria-label="搜尋...">
+    <svg t="1706347533072"
+         class="icon"
+         viewBox="0 0 1024 1024"
+         version="1.1"
+         xmlns="http://www.w3.org/2000/svg"
+         p-id="7828"
+         width="18"
+         height="18">
+      <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="currentColor" p-id="7829">
+      </path>
+    </svg>
+    <span>Search</span>
+    <span class="search-shortcut-key">⌘K</span>
+  </div>
+</div>
+
+          
+          <div class="nav-menu">
+            
+              
+                <a class="nav-menu-item" href="/zh-tw/blog">文章</a>
+              
+            
+            <a class="nav-menu-item" href='/zh-tw/about/'>關於</a>
+            
+          </div>
+          <button class="lang-switch" onclick="switchLanguage()">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor" d="M12.87 15.07c-.29-.3-.57-.61-.84-.93c.8-.95 1.49-2 2.03-3.14h1.68V9h-5V7h-2v2H3v2h8.64a11.9 11.9 0 0 1-1.52 2.46c-.9-.99-1.66-2.09-2.26-3.29H5.84a13.9 13.9 0 0 0 2.97 4.4l-1.52 1.52l1.41 1.41L12 14.2l2.3 2.3l1.41-1.41l-2.84-2.84zM17.5 10h-2l-4.5 12h2l1.2-3h4.6l1.2 3h2l-4.5-12zm-2.64 7l1.94-5.18L18.74 17h-3.88z"/>
+            </svg>
+            <span>English</span>
+          </button>
+        </div>
+        <label class="nav-btn" for="navBtn"></label>
+      </div>
+    </div>
+    
+    
+    <main class="body" id="main-content">
+      
+  <article class="post-content">
+    <div class="post-inner">
+      <div class="post-content__head">
+        <div class="post-tags-row">
+          
+  <a href="/zh-tw/tags/statistics/" class="post-tag">statistics</a><a href="/zh-tw/tags/cognitive-bias/" class="post-tag">cognitive-bias</a><a href="/zh-tw/tags/data-analysis/" class="post-tag">data-analysis</a><a href="/zh-tw/tags/critical-thinking/" class="post-tag">critical-thinking</a>
+
+
+        </div>
+        <div class="post-title">統計謬論完整清單：55 種思維除錯地圖</div>
+        <div class="post-info">
+          <div class="post-info__meta">
+            <span class="post-date">2026-02-21</span>
+          </div>
+          
+          <div class="post-info__description">55 種統計謬論的快速索引，按 8 大類排列。設計抽樣看第一類，做因果推論看第四類，跑模型看第六類。每個謬論一句話講完，點進去看完整故事。</div>
+          
+        </div>
+      </div>
+      
+      <div class="post-content__body">
+        <p>這份清單是 <a href="/zh-tw/blog/statistical-fallacies-overview/">55 種統計謬論系列</a>的快速索引，用法很簡單：</p>
+<ul>
+<li>設計抽樣計畫 → 掃一眼 <strong>一、抽樣偏差</strong></li>
+<li>設計問卷或測量工具 → 掃一眼 <strong>二、測量偏差</strong></li>
+<li>解讀比率、平均值、聚合數字 → 掃一眼 <strong>三、數字直覺陷阱</strong></li>
+<li>想從相關性推因果 → 掃一眼 <strong>四、因果推論</strong></li>
+<li>做分析決策、覺得自己很客觀的時候 → 掃一眼 <strong>五、認知偏差</strong></li>
+<li>跑回歸、上模型、做 ML → 掃一眼 <strong>六、統計方法</strong></li>
+<li>設計 A&#x2F;B 測試或實驗 → 掃一眼 <strong>七、實驗設計</strong></li>
+<li>準備報告或讀別人的報告 → 掃一眼 <strong>八、呈現與報告</strong></li>
+</ul>
+<hr>
+<h2 id="一、抽樣偏差（6-種）"><a href="#一、抽樣偏差（6-種）" class="headerlink" title="一、抽樣偏差（6 種）"></a>一、<a href="/zh-tw/blog/statistical-fallacies-sampling-bias/">抽樣偏差</a>（6 種）</h2><p><em>你的樣本代表不了你的目標群體</em></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>謬論</th>
+<th>一句話</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-sampling-bias/#1-%E5%80%96%E5%AD%98%E8%80%85%E5%81%8F%E5%B7%AE%EF%BC%88Survivorship-Bias%EF%BC%89%EF%BC%9A%E6%AD%BB%E6%8E%89%E7%9A%84%E6%95%B8%E6%93%9A%E4%B8%8D%E8%AA%AA%E8%A9%B1">倖存者偏差</a></td>
+<td>只看到活下來的案例，看不到消失的失敗者</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-sampling-bias/#2-%E6%A8%A3%E6%9C%AC%E9%81%B8%E6%93%87%E5%81%8F%E5%B7%AE%EF%BC%88Sample-Selection-Bias%EF%BC%89%EF%BC%9A%E4%BD%A0%E7%9A%84%E5%90%8D%E5%96%AE%E6%B1%BA%E5%AE%9A%E4%BA%86%E4%BD%A0%E7%9A%84%E7%B5%90%E8%AB%96">樣本選擇偏差</a></td>
+<td>數據採集過程帶有篩選機制，樣本系統性偏向特定群體</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-sampling-bias/#3-%E8%A6%86%E8%93%8B%E5%81%8F%E5%B7%AE%EF%BC%88Coverage-Bias%EF%BC%89%EF%BC%9A%E4%BD%A0%E7%9A%84%E6%8A%BD%E6%A8%A3%E6%A1%86%E6%9E%B6%E9%81%BA%E6%BC%8F%E4%BA%86%E6%95%B4%E5%80%8B%E7%BE%A4%E9%AB%94">覆蓋偏差</a></td>
+<td>抽樣框架根本沒覆蓋到某些族群</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-sampling-bias/#4-%E8%87%AA%E9%81%B8%E5%81%8F%E5%B7%AE%EF%BC%88Self-Selection-Bias%EF%BC%89%EF%BC%9A%E5%8F%AA%E6%9C%89%E6%83%85%E7%B7%92%E5%BC%B7%E7%83%88%E7%9A%84%E4%BA%BA%E6%89%8D%E6%9C%83%E9%96%8B%E5%8F%A3">自選偏差</a></td>
+<td>只有情緒強烈的人才會開口，沉默大多數不在樣本裡</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-sampling-bias/#5-%E4%BE%BF%E5%88%A9%E6%8A%BD%E6%A8%A3%E5%81%8F%E5%B7%AE%EF%BC%88Convenience-Sampling-Bias%EF%BC%89%EF%BC%9A%E6%9C%80%E5%AE%B9%E6%98%93%E6%89%BE%E5%88%B0%E7%9A%84%E4%BA%BA%EF%BC%8C%E4%B8%8D%E6%98%AF%E4%BD%A0%E9%9C%80%E8%A6%81%E4%BA%86%E8%A7%A3%E7%9A%84%E4%BA%BA">便利抽樣偏差</a></td>
+<td>只找身邊容易接觸的人，他們跟真實用戶不一樣</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-sampling-bias/#6-%E6%99%82%E9%96%93%E7%AA%97%E5%8F%A3%E5%81%8F%E5%B7%AE%EF%BC%88Time-Window-Bias%EF%BC%89%EF%BC%9A%E4%B8%8D%E5%90%8C%E6%99%82%E9%96%93%EF%BC%8C%E4%B8%8D%E5%90%8C%E7%9A%84%E4%BA%BA">時間窗口偏差</a></td>
+<td>只在特定時段採樣，選到的是那個時間點會出現的人</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="二、測量偏差（6-種）"><a href="#二、測量偏差（6-種）" class="headerlink" title="二、測量偏差（6 種）"></a>二、<a href="/zh-tw/blog/statistical-fallacies-measurement-bias/">測量偏差</a>（6 種）</h2><p><em>你測量到的不是你以為測量到的</em></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>謬論</th>
+<th>一句話</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>7</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-measurement-bias/#7-%E7%A4%BE%E6%9C%83%E6%9C%9F%E6%9C%9B%E5%81%8F%E5%B7%AE%EF%BC%88Social-Desirability-Bias%EF%BC%89%EF%BC%9A%E5%8F%97%E8%A8%AA%E8%80%85%E5%9C%A8%E8%A1%A8%E6%BC%94">社會期望偏差</a></td>
+<td>受訪者回答「社會期待的答案」而不是真實想法</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-measurement-bias/#8-%E8%A7%80%E5%AF%9F%E8%80%85%E5%81%8F%E5%B7%AE%EF%BC%88Observer-Bias%EF%BC%89%EF%BC%9A%E6%B8%AC%E9%87%8F%E8%80%85%E7%9A%84%E4%B8%BB%E8%A7%80%E5%BD%B1%E9%9F%BF%E4%BA%86%E7%B5%90%E6%9E%9C">觀察者偏差</a></td>
+<td>測量者的預期污染了測量結果</td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-measurement-bias/#9-%E5%9B%9E%E6%86%B6%E5%81%8F%E5%B7%AE%EF%BC%88Recall-Bias%EF%BC%89%EF%BC%9A%E8%A8%98%E6%86%B6%E6%98%AF%E7%B7%A8%E5%8A%87%EF%BC%8C%E4%B8%8D%E6%98%AF%E6%94%9D%E5%BD%B1%E6%A9%9F">回憶偏差</a></td>
+<td>依賴記憶而非記錄，人的記憶是重建的不是錄像機</td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-measurement-bias/#10-%E5%B7%A5%E5%85%B7%E8%88%87%E6%B8%AC%E9%87%8F%E8%AA%A4%E5%B7%AE%EF%BC%88Instrument-Measurement-Error%EF%BC%89%EF%BC%9A%E5%B0%BA%E6%9C%AC%E8%BA%AB%E6%98%AF%E5%BD%8E%E7%9A%84">工具與測量誤差</a></td>
+<td>測量工具本身引入系統性誤差</td>
+</tr>
+<tr>
+<td>11</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-measurement-bias/#11-%E7%A2%BA%E8%AA%8D%E5%81%8F%E5%B7%AE%EF%BC%88%E8%92%90%E9%9B%86%E9%9A%8E%E6%AE%B5%EF%BC%89%EF%BC%88Confirmation-Bias-in-Collection%EF%BC%89%EF%BC%9A%E5%8F%AA%E8%A8%98%E9%8C%84%E4%BD%A0%E6%83%B3%E7%9C%8B%E5%88%B0%E7%9A%84">確認偏差（蒐集階段）</a></td>
+<td>只記錄符合預期的觀察，數據庫從源頭就帶選擇性</td>
+</tr>
+<tr>
+<td>12</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-measurement-bias/#12-%E6%99%82%E9%96%93%E8%88%87%E5%AD%A3%E7%AF%80%E5%81%8F%E5%B7%AE%EF%BC%88Temporal-Seasonal-Bias%EF%BC%89%EF%BC%9A%E4%BD%A0%E5%9C%A8%E9%8C%AF%E8%AA%A4%E7%9A%84%E6%99%82%E5%88%BB%E9%87%8F%E4%BA%86%E6%AD%A3%E7%A2%BA%E7%9A%84%E6%95%B8%E5%AD%97">時間與季節偏差</a></td>
+<td>把季節性波動當作自己努力的成果</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="三、數字直覺陷阱（6-種）"><a href="#三、數字直覺陷阱（6-種）" class="headerlink" title="三、數字直覺陷阱（6 種）"></a>三、<a href="/zh-tw/blog/statistical-fallacies-math-intuition/">數字直覺陷阱</a>（6 種）</h2><p><em>數學結果違反直覺</em></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>謬論</th>
+<th>一句話</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>13</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-math-intuition/#13-%E5%9F%BA%E6%BA%96%E7%8E%87%E8%AC%AC%E8%AA%A4%EF%BC%88Base-Rate-Fallacy%EF%BC%89%EF%BC%9A%E5%BF%BD%E7%95%A5%E4%BA%86%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E5%88%86%E6%AF%8D">基準率謬誤</a></td>
+<td>被 99% 準確率唬住，忘了基準率只有 1%</td>
+</tr>
+<tr>
+<td>14</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-math-intuition/#14-%E8%B3%AD%E5%BE%92%E8%AC%AC%E8%AA%A4%EF%BC%88Gambler's-Fallacy%EF%BC%89%EF%BC%9A%E9%9A%A8%E6%A9%9F%E6%80%A7%E6%B2%92%E6%9C%89%E8%A8%98%E6%86%B6">賭徒謬誤</a></td>
+<td>以為連開 10 次正面之後反面機率更高</td>
+</tr>
+<tr>
+<td>15</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-math-intuition/#15-%E5%B0%8F%E6%95%B8%E5%AE%9A%E5%BE%8B%EF%BC%88Law-of-Small-Numbers%EF%BC%89%EF%BC%9A%E5%B0%8F%E6%A8%A3%E6%9C%AC%E4%B8%8D%E4%BB%A3%E8%A1%A8%E5%A4%A7%E7%9C%9F%E7%9B%B8">小數定律</a></td>
+<td>5 人訪談的結論不等於 80% 用戶想要某功能</td>
+</tr>
+<tr>
+<td>16</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-math-intuition/#16-%E8%BE%9B%E6%99%AE%E6%A3%AE%E6%82%96%E8%AB%96%EF%BC%88Simpson's-Paradox%EF%BC%89%EF%BC%9A%E6%95%B4%E9%AB%94%E8%B6%A8%E5%8B%A2%E5%92%8C%E6%AF%8F%E5%80%8B%E5%AD%90%E7%BE%A4%E9%AB%94%E7%9A%84%E8%B6%A8%E5%8B%A2%E6%96%B9%E5%90%91%E7%9B%B8%E5%8F%8D">辛普森悖論</a></td>
+<td>每個子群體都更好，整體反而更差</td>
+</tr>
+<tr>
+<td>17</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-math-intuition/#17-%E7%94%9F%E6%85%8B%E5%AD%B8%E8%AC%AC%E8%AA%A4%EF%BC%88Ecological-Fallacy%EF%BC%89%EF%BC%9A%E5%BE%9E%E7%BE%A4%E9%AB%94%E6%8E%A8%E8%AB%96%E5%80%8B%E9%AB%94">生態學謬誤</a></td>
+<td>富裕地區壽命長，不代表搬去住你就會長壽</td>
+</tr>
+<tr>
+<td>18</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-math-intuition/#18-%E5%8E%9F%E5%AD%90%E8%AB%96%E8%AC%AC%E8%AA%A4%EF%BC%88Atomistic-Fallacy%EF%BC%89%EF%BC%9A%E5%BE%9E%E5%80%8B%E9%AB%94%E6%8E%A8%E8%AB%96%E7%BE%A4%E9%AB%94">原子論謬誤</a></td>
+<td>一所學校成功的教學法，不代表全縣都適用</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="四、因果推論（5-種）"><a href="#四、因果推論（5-種）" class="headerlink" title="四、因果推論（5 種）"></a>四、<a href="/zh-tw/blog/statistical-fallacies-causal-inference/">因果推論</a>（5 種）</h2><p><em>相關性不等於因果性</em></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>謬論</th>
+<th>一句話</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>19</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-causal-inference/#19-%E6%B7%B7%E9%9B%9C%E5%9B%A0%E7%B4%A0%EF%BC%88Confounding-Factor%EF%BC%89%EF%BC%9A%E5%B9%95%E5%BE%8C%E7%9A%84%E7%AC%AC%E4%B8%89%E6%96%B9">混雜因素</a></td>
+<td>第三個變數同時導致了 X 和 Y，製造了假相關</td>
+</tr>
+<tr>
+<td>20</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-causal-inference/#20-%E5%8F%8D%E5%90%91%E5%9B%A0%E6%9E%9C%EF%BC%88Reverse-Causality%EF%BC%89%EF%BC%9A%E6%96%B9%E5%90%91%E5%BC%84%E5%8F%8D%E4%BA%86">反向因果</a></td>
+<td>因果方向弄反了，不是警察多所以犯罪多</td>
+</tr>
+<tr>
+<td>21</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-causal-inference/#21-%E5%B0%8D%E6%92%9E%E7%B5%90%E6%A7%8B%EF%BC%88Collider-Bias%EF%BC%89%EF%BC%9A%E7%AF%A9%E9%81%B8%E6%A8%A3%E6%9C%AC%E5%89%B5%E9%80%A0%E4%BA%86%E5%81%87%E7%9B%B8%E9%97%9C">對撞結構</a></td>
+<td>樣本被兩個條件共同篩選，製造了不存在的假相關</td>
+</tr>
+<tr>
+<td>22</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-causal-inference/#22-%E5%81%BD%E7%9B%B8%E9%97%9C%EF%BC%88Spurious-Correlation%EF%BC%89%EF%BC%9A%E5%B7%A7%E5%90%88%EF%BC%8C%E4%B8%8D%E6%98%AF%E5%9B%A0%E6%9E%9C">偽相關</a></td>
+<td>冰淇淋銷量和溺水人數相關，但冰淇淋不致人溺水</td>
+</tr>
+<tr>
+<td>23</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-causal-inference/#23-%E4%B8%AD%E4%BB%8B%E8%AE%8A%E9%87%8F%E8%AC%AC%E8%AA%A4%EF%BC%88Mediation-Fallacy%EF%BC%89%EF%BC%9A%E4%BD%A0%E5%88%87%E6%96%B7%E4%BA%86%E4%BD%A0%E6%83%B3%E7%A0%94%E7%A9%B6%E7%9A%84%E5%9B%A0%E6%9E%9C%E8%B7%AF%E5%BE%91">中介變量謬誤</a></td>
+<td>控制了因果路徑上的中間節點，切斷了你在研究的路徑</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="五、認知偏差（7-種）"><a href="#五、認知偏差（7-種）" class="headerlink" title="五、認知偏差（7 種）"></a>五、<a href="/zh-tw/blog/statistical-fallacies-cognitive-bias/">認知偏差</a>（7 種）</h2><p><em>大腦的系統性捷徑讓你走偏</em></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>謬論</th>
+<th>一句話</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>24</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-cognitive-bias/#24-%E7%A2%BA%E8%AA%8D%E5%81%8F%E5%B7%AE%EF%BC%88%E5%88%86%E6%9E%90%E9%9A%8E%E6%AE%B5%EF%BC%89%EF%BC%88Confirmation-Bias%EF%BC%89%EF%BC%9A%E5%8F%AA%E7%9C%8B%E4%BD%A0%E6%83%B3%E7%9C%8B%E7%9A%84">確認偏差（分析階段）</a></td>
+<td>只搜尋支持預設觀點的資訊，主動迴避反面證據</td>
+</tr>
+<tr>
+<td>25</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-cognitive-bias/#25-%E9%8C%A8%E5%AE%9A%E6%95%88%E6%87%89%EF%BC%88Anchoring-Bias%EF%BC%89%EF%BC%9A%E7%AC%AC%E4%B8%80%E7%9C%BC%E7%9C%8B%E5%88%B0%E7%9A%84%E6%95%B8%E5%AD%97%E6%9C%83%E6%8E%A7%E5%88%B6%E4%BD%A0">錨定效應</a></td>
+<td>被第一眼看到的數字限制了後續所有判斷</td>
+</tr>
+<tr>
+<td>26</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-cognitive-bias/#26-%E5%8F%AF%E7%94%A8%E6%80%A7%E5%95%9F%E7%99%BC%E6%B3%95%EF%BC%88Availability-Heuristic%EF%BC%89%EF%BC%9A%E5%AE%B9%E6%98%93%E6%83%B3%E8%B5%B7%E4%BE%86%E7%9A%84-%E2%89%A0-%E7%99%BC%E7%94%9F%E6%A9%9F%E7%8E%87%E9%AB%98%E7%9A%84">可用性啟發法</a></td>
+<td>容易想起來的事不代表發生機率更高</td>
+</tr>
+<tr>
+<td>27</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-cognitive-bias/#27-%E4%BB%A3%E8%A1%A8%E6%80%A7%E5%95%9F%E7%99%BC%E6%B3%95%EF%BC%88Representativeness-Heuristic%EF%BC%89%EF%BC%9A%E5%88%BB%E6%9D%BF%E5%8D%B0%E8%B1%A1%E8%A6%86%E8%93%8B%E4%BA%86%E7%9C%9F%E5%AF%A6%E6%A9%9F%E7%8E%87">代表性啟發法</a></td>
+<td>用「描述像不像」來判斷機率，忽略基準率</td>
+</tr>
+<tr>
+<td>28</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-cognitive-bias/#28-%E9%BA%A5%E7%B4%8D%E9%A6%AC%E6%8B%89%E8%AC%AC%E8%AA%A4%EF%BC%88McNamara-Fallacy%EF%BC%89%EF%BC%9A%E5%8F%AA%E9%87%8F%E5%8F%AF%E4%BB%A5%E9%87%8F%E7%9A%84%EF%BC%8C%E5%BF%BD%E7%95%A5%E4%B8%8D%E5%8F%AF%E9%87%8F%E7%9A%84">麥納馬拉謬誤</a></td>
+<td>只量可以量的，忽略量不到但重要的東西</td>
+</tr>
+<tr>
+<td>29</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-cognitive-bias/#29-%E5%8F%A4%E5%BE%B7%E5%93%88%E7%89%B9%E5%AE%9A%E5%BE%8B%EF%BC%88Goodhart's-Law%EF%BC%89%EF%BC%9A%E6%8C%87%E6%A8%99%E4%B8%80%E6%97%A6%E6%88%90%E7%82%BA%E7%9B%AE%E6%A8%99%EF%BC%8C%E5%B0%B1%E4%B8%8D%E5%86%8D%E6%98%AF%E5%A5%BD%E6%8C%87%E6%A8%99">古德哈特定律</a></td>
+<td>指標一旦成為目標，就不再是好的指標</td>
+</tr>
+<tr>
+<td>30</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-cognitive-bias/#30-%E8%B7%AF%E5%BE%91%E4%BE%9D%E8%B3%B4%EF%BC%88Path-Dependence%EF%BC%89%EF%BC%9A%E8%B5%B0%E9%81%8E%E7%9A%84%E8%B7%AF%EF%BC%8C%E9%99%90%E5%88%B6%E4%BA%86%E4%BD%A0%E8%83%BD%E8%B5%B0%E7%9A%84%E8%B7%AF">路徑依賴</a></td>
+<td>沉沒成本讓你沿著錯誤路徑繼續走</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="六、統計方法（11-種）"><a href="#六、統計方法（11-種）" class="headerlink" title="六、統計方法（11 種）"></a>六、<a href="/zh-tw/blog/statistical-fallacies-statistical-methods/">統計方法</a>（11 種）</h2><p><em>工具的假設被違反了，或你誤解了它的輸出</em></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>謬論</th>
+<th>一句話</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>31</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-statistical-methods/#31-%E5%9B%9E%E6%AD%B8%E8%AC%AC%E8%AA%A4%EF%BC%88Regression-to-the-Mean%EF%BC%89%EF%BC%9A%E6%8A%8A%E5%9D%87%E5%80%BC%E8%BF%B4%E6%AD%B8%E8%AA%A4%E8%AA%8D%E7%82%BA%E6%98%AF%E4%BD%A0%E7%9A%84%E5%B9%B2%E9%A0%90%E6%9C%89%E6%95%88">回歸謬誤</a></td>
+<td>把極端值自然回歸平均當成你的干預有效</td>
+</tr>
+<tr>
+<td>32</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-statistical-methods/#32-%E5%A4%9A%E9%87%8D%E5%85%B1%E7%B7%9A%E6%80%A7%EF%BC%88Multicollinearity%EF%BC%89%EF%BC%9A%E8%AE%8A%E6%95%B8%E4%B9%8B%E9%96%93%E5%A4%AA%E7%9B%B8%E4%BC%BC%EF%BC%8C%E6%A8%A1%E5%9E%8B%E8%AA%AA%E4%B8%8D%E6%B8%85%E8%AA%B0%E6%98%AF%E5%8E%9F%E5%9B%A0">多重共線性</a></td>
+<td>預測變數之間高度相關，係數估計不穩定</td>
+</tr>
+<tr>
+<td>33</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-statistical-methods/#33-%E6%BD%9B%E5%9C%A8%E8%AE%8A%E6%95%B8%E5%81%8F%E5%B7%AE%EF%BC%88Omitted-Variable-Bias%EF%BC%89%EF%BC%9A%E9%81%BA%E6%BC%8F%E4%BA%86%E4%B8%80%E5%80%8B%E9%87%8D%E8%A6%81%E7%9A%84%E8%A7%A3%E9%87%8B%E8%AE%8A%E6%95%B8">潛在變數偏差</a></td>
+<td>遺漏重要變數，模型把它的影響錯誤分配給其他變數</td>
+</tr>
+<tr>
+<td>34</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-statistical-methods/#34-%E9%81%8E%E5%BA%A6%E6%93%AC%E5%90%88%EF%BC%88Overfitting%EF%BC%89%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%83%8C%E7%86%9F%E4%BA%86%E8%80%83%E5%8F%A4%E9%A1%8C%EF%BC%8C%E7%84%A1%E6%B3%95%E6%87%89%E5%B0%8D%E6%96%B0%E8%A9%A6%E9%A1%8C">過度擬合</a></td>
+<td>死記硬背了訓練數據的雜訊，新數據上一塌糊塗</td>
+</tr>
+<tr>
+<td>35</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-statistical-methods/#35-%E6%95%B8%E6%93%9A%E6%B4%A9%E6%BC%8F%EF%BC%88Data-Leakage%EF%BC%89%EF%BC%9A%E6%9C%AA%E4%BE%86%E7%9A%84%E8%B3%87%E8%A8%8A%E6%B4%A9%E6%BC%8F%E5%88%B0%E4%BA%86%E9%81%8E%E5%8E%BB%E7%9A%84%E8%A8%93%E7%B7%B4%E8%A3%A1">數據洩漏</a></td>
+<td>訓練時用到了預測情境中不可得的資訊</td>
+</tr>
+<tr>
+<td>36</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-statistical-methods/#36-%E5%89%8D%E7%9E%BB%E6%80%A7%E5%81%8F%E5%B7%AE%EF%BC%88Look-ahead-Bias%EF%BC%89%EF%BC%9A%E4%BD%A0%E7%94%A8%E4%BA%86%E3%80%8C%E7%95%B6%E6%99%82%E4%B8%8D%E5%8F%AF%E8%83%BD%E7%9F%A5%E9%81%93%E3%80%8D%E7%9A%84%E6%95%B8%E6%93%9A">前瞻性偏差</a></td>
+<td>回測中使用了當時不可得的未來數據</td>
+</tr>
+<tr>
+<td>37</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-statistical-methods/#37-%E5%A4%96%E6%8E%A8%E8%AC%AC%E8%AA%A4%EF%BC%88Extrapolation-Bias%EF%BC%89%EF%BC%9A%E4%BD%A0%E6%8A%8A%E6%A8%A1%E5%9E%8B%E7%94%A8%E5%9C%A8%E5%AE%83%E6%B2%92%E8%A6%8B%E9%81%8E%E7%9A%84%E5%9C%B0%E6%96%B9">外推謬誤</a></td>
+<td>把模型延伸到訓練範圍以外，結論不可信</td>
+</tr>
+<tr>
+<td>38</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-statistical-methods/#38-P-%E5%80%BC%E8%AA%A4%E8%A7%A3%EF%BC%88P-value-Misinterpretation%EF%BC%89%EF%BC%9A99-%E7%A2%BA%E5%AE%9A%E6%96%B0%E5%8A%9F%E8%83%BD%E6%9B%B4%E5%A5%BD%EF%BC%9F%E4%B8%8D%E6%98%AF%E7%9A%84">P 值誤解</a></td>
+<td>p &#x3D; 0.03 不是「新版本更好的機率是 97%」</td>
+</tr>
+<tr>
+<td>39</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-statistical-methods/#39-%E6%95%88%E6%9E%9C%E9%87%8F%E5%BF%BD%E8%A6%96%EF%BC%88Effect-Size-Neglect%EF%BC%89%EF%BC%9A%E7%B5%B1%E8%A8%88%E9%A1%AF%E8%91%97-%E2%89%A0-%E5%AF%A6%E5%8B%99%E9%87%8D%E8%A6%81">效果量忽視</a></td>
+<td>統計顯著但效果微小，沒有實際意義</td>
+</tr>
+<tr>
+<td>40</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-statistical-methods/#40-%E6%AA%A2%E5%AE%9A%E5%8A%9B%E4%B8%8D%E8%B6%B3%EF%BC%88Underpowered-Study%EF%BC%89%EF%BC%9A%E4%BD%A0%E6%B2%92%E6%9C%89%E8%83%BD%E5%8A%9B%E7%9C%8B%E8%A6%8B%E7%9C%9F%E5%AF%A6%E5%AD%98%E5%9C%A8%E7%9A%84%E6%95%88%E6%9E%9C">檢定力不足</a></td>
+<td>樣本量太小，測不到真實存在的效應</td>
+</tr>
+<tr>
+<td>41</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-statistical-methods/#41-%E5%A4%9A%E9%87%8D%E6%AF%94%E8%BC%83%E8%AC%AC%E8%AA%A4%EF%BC%88Multiple-Comparisons%EF%BC%89%EF%BC%9A%E4%BD%A0%E8%B7%91%E5%A4%A0%E5%A4%9A%E6%B8%AC%E8%A9%A6%EF%BC%8C%E5%BF%85%E7%84%B6%E6%9C%83%E5%87%BA%E7%8F%BE%E5%81%87%E9%99%BD%E6%80%A7">多重比較謬誤</a></td>
+<td>跑夠多檢定，總會有一個 p &lt; 0.05</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="七、實驗設計（9-種）"><a href="#七、實驗設計（9-種）" class="headerlink" title="七、實驗設計（9 種）"></a>七、<a href="/zh-tw/blog/statistical-fallacies-experiment-design/">實驗設計</a>（9 種）</h2><p><em>實驗從一開始就不公正</em></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>謬論</th>
+<th>一句話</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>42</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-experiment-design/#42-%E9%9C%8D%E6%A1%91%E6%95%88%E6%87%89%EF%BC%88Hawthorne-Effect%EF%BC%89%EF%BC%9A%E8%A2%AB%E8%A7%80%E5%AF%9F%E5%B0%B1%E6%9C%83%E6%94%B9%E8%AE%8A%E8%A1%8C%E7%82%BA">霍桑效應</a></td>
+<td>被測者知道自己被觀察就改變行為</td>
+</tr>
+<tr>
+<td>43</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-experiment-design/#43-%E5%AE%89%E6%85%B0%E5%8A%91%E6%95%88%E6%87%89%EF%BC%88Placebo-Effect%EF%BC%89%EF%BC%9A%E5%8A%9F%E8%83%BD%E6%B2%92%E6%94%B9%E8%AE%8A%EF%BC%8C%E7%94%A8%E6%88%B6%E6%84%9F%E8%A6%BA%E8%AE%8A%E4%BA%86">安慰劑效應</a></td>
+<td>相信干預有效就產生了真實的主觀改善</td>
+</tr>
+<tr>
+<td>44</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-experiment-design/#44-%E5%AF%A6%E9%A9%97%E8%80%85%E6%9C%9F%E6%9C%9B%E6%95%88%E6%87%89%EF%BC%88Experimenter-Expectancy-Effect%EF%BC%89%EF%BC%9A%E7%A0%94%E7%A9%B6%E8%80%85%E7%9A%84%E6%9C%9F%E5%BE%85%E5%BD%B1%E9%9F%BF%E4%BA%86%E5%8F%97%E8%A9%A6%E8%80%85">實驗者期望效應</a></td>
+<td>研究者的細微行為暗示了「正確答案」</td>
+</tr>
+<tr>
+<td>45</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-experiment-design/#45-%E5%B9%B2%E9%A0%90%E5%81%8F%E5%B7%AE%EF%BC%88Intervention-Bias%EF%BC%89%EF%BC%9A%E9%99%A4%E4%BA%86%E4%BD%A0%E8%A8%AD%E8%A8%88%E7%9A%84%E8%AE%8A%E5%9B%A0%EF%BC%8C%E9%82%84%E6%9C%89%E5%85%B6%E4%BB%96%E6%9D%B1%E8%A5%BF%E4%B8%8D%E5%90%8C">干預偏差</a></td>
+<td>實驗組和對照組在變因以外還受到不同對待</td>
+</tr>
+<tr>
+<td>46</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-experiment-design/#46-%E7%84%A1%E5%9B%9E%E6%87%89%E5%81%8F%E5%B7%AE%EF%BC%88Non-Response-Bias%EF%BC%89%EF%BC%9A%E6%B2%92%E5%A1%AB%E5%95%8F%E5%8D%B7%E7%9A%84%E4%BA%BA%EF%BC%8C%E5%92%8C%E5%A1%AB%E4%BA%86%E7%9A%84%E4%BA%BA%EF%BC%8C%E6%9C%AC%E8%B3%AA%E4%B8%8D%E5%90%8C">無回應偏差</a></td>
+<td>沒回應的人跟有回應的人是不同群體</td>
+</tr>
+<tr>
+<td>47</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-experiment-design/#47-%E5%95%8F%E5%8D%B7%E5%81%8F%E5%B7%AE%EF%BC%88Questionnaire-Bias%EF%BC%89%EF%BC%9A%E5%95%8F%E9%A1%8C%E7%9A%84%E6%8E%AA%E8%BE%AD%E5%92%8C%E8%A8%AD%E8%A8%88%EF%BC%8C%E6%B1%BA%E5%AE%9A%E4%BA%86%E7%AD%94%E6%A1%88%E7%9A%84%E6%96%B9%E5%90%91">問卷偏差</a></td>
+<td>問題的措辭和選項設計引導了答案方向</td>
+</tr>
+<tr>
+<td>48</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-experiment-design/#48-%E8%B3%87%E8%A8%8A%E5%81%8F%E5%B7%AE%EF%BC%88Information-Bias%EF%BC%89%EF%BC%9A%E4%BD%A0%E7%9A%84%E6%95%B8%E6%93%9A%E6%A8%99%E7%B1%A4%E6%9C%AC%E8%BA%AB%E5%B0%B1%E6%98%AF%E9%8C%AF%E7%9A%84">資訊偏差</a></td>
+<td>數據標籤本身就是錯的，標註者的偏見污染了訓練基礎</td>
+</tr>
+<tr>
+<td>49</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-experiment-design/#49-%E6%AA%A2%E6%B8%AC%E5%81%8F%E5%B7%AE%EF%BC%88Detection-Bias%EF%BC%89%EF%BC%9A%E6%89%BE%E5%BE%97%E8%B6%8A%E5%8A%AA%E5%8A%9B%EF%BC%8C%E7%99%BC%E7%8F%BE%E5%BE%97%E8%B6%8A%E5%A4%9A%EF%BC%8C%E4%B8%8D%E4%BB%A3%E8%A1%A8%E7%8F%BE%E8%B1%A1%E8%B6%8A%E6%99%AE%E9%81%8D">檢測偏差</a></td>
+<td>尋找某現象的努力程度不同，發現率不等於發生率</td>
+</tr>
+<tr>
+<td>50</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-experiment-design/#50-%E6%8E%92%E9%99%A4%E5%81%8F%E5%B7%AE%EF%BC%88Exclusion-Bias%EF%BC%89%EF%BC%9A%E6%8A%8A%E7%95%B0%E5%B8%B8%E5%80%BC%E5%88%AA%E6%8E%89%EF%BC%8C%E5%8F%AF%E8%83%BD%E5%88%AA%E6%8E%89%E4%BA%86%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E4%BF%A1%E8%99%9F">排除偏差</a></td>
+<td>把「異常值」刪掉，可能把最重要的信號當雜訊丟了</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="八、呈現與報告（5-種）"><a href="#八、呈現與報告（5-種）" class="headerlink" title="八、呈現與報告（5 種）"></a>八、<a href="/zh-tw/blog/statistical-fallacies-presentation-reporting/">呈現與報告</a>（5 種）</h2><p><em>數據本身沒問題，選擇展示什麼才是問題</em></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>謬論</th>
+<th>一句話</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>51</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-presentation-reporting/#51-%E6%88%AA%E6%96%B7-Y-%E8%BB%B8%EF%BC%88Truncated-Y-Axis%EF%BC%89%EF%BC%9A%E7%94%A8%E6%AF%94%E4%BE%8B%E6%84%9F%E6%AC%BA%E9%A8%99%E4%BD%A0%E7%9A%84%E7%9C%BC%E7%9D%9B">截斷 Y 軸</a></td>
+<td>Y 軸不從 0 開始，微小變化看起來像火箭升空</td>
+</tr>
+<tr>
+<td>52</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-presentation-reporting/#52-%E9%9B%99%E8%BB%B8%E5%9C%96%E8%A1%A8%E8%AA%A4%E5%B0%8E%EF%BC%88Dual-Axis-Manipulation%EF%BC%89%EF%BC%9A%E5%85%A9%E6%A2%9D%E3%80%8C%E5%AE%8C%E7%BE%8E%E5%90%8C%E6%AD%A5%E3%80%8D%E7%9A%84%E7%B7%9A%EF%BC%8C%E5%B7%AE%E4%BA%86%E5%8D%81%E5%80%8D">雙軸圖表誤導</a></td>
+<td>兩個不同刻度的 Y 軸讓無關的變數看起來完美同步</td>
+</tr>
+<tr>
+<td>53</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-presentation-reporting/#53-%E6%AB%BB%E6%A1%83%E6%8C%91%E9%81%B8%EF%BC%88Cherry-Picking%EF%BC%89-%E5%BE%B7%E5%B7%9E%E7%A5%9E%E6%A7%8D%E6%89%8B%E8%AC%AC%E8%AA%A4">櫻桃挑選</a></td>
+<td>只展示成功的結果，隱藏失敗的嘗試</td>
+</tr>
+<tr>
+<td>54</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-presentation-reporting/#54-%E6%96%87%E4%BB%B6%E6%8A%BD%E5%B1%9C%E5%95%8F%E9%A1%8C%EF%BC%88File-Drawer-Problem%EF%BC%89%EF%BC%9A%E6%B2%89%E9%BB%98%E6%98%AF%E4%B8%80%E7%A8%AE%E6%9C%89%E7%B5%84%E7%B9%94%E7%9A%84%E8%AC%8A%E8%A8%80">文件抽屜問題</a></td>
+<td>負面結果被鎖進抽屜不公開，公開結論系統性偏向正面</td>
+</tr>
+<tr>
+<td>55</td>
+<td><a href="/zh-tw/blog/statistical-fallacies-presentation-reporting/#55-%E7%99%BC%E8%A1%A8%E5%81%8F%E5%B7%AE%EF%BC%88Publication-Bias%EF%BC%89%EF%BC%9A%E6%9C%9F%E5%88%8A%E6%98%AF%E4%B8%80%E5%80%8B%E5%8F%AA%E9%81%B8%E5%A5%BD%E6%B6%88%E6%81%AF%E7%9A%84%E9%81%8E%E6%BF%BE%E5%99%A8">發表偏差</a></td>
+<td>整個出版系統偏向接受有顯著正向結果的研究</td>
+</tr>
+</tbody></table>
+<hr>
+<p><a href="/zh-tw/blog/statistical-fallacies-overview/">← 回系列總覽</a></p>
+
+      </div>
+    </div>
+  </article>
+  <div class="post__foot">
+    
+    
+<div class="author-bio">
+  <input type="checkbox" id="authorLikeCode" />
+  
+  <div class="author-bio__inner">
+    <div class="author-bio__avatar">
+      <label for="authorLikeCode" class="author-bio__avatar-wrapper" title="點擊切換 QR Code">
+        <div class="author-bio__avatar-face">
+          <img id="author-front-face"
+               src="/images/content/about.webp" 
+               alt="Owen Hsiao (蕭為謙)"
+               loading="lazy"
+               decoding="async" />
+          
+          
+            <img id="author-back-face"
+                 alt="support code"
+                 src="/images/content/reward/bmc_qr.png"
+                 loading="lazy"
+                 decoding="async" />
+          
+        </div>
+      </label>
+    </div>
+
+    <div class="author-bio__content">
+      <div class="author-bio__header">
+        <h3 class="author-bio__name">
+          <a href="/zh-tw/about/">
+            Owen Hsiao (蕭為謙)
+          </a>
+        </h3>
+        <span class="author-bio__title">Writer, Thinker & Developer</span>
+      </div>
+
+      <p class="author-bio__description">
+        
+          一位開發者，透過深度文章探索科技、哲學與個人成長。
+        
+      </p>
+
+      <div class="author-bio__footer">
+        <div class="author-bio__social">
+          
+            <a href="https://github.com/gba3124" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               title="GitHub"
+               class="author-bio__social-link">
+              
+                <img src="/images/logos/logo-github.svg" alt="GitHub" loading="lazy" decoding="async" />
+              
+            </a>
+          
+            <a href="https://www.linkedin.com/in/owen-hsiao-875b50217" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               title="LinkedIn"
+               class="author-bio__social-link">
+              
+                <img src="/images/logos/logo-linkedin.png" alt="LinkedIn" loading="lazy" decoding="async" />
+              
+            </a>
+          
+            <a href="https://web.facebook.com/profile.php?id=100000464468024" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               title="Facebook"
+               class="author-bio__social-link">
+              
+                <img src="/images/logos/logo-facebook.png" alt="Facebook" loading="lazy" decoding="async" />
+              
+            </a>
+          
+            <a href="https://www.taipeifusion.org/zh/members?Owen" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               title="台北創聚扶輪社"
+               class="author-bio__social-link">
+              
+                <img src="/images/logos/logo-rotary.svg" alt="台北創聚扶輪社" loading="lazy" decoding="async" />
+              
+            </a>
+          
+        </div>
+
+        
+          <div class="author-bio__support">
+            <a href="https://buymeacoffee.com/gba3124" target="_blank" class="author-bio__support-btn">
+              <span class="support-icon">
+                <svg viewBox="0 0 1024 1024" width="18px" height="18px">
+                  <path d="M466.88 908.96L113.824 563.296a270.08 270.08 0 0 1 0-387.392c108.8-106.56 284.896-106.56 393.696 0 1.504 1.472 2.976 2.944 4.448 4.48 1.472-1.536 2.944-3.008 4.448-4.48 108.8-106.56 284.896-106.56 393.696 0a269.952 269.952 0 0 1 34.016 347.072l-387.392 385.6a64 64 0 0 1-89.92 0.384z" fill="currentColor" />
+                </svg>
+              </span>
+              <span class="support-text">支持我</span>
+            </a>
+            <span class="author-bio__support-hint">感謝您的支持與鼓勵</span>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+/* --- 基礎設定 --- */
+:root {
+  --bio-bg: rgba(255, 255, 255, 0.85);
+  --bio-border: rgba(0, 0, 0, 0.06);
+  --bio-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+  --bio-accent: #8B0000; /* 你的品牌紅 */
+  --bio-accent-light: rgba(139, 0, 0, 0.06);
+  --bio-text-main: #2c3e50;
+  --bio-text-sub: #7f8c8d;
+  --bio-radius: 16px;
+}
+
+#authorLikeCode {
+  display: none; /* 隱藏 checkbox */
+}
+
+/* --- 主容器 --- */
+.author-bio {
+  margin: 4rem auto;
+  padding: 2.5rem;
+  background: var(--bio-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--bio-border);
+  border-radius: var(--bio-radius);
+  box-shadow: var(--bio-shadow);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.author-bio:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+.author-bio__inner {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+
+/* --- 頭像區域 (翻轉特效) --- */
+.author-bio__avatar {
+  flex-shrink: 0;
+}
+
+.author-bio__avatar-wrapper {
+  width: 100px;
+  height: 100px;
+  perspective: 1000px; /* 為 3D 翻轉做準備 */
+  display: block; /* 讓 label 撐開 */
+  cursor: pointer; /* 顯示手指鼠標，提示可點擊 */
+}
+
+.author-bio__avatar-face {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+#author-front-face,
+#author-back-face {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden; /* 隱藏背面 */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border: 3px solid #fff;
+}
+
+#author-back-face {
+  transform: rotateY(180deg); /* 預設背面是轉過去的 */
+  border-radius: 12px; /* QR Code 方形導圓角 */
+  background: #fff;
+  padding: 6px; /* 留白邊距 */
+  object-fit: contain;
+}
+
+/* Checkbox 觸發翻轉 */
+#authorLikeCode:checked ~ .author-bio__inner .author-bio__avatar-face {
+  transform: rotateY(180deg);
+}
+
+/* --- 內容區域 --- */
+.author-bio__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.author-bio__header {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.author-bio__name {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.author-bio__name a {
+  color: var(--bio-text-main);
+  text-decoration: none;
+  background-image: linear-gradient(var(--bio-accent), var(--bio-accent));
+  background-size: 0% 2px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  transition: background-size 0.3s ease, color 0.3s ease;
+}
+
+.author-bio__name a:hover {
+  color: var(--bio-accent);
+  background-size: 100% 2px;
+}
+
+.author-bio__title {
+  font-size: 0.9rem;
+  color: var(--bio-accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+}
+
+.author-bio__description {
+  margin: 0 0 1.5rem 0;
+  line-height: 1.7;
+  color: #555;
+  font-size: 1rem;
+  max-width: 650px;
+}
+
+/* --- 底部區域 (社交 + 贊助) --- */
+.author-bio__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(0,0,0,0.04);
+}
+
+.author-bio__social {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.author-bio__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f8f9fa;
+  transition: all 0.2s ease;
+  color: var(--bio-text-sub);
+  text-decoration: none;
+}
+
+.author-bio__social-link img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.author-bio__social-link:hover {
+  background: var(--bio-text-main);
+  transform: translateY(-2px);
+  color: #fff;
+}
+
+/* --- 贊助按鈕區 --- */
+.author-bio__support {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.author-bio__support-hint {
+  font-size: 0.85rem;
+  color: #999;
+  font-weight: 500;
+  display: none; /* 預設隱藏提示文字，保持簡潔，Hover 或 Desktop 可顯示 */
+}
+
+.author-bio__support-btn {
+  /* 改為標準連結樣式，移除 label 特性 */
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 24px;
+  background: var(--bio-accent-light);
+  color: var(--bio-accent);
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  text-decoration: none; /* 移除下底線 */
+  user-select: none;
+}
+
+.author-bio__support-btn svg {
+  fill: var(--bio-accent);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.author-bio__support-btn:hover {
+  background: var(--bio-accent);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(139, 0, 0, 0.2);
+}
+
+.author-bio__support-btn:hover svg {
+  fill: #fff;
+  transform: scale(1.2);
+  animation: heartbeat 1s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1.2); }
+  15% { transform: scale(1.4); }
+  30% { transform: scale(1.2); }
+  45% { transform: scale(1.3); }
+  60% { transform: scale(1.2); }
+}
+
+/* --- RWD 手機版 --- */
+@media screen and (max-width: 768px) {
+  .author-bio {
+    padding: 2rem 1.5rem;
+    margin: 2rem auto;
+  }
+
+  .author-bio__inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  
+  .author-bio__header {
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .author-bio__footer {
+    justify-content: center;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .author-bio__support-hint {
+    display: block; /* 手機版可以顯示提示文字，因為空間垂直排列足夠 */
+    margin-top: 0.5rem;
+  }
+}
+
+/* 大螢幕時顯示提示文字 */
+@media screen and (min-width: 992px) {
+  .author-bio__support-hint {
+    display: inline-block;
+  }
+}
+</style>
+    
+    <div class="post-nav">
+  
+    <a class="post-nav-item-left" href="/en/blog/statistical-fallacies-overview/">
+      <div class="text-align">
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" />
+        </svg>
+        <span class="text-small">上一篇</span>
+      </div>
+      <div>The Traps Behind the Data: A Guide to 55 Statistical Fallacies</div>
+    </a>
+  
+  <div class="vhr"></div>
+  
+    <a class="post-nav-item-right" href="/zh-tw/blog/statistical-fallacies-overview/">
+      <div class="text-align">
+        <span class="text-small">下一篇</span>
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             transform="scale(-1,-1)"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" />
+        </svg>
+      </div>
+      數據背後的陷阱：55 種統計謬論指南
+    </a>
+  
+</div>
+
+    
+    
+    
+      <!-- Firebase 留言系統組件 -->
+<div class="comment-system" id="comment-system">
+  <!-- 留言將在這裡動態載入 -->
+</div>
+
+<!-- Firebase 配置腳本 -->
+<script>
+  // Firebase 配置 - 從主題配置讀取
+  window.FIREBASE_CONFIG = {
+    apiKey: "AIzaSyAESLWLI-pgJCwJdE51TmUFCFaUlOj5fu8",
+    authDomain: "owenhsiao-blog.firebaseapp.com", 
+    projectId: "owenhsiao-blog",
+    storageBucket: "owenhsiao-blog.firebasestorage.app",
+    messagingSenderId: "844251626767",
+    appId: "1:844251626767:web:480fd052da01f06134527a"
+  };
+</script>
+
+<!-- Firebase SDK (v9 compat mode for better compatibility) -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+<script>
+  // 初始化 Firebase
+  if (window.FIREBASE_CONFIG && window.FIREBASE_CONFIG.apiKey !== "your-api-key") {
+    try {
+      firebase.initializeApp(window.FIREBASE_CONFIG);
+      window.db = firebase.firestore();
+      
+      console.log('[OK] Firebase 初始化成功');
+      
+      // 當頁面載入完成後初始化留言系統
+      document.addEventListener('DOMContentLoaded', function() {
+        if (window.CommentSystemCompat) {
+          // 獲取當前文章的唯一 ID（使用 lang/slug 格式，不受分類路徑變動影響）
+          const pathSegments = window.location.pathname.replace(/\/$/, '').split('/').filter(Boolean);
+          const lang = pathSegments.find(seg => ['zh-tw', 'en'].includes(seg)) || 'zh-tw';
+          const slug = pathSegments.length > 0 ? pathSegments[pathSegments.length - 1] : 'home';
+          const postId = lang + '/' + slug;
+          
+          // 初始化留言系統
+          window.commentSystem = new window.CommentSystemCompat(postId, 'comment-system');
+          console.log('[OK] 留言系統初始化成功，文章 ID:', postId);
+        } else {
+          console.error('[ERR] CommentSystemCompat 未載入');
+        }
+      });
+    } catch (error) {
+      console.error('[ERR] Firebase 初始化失敗:', error);
+      
+      // 顯示設定提示
+      document.addEventListener('DOMContentLoaded', function() {
+        const container = document.getElementById('comment-system');
+        if (container) {
+          container.innerHTML = `
+            <div style="background: rgba(255, 243, 205, 0.9); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 16px; padding: 2rem; margin: 2rem 0; text-align: center; backdrop-filter: blur(10px);">
+              <h3 style="color: #8B0000; margin-bottom: 1rem; font-weight: 600; font-size: 1.25rem;">Comment System Setup</h3>
+              <p style="color: #856404; margin-bottom: 1rem; line-height: 1.6;">請完成 Firebase 配置以啟用留言功能</p>
+              <p style="color: #6c757d; font-size: 0.9rem; margin: 0;">
+                運行 <code style="background: rgba(0, 0, 0, 0.05); padding: 2px 6px; border-radius: 4px;">./setup-comments.sh</code> 查看設定指南
+              </p>
+            </div>
+          `;
+        }
+      });
+    }
+  } else {
+    // Firebase 配置未設定時顯示提示
+    document.addEventListener('DOMContentLoaded', function() {
+      const container = document.getElementById('comment-system');
+      if (container) {
+        container.innerHTML = `
+          <div style="background: rgba(255, 243, 205, 0.9); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 16px; padding: 2rem; margin: 2rem 0; text-align: center; backdrop-filter: blur(10px);">
+            <h3 style="color: #8B0000; margin-bottom: 1rem; font-weight: 600; font-size: 1.25rem;">Comment System Setup</h3>
+            <p style="color: #856404; margin-bottom: 1rem; line-height: 1.6;">請完成 Firebase 配置以啟用留言功能</p>
+            <p style="color: #6c757d; font-size: 0.9rem; margin: 0;">
+              運行 <code style="background: rgba(0, 0, 0, 0.05); padding: 2px 6px; border-radius: 4px;">./setup-comments.sh</code> 查看設定指南
+            </p>
+          </div>
+        `;
+      }
+    });
+  }
+</script>
+
+<!-- 留言系統腳本 -->
+<script src="/js/comments/comment-system-compat.js"></script>
+
+    
+  </div>
+
+    </main>
+    <div class="foot">
+  <div class="footer-bg">
+    <div class="footer-threads" id="footer-threads"></div>
+    <!-- Footer Dock 在 threads 中間 -->
+    <div id="footer-dock-container"></div>
+  </div>
+  <div class="footer-blur-layer"></div>
+</div>
+
+<!-- Copyright 移到最下面，獨立容器 -->
+<div class="footer-copyright-section">
+  <div class="foot-inner">
+    <div class="copyright">
+      <svg width="16" height="16" viewBox="0 0 725 725">
+        <path fill-rule="evenodd" fill="currentColor" d="M145.870,236.632 L396.955,103.578 L431.292,419.44 L156.600,522.53 L145.870,236.632 Z" />
+        <path fill-rule="evenodd" fill="currentColor" d="M396.955,103.578 L564.345,234.486 L611.558,513.469 L431.292,419.44 L396.955,103.578 Z" />
+        <path fill-rule="evenodd" fill="currentColor" d="M431.292,419.44 L611.558,513.469 L358.327,595.18 L156.600,522.53 L431.292,419.44 Z" />
+      </svg>
+      <span>由 <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 驅動 · 主題 <a target="_blank" rel="noopener" href="https://github.com/hooozen/hexo-theme-tranquility">Tranquility</a></span>
+      <span>© 2026 <a href="https://owenhsiao.com">Owen Hsiao</a></span>
+    </div>
+  </div>
+</div>
+
+<!-- 傳遞主題配置數據給 JavaScript -->
+<script>
+  window.themeConfig = {
+    social: [{"name":"GitHub","icon":"/images/logos/logo-github.svg","url":"https://github.com/gba3124"},{"name":"LinkedIn","icon":"/images/logos/logo-linkedin.png","url":"https://www.linkedin.com/in/owen-hsiao-875b50217"},{"name":"Facebook","icon":"/images/logos/logo-facebook.png","url":"https://web.facebook.com/profile.php?id=100000464468024"},{"name":"台北創聚扶輪社","icon":"/images/logos/logo-rotary.svg","url":"https://www.taipeifusion.org/zh/members?Owen"}],
+    contacts: [{"name":"wei-chien.hsiao.tw@member.mensa.org","icon":"/images/icons/ui/icon/icon-email.svg","url":"mailto:wei-chien.hsiao.tw@member.mensa.org"}],
+    links: [{"name":"台灣獨立駭客","url":"https://www.indiehackerstaiwan.com"},{"name":"Frontier","url":"https://frontier-lab.io"}],
+    lang: {
+      social: '帳號',
+      contact: '聯繫',
+      friends: '朋友',
+      gesture: {
+        title: '手勢控制',
+        camera: '攝像頭',
+        tracking: '追蹤',
+        pinch: '捏合',
+        start: '啟動',
+        stop: '停止',
+        starting: '啟動中...',
+        sensitivity: '靈敏度',
+        scroll: '滾動',
+        debug: '除錯模式',
+        tip1: '1. 移動手部控制游標',
+        tip2: '2. 捏合點擊，拖曳滾動',
+        error_camera_denied: '請允許攝像頭權限以使用手勢控制',
+        error_camera_not_found: '找不到攝像頭裝置'
+      }
+    }
+  };
+</script>
+
+    
+    
+    
+      
+    
+    
+    
+      <script defer src="/js/search.js"></script>
+      <script defer>document.addEventListener('DOMContentLoaded', function() { searchInitialize("/search.json"); });</script>
+    
+    
+      <script defer src="/js/copy-code.js"></script>
+    
+    <script defer src="/js/language-switch.js"></script>
+    <script>
+      window.__TRQLT_PERF = {
+        three: "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js",
+        threadsFooter: "/js/threads-footer.js",
+        footerDock: "/js/footer-dock.js",
+        customCursor: "/js/custom-cursor.js",
+        oneEuroFilter: "/js/one-euro-filter.js",
+        gestureControl: "/js/gesture-control.js",
+        gestureUI: "/js/gesture-ui.js",
+        gestureInit: "/js/gesture-init.js",
+        textPressure: "/js/text-pressure.js",
+        fuzzyText: "/js/fuzzy-text.js",
+        tiltedCard: "/js/tilted-card.js",
+        metallicPaint: "/js/metallic-paint.js",
+        tagcloudInit: "/js/tagcloud-init.js",
+        fancyTagcloud: false
+      };
+    </script>
+    <script defer src="/js/perf-loader.js?v=2"></script>
+    <script defer src="/js/lazy-bg.js"></script>
+    
+    
+  
+  
+    <script defer src="https://unpkg.com/mermaid@11.14.0/dist/mermaid.min.js"></script>
+    <script defer>
+      document.addEventListener('DOMContentLoaded', function() {
+        if (!window.mermaid || !document.querySelector('.mermaid')) return;
+        mermaid.initialize({"startOnload":true});
+      });
+    </script>
+  
+
+  </body>
+</html>

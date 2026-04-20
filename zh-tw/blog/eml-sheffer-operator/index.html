@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+    <meta charset="utf8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <title>
+      
+        一個運算子統治所有函數：EML 算子與連續數學的 NAND 閘 | Owen Hsiao
+      
+    </title>
+    <meta name="description" content="一位波蘭物理學家發現了連續數學的 Sheffer stroke：eml(x, y) = exp(x) − ln(y)，只需要這個運算子加上常數 1，就能建構出科學計算機上的所有函數。這對符號回歸、量化交易的公式搜尋、以及深度學習的可解釋性意味著什麼？" />
+    <meta name="keywords" content="math, deep-learning, symbolic-regression, computer-science, quantitative-finance" />
+    <meta name="author" content="Owen Hsiao (蕭為謙)" />
+    
+    
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="一個運算子統治所有函數：EML 算子與連續數學的 NAND 閘" />
+    <meta property="og:description" content="一位波蘭物理學家發現了連續數學的 Sheffer stroke：eml(x, y) = exp(x) − ln(y)，只需要這個運算子加上常數 1，就能建構出科學計算機上的所有函數。這對符號回歸、量化交易的公式搜尋、以及深度學習的可解釋性意味著什麼？" />
+    <meta property="og:url" content="https://owenhsiao.com/zh-tw/blog/eml-sheffer-operator/" />
+    <meta property="og:site_name" content="Owen Hsiao" />
+    <meta property="og:locale" content="zh_tw" />
+    
+    <meta property="og:image" content="https://owenhsiao.com/images/backgrounds/cover/eml-operator-graph.png" />
+    
+    
+    <meta property="article:published_time" content="2026-04-14T16:00:00.000Z" />
+    <meta property="article:modified_time" content="2026-04-15T11:39:31.220Z" />
+    <meta property="article:author" content="Owen Hsiao (蕭為謙)" />
+    
+    <meta property="article:tag" content="math" />
+    
+    <meta property="article:tag" content="deep-learning" />
+    
+    <meta property="article:tag" content="symbolic-regression" />
+    
+    <meta property="article:tag" content="computer-science" />
+    
+    <meta property="article:tag" content="quantitative-finance" />
+    
+    
+    
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="一個運算子統治所有函數：EML 算子與連續數學的 NAND 閘" />
+    <meta name="twitter:description" content="一位波蘭物理學家發現了連續數學的 Sheffer stroke：eml(x, y) = exp(x) − ln(y)，只需要這個運算子加上常數 1，就能建構出科學計算機上的所有函數。這對符號回歸、量化交易的公式搜尋、以及深度學習的可解釋性意味著什麼？" />
+    
+    <meta name="twitter:image" content="https://owenhsiao.com/images/backgrounds/cover/eml-operator-graph.png" />
+    
+    <meta name="twitter:creator" content="@Owen Hsiao" />
+
+    
+    
+    
+    
+    <link rel="canonical" href="https://owenhsiao.com/zh-tw/blog/eml-sheffer-operator/" />
+
+    
+    
+    
+      <meta name="robots" content="index,follow" />
+    
+
+    
+    
+      
+      
+        
+        
+          
+          
+          <link rel="alternate" hreflang="zh-tw" href="https://owenhsiao.com/zh-tw/blog/eml-sheffer-operator/" />
+        
+      
+        
+        
+          
+          
+          <link rel="alternate" hreflang="en" href="https://owenhsiao.com/en/blog/eml-sheffer-operator/" />
+        
+      
+        
+        
+      
+      <link rel="alternate" hreflang="x-default" href="https://owenhsiao.com/en/blog/eml-sheffer-operator/" />
+    
+
+    
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@graph":[{"@type":["WebSite","Blog"],"@id":"https://owenhsiao.com/#website","name":"Owen Hsiao","url":"https://owenhsiao.com","description":"Personal blog featuring essays, insights, and projects by Owen Hsiao (蕭為謙). Exploring technology, philosophy, and life through deep thinking and analysis.","inLanguage":["zh-TW","en"],"publisher":{"@id":"https://owenhsiao.com/#person"},"author":{"@id":"https://owenhsiao.com/#person"},"potentialAction":{"@type":"SearchAction","target":"https://owenhsiao.com/search/index.html?q={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"Person","@id":"https://owenhsiao.com/#person","name":"Owen Hsiao (蕭為謙)","alternateName":["Owen Hsiao","蕭為謙"],"url":"https://owenhsiao.com","image":{"@type":"ImageObject","url":"https://owenhsiao.com/images/content/about.webp"},"jobTitle":"Writer, Thinker & Developer","description":"一位開發者，透過深度文章探索科技、哲學與個人成長。","sameAs":["https://github.com/gba3124","https://www.linkedin.com/in/owen-hsiao-875b50217","https://web.facebook.com/profile.php?id=100000464468024"],"mainEntityOfPage":"https://owenhsiao.com/zh-tw/about/"}]}
+    </script>
+    
+    
+    
+    
+    
+      
+    
+    
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Owen Hsiao","item":"https://owenhsiao.com/zh-tw/"},{"@type":"ListItem","position":2,"name":"文章","item":"https://owenhsiao.com/zh-tw/blog/"},{"@type":"ListItem","position":3,"name":"一個運算子統治所有函數：EML 算子與連續數學的 NAND 閘","item":"https://owenhsiao.com/zh-tw/blog/eml-sheffer-operator/"}]}
+    </script>
+    
+
+    
+    
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@type":"BlogPosting","headline":"一個運算子統治所有函數：EML 算子與連續數學的 NAND 閘","description":"一位波蘭物理學家發現了連續數學的 Sheffer stroke：eml(x, y) = exp(x) − ln(y)，只需要這個運算子加上常數 1，就能建構出科學計算機上的所有函數。這對符號回歸、量化交易的公式搜尋、以及深度學習的可解釋性意味著什麼？","image":"https://owenhsiao.com/images/backgrounds/cover/eml-operator-graph.png","datePublished":"2026-04-14T16:00:00.000Z","dateModified":"2026-04-15T11:39:31.220Z","inLanguage":"zh-tw","articleSection":"blog","author":{"@type":"Person","name":"Owen Hsiao (蕭為謙)","alternateName":["Owen Hsiao","蕭為謙"],"url":"https://owenhsiao.com","image":"https://owenhsiao.com/images/content/about.webp","jobTitle":"Writer, Thinker & Developer","sameAs":["https://github.com/gba3124","https://www.linkedin.com/in/owen-hsiao-875b50217","https://web.facebook.com/profile.php?id=100000464468024"]},"publisher":{"@type":"Person","name":"Owen Hsiao (蕭為謙)","logo":{"@type":"ImageObject","url":"https://owenhsiao.com/images/logos/logo.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://owenhsiao.com/zh-tw/blog/eml-sheffer-operator/"},"isPartOf":{"@type":"WebSite","name":"Owen Hsiao","url":"https://owenhsiao.com"},"keywords":"math, deep-learning, symbolic-regression, computer-science, quantitative-finance"}
+    </script>
+    
+
+    
+    
+
+    <!-- DNS Prefetch & Preconnect for external resources -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Google Fonts - Space Grotesk (body) + Playfair Display (headings) + Inconsolata (code) + CJK -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inconsolata:wght@400;600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inconsolata:wght@400;600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inconsolata:wght@400;600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" /></noscript>
+    
+    
+      <link rel="apple-touch-icon"
+            sizes="180x180"
+            href="/images/favicons/apple-touch-icon.png" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/images/favicons/favicon-32x32.png" />
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/images/favicons/favicon-16x16.png" />
+    
+    
+      <link rel="mask-icon"
+            href="/images/logos/logo.svg"
+            color="" />
+    
+    
+    
+    
+    <!-- Critical CSS: layout -->
+    <link rel="stylesheet"
+          type="text/css"
+          href='/css/layout.css' />
+    
+    <!-- Non-critical CSS: Gesture Control - defer loading -->
+    <link rel="preload" as="style" href='/css/gesture-control.css' />
+    <link rel="stylesheet"
+          type="text/css"
+          href='/css/gesture-control.css'
+          media="print"
+          onload="this.media='all'" />
+    <noscript><link rel="stylesheet" type="text/css" href='/css/gesture-control.css' /></noscript>
+    
+    
+    
+  <link rel="stylesheet" type="text/css" href="/css/post.css"/>
+  
+  <link rel="stylesheet" type="text/css" href="/css/comments.css"/>
+  <style>
+    /* Post 頁面專用白色 nav 樣式 */
+    .nav {
+      background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 15%, rgba(255, 255, 255, 0.7) 30%, rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 1) 70%, rgba(255, 255, 255, 1) 100%) !important;
+    }
+    
+    /* Post 頁面的 nav 文字顏色調整 */
+    .nav-menu-item {
+      color: #333 !important;
+    }
+    
+    .nav-menu-item:hover {
+      color: #000 !important;
+    }
+    
+    .lang-switch {
+      color: #333 !important;
+      border-color: #333 !important;
+    }
+
+    .lang-switch:hover {
+      background: #333 !important;
+      color: white !important;
+    }
+    
+    /* Post 頁面搜索按鈕白色主題 */
+    #search-btn {
+      background: rgba(255, 255, 255, 0.9) !important;
+      border: 1px solid rgba(139, 0, 0, 0.15) !important;
+      color: #2c2c2c !important;
+    }
+    
+    #search-btn .icon {
+      color: #2c2c2c !important;
+    }
+    
+    #search-btn .icon path {
+      fill: #2c2c2c !important;
+    }
+    
+    #search-btn > span:not(.search-shortcut-key) {
+      color: #2c2c2c !important;
+    }
+    
+    #search-btn .search-shortcut-key {
+      border: 1px solid rgba(139, 0, 0, 0.2) !important;
+      background: rgba(139, 0, 0, 0.05) !important;
+      color: rgba(44, 44, 44, 0.8) !important;
+    }
+    
+    #search-btn:hover {
+      background: rgba(255, 255, 255, 0.95) !important;
+      border-color: rgba(139, 0, 0, 0.3) !important;
+      color: #000000 !important;
+    }
+    
+    #search-btn:hover .icon {
+      color: #000000 !important;
+    }
+    
+    #search-btn:hover .icon path {
+      fill: #000000 !important;
+    }
+    
+    #search-btn:hover > span:not(.search-shortcut-key) {
+      color: #000000 !important;
+    }
+    
+    #search-btn:hover .search-shortcut-key {
+      background: rgba(139, 0, 0, 0.1) !important;
+      border-color: rgba(139, 0, 0, 0.3) !important;
+      color: #2c2c2c !important;
+    }
+    
+    /* 手機版 nav 按鈕顏色 */
+    .nav-btn::before, 
+    .nav-btn::after {
+      background: #333 !important;
+    }
+    
+    /* 手機版 nav 和菜單樣式 */
+    @media screen and (max-width: 1023px) {
+      .nav {
+        background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 15%, rgba(255, 255, 255, 0.7) 30%, rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 1) 70%, rgba(255, 255, 255, 1) 100%) !important;
+      }
+      
+      .nav-menu {
+        background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 15%, rgba(255, 255, 255, 0.7) 30%, rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 1) 70%, rgba(255, 255, 255, 1) 100%) !important;
+      }
+    }
+  </style>
+
+    <script>
+      (function () {
+        var GA_ID = 'G-JPFR7PFSPP';
+        var initialized = false;
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { window.dataLayer.push(arguments); };
+
+        function initAnalytics() {
+          if (initialized) return;
+          initialized = true;
+          var script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+          script.onload = function () {
+            window.gtag('js', new Date());
+            window.gtag('config', GA_ID);
+          };
+          document.head.appendChild(script);
+        }
+
+        function start() {
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(initAnalytics, { timeout: 3000 });
+          } else {
+            setTimeout(initAnalytics, 1200);
+          }
+        }
+
+        start();
+        ['pointerdown', 'keydown', 'touchstart'].forEach(function (eventName) {
+          document.addEventListener(eventName, initAnalytics, { once: true, passive: true, capture: true });
+        });
+      })();
+    </script>
+  <meta name="generator" content="Hexo 7.3.0"></head>
+  <body data-page="post">
+    
+      <div id="search-mask" style="display:none">
+  <div class="search-main" id="search-main">
+    <div class="search__head">
+      <div class="search-form">
+        <svg t="1706347533072"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="7828"
+             width="20"
+             height="20">
+          <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="currentColor" p-id="7829">
+          </path>
+        </svg>
+        <label for="search-input"
+               style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">
+          搜尋...
+        </label>
+        <input id="search-input" type="search" aria-label="搜尋..." placeholder="搜尋...">
+        <svg t="1706361500528"
+             id="search-clear"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             version="1.1"
+             xmlns="http://www.w3.org/2000/svg"
+             p-id="4351"
+             width="20"
+             height="20">
+          <path d="M512 562.688l-264.2944 264.2944-50.688-50.688L461.312 512 197.0176 247.7056l50.688-50.688L512 461.312l264.2944-264.2944 50.688 50.688L562.688 512l264.2944 264.2944-50.688 50.688L512 562.688z" fill="currentColor" p-id="4352">
+          </path>
+        </svg>
+      </div>
+    </div>
+    <div class="search__body" id="search-result"></div>
+    <div class="search__foot"></div>
+  </div>
+</div>
+<script>
+window.TRANQUILITY_I18N = {
+  search: {
+    empty: "找不到關於 undefined 的結果",
+    hits: "找到 undefined 個關於 undefined 的結果",
+    hits_time: "找到 undefined 個結果（用時 undefined 毫秒）"
+  },
+  post: {
+    untitled: "無標題"
+  }
+};
+</script>
+
+    
+    
+    
+    <div class=head>
+      <div class="nav">
+        <a href='/zh-tw/' class="nav-logo">
+          <img alt="logo" height="60px" width="60px" src="/images/logos/logo.svg" />
+        </a>
+        <input id="navBtn" type="checkbox" />
+        <div class="nav-right">
+          
+            <div class="search-outer">
+  <div class="search" id="search-btn" role="button" tabindex="0" aria-label="搜尋...">
+    <svg t="1706347533072"
+         class="icon"
+         viewBox="0 0 1024 1024"
+         version="1.1"
+         xmlns="http://www.w3.org/2000/svg"
+         p-id="7828"
+         width="18"
+         height="18">
+      <path d="M685.6 660.336l155.152 155.168a16 16 0 0 1 0 22.624l-11.312 11.328a16 16 0 0 1-22.624 0l-158.528-158.544a289.792 289.792 0 0 1-165.152 51.36C322.336 742.256 192 611.904 192 451.12 192 290.336 322.336 160 483.136 160c160.784 0 291.12 130.336 291.12 291.136 0 82.112-33.984 156.272-88.672 209.2z m-202.464 33.92c134.272 0 243.12-108.848 243.12-243.12C726.256 316.848 617.408 208 483.136 208 348.848 208 240 316.848 240 451.136c0 134.272 108.848 243.12 243.136 243.12z" fill="currentColor" p-id="7829">
+      </path>
+    </svg>
+    <span>Search</span>
+    <span class="search-shortcut-key">⌘K</span>
+  </div>
+</div>
+
+          
+          <div class="nav-menu">
+            
+              
+                <a class="nav-menu-item" href="/zh-tw/blog">文章</a>
+              
+            
+            <a class="nav-menu-item" href='/zh-tw/about/'>關於</a>
+            
+          </div>
+          <button class="lang-switch" onclick="switchLanguage()">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor" d="M12.87 15.07c-.29-.3-.57-.61-.84-.93c.8-.95 1.49-2 2.03-3.14h1.68V9h-5V7h-2v2H3v2h8.64a11.9 11.9 0 0 1-1.52 2.46c-.9-.99-1.66-2.09-2.26-3.29H5.84a13.9 13.9 0 0 0 2.97 4.4l-1.52 1.52l1.41 1.41L12 14.2l2.3 2.3l1.41-1.41l-2.84-2.84zM17.5 10h-2l-4.5 12h2l1.2-3h4.6l1.2 3h2l-4.5-12zm-2.64 7l1.94-5.18L18.74 17h-3.88z"/>
+            </svg>
+            <span>English</span>
+          </button>
+        </div>
+        <label class="nav-btn" for="navBtn"></label>
+      </div>
+    </div>
+    
+    
+    <main class="body" id="main-content">
+      
+  <article class="post-content">
+    <div class="post-inner">
+      <div class="post-content__head">
+        <div class="post-tags-row">
+          
+  <a href="/zh-tw/tags/math/" class="post-tag">math</a><a href="/zh-tw/tags/deep-learning/" class="post-tag">deep-learning</a><a href="/zh-tw/tags/symbolic-regression/" class="post-tag">symbolic-regression</a><a href="/zh-tw/tags/computer-science/" class="post-tag">computer-science</a><a href="/zh-tw/tags/quantitative-finance/" class="post-tag">quantitative-finance</a>
+
+
+        </div>
+        <div class="post-title">一個運算子統治所有函數：EML 算子與連續數學的 NAND 閘</div>
+        <div class="post-info">
+          <div class="post-info__meta">
+            <span class="post-date">2026-04-15</span>
+          </div>
+          
+          <div class="post-info__description">一位波蘭物理學家發現了連續數學的 Sheffer stroke：eml(x, y) = exp(x) − ln(y)，只需要這個運算子加上常數 1，就能建構出科學計算機上的所有函數。這對符號回歸、量化交易的公式搜尋、以及深度學習的可解釋性意味著什麼？</div>
+          
+        </div>
+      </div>
+      
+      <div class="post-content__body">
+        <p>前陣子在 arXiv 上看到一篇論文，看完之後我整個人愣住了</p>
+<p>標題很樸素，<em>All elementary functions from a single operator</em>，作者是波蘭 Jagiellonian 大學的理論物理學家 Andrzej Odrzywolek，他發現了一件事：</p>
+<blockquote>
+<p><strong>一個二元運算子 eml(x, y) &#x3D; exp(x) − ln(y)，配上常數 1，就能建構出科學計算機上的所有函數</strong></p>
+</blockquote>
+<p>sin, cos, tan, log, sqrt, 加減乘除, 指數, 反三角函數, 雙曲函數，全部都可以</p>
+<p>這等於是在說，你手上那台科學計算機的 36 個按鈕，其實只需要 2 個就夠了</p>
+<h2 id="為什麼這件事不平凡"><a href="#為什麼這件事不平凡" class="headerlink" title="為什麼這件事不平凡"></a>為什麼這件事不平凡</h2><p>學過數位邏輯的人都知道 NAND 閘，在布林邏輯的世界裡，NAND 是一個「萬能閘」：AND, OR, NOT, XOR… 所有邏輯運算都可以只用 NAND 組合出來，這是數位電路的基石，也是為什麼晶片上可以只用一種電晶體結構就建構出任意複雜的邏輯</p>
+<p>但在連續數學的世界裡，從來沒有人找到過這樣的東西</p>
+<p>我們知道很多函數之間有冗餘關係，tan &#x3D; sin&#x2F;cos，√x &#x3D; x^(1&#x2F;2)，sinh 和 cosh 可以用 exp 表達，Euler 公式把三角函數和指數函數統一了。歷史上對數的發明把乘法化約成加法，Euler 公式進一步把 exp 和 ln 確立為核心，但化約到 exp 和 ln 之後就一直卡在那裡</p>
+<p>幾百年來沒有人再往下走一步</p>
+<p>Odrzywolek 做的事情是用系統性的窮舉搜尋，一步步把科學計算機的 36 個基本元素（常數、函數、運算子）往下削減，從 36 個削到 Wolfram Mathematica 的 7 個，再到 6 個、4 個、3 個，最後削到只剩 2 個：一個運算子 EML，一個常數 1</p>
+<h2 id="EML-怎麼運作"><a href="#EML-怎麼運作" class="headerlink" title="EML 怎麼運作"></a>EML 怎麼運作</h2><p>定義極其簡單：</p>
+<p>$$\text{eml}(x, y) &#x3D; e^x - \ln(y)$$</p>
+<p>幾個直觀的例子：</p>
+<ul>
+<li><strong>e</strong> &#x3D; eml(1, 1)，因為 e¹ − ln(1) &#x3D; e − 0 &#x3D; e</li>
+<li><strong>exp(x)</strong> &#x3D; eml(x, 1)，因為 eˣ − ln(1) &#x3D; eˣ</li>
+<li><strong>ln(x)</strong> &#x3D; eml(1, eml(eml(1, x), 1))，這個就開始反直覺了</li>
+</ul>
+<p>到了乘法和三角函數，EML 表達式的深度可以到 8 層甚至更深，論文中有一個完整的推導鏈（Figure 1），從 eml 和 1 出發逐步建構出 e → exp → ln → 0 → −1 → minus → i → π → 加法 → 減法 → 乘法 → 除法 → 指數 → 所有三角函數</p>
+<p>整條鏈的文法極其簡單：S → 1 | eml(S, S)，就這樣，一個 context-free grammar 就能生成所有基礎數學函數</p>
+<h2 id="這個發現的搜尋過程本身就很精彩"><a href="#這個發現的搜尋過程本身就很精彩" class="headerlink" title="這個發現的搜尋過程本身就很精彩"></a>這個發現的搜尋過程本身就很精彩</h2><p>論文裡有一個小例子很好地說明了為什麼這類問題不能靠直覺解決</p>
+<p>假設你只有三個運算：suc(x) &#x3D; x + 1，pre(x) &#x3D; x − 1，inv(x) &#x3D; 1&#x2F;x，請問怎麼算出 −x？</p>
+<p>答案是：</p>
+<p>$$\text{suc}(\text{inv}(\text{pre}(\text{inv}(\text{suc}(\text{inv}(x)))))) &#x3D; -x$$</p>
+<p>深度 5 的巢狀，完全違反直覺，而 EML 的建構過程中充滿了這種 Kolmogorov 複雜度在 7 到 9 之間的表達式，根本不可能靠人腦硬想</p>
+<p>Odrzywolek 的方法是混合式的，先把代數無關的超越常數（像 Euler-Mascheroni 常數）代入變數，用數值計算篩選候選公式，再用符號計算驗證，整個搜尋過程用 Mathematica 實作，後來又用 GPT Codex 翻譯成 Rust，速度快了三個數量級</p>
+<h2 id="為什麼我覺得這對量化交易和深度學習有重大意義"><a href="#為什麼我覺得這對量化交易和深度學習有重大意義" class="headerlink" title="為什麼我覺得這對量化交易和深度學習有重大意義"></a>為什麼我覺得這對量化交易和深度學習有重大意義</h2><p>這裡才是我真正想說的</p>
+<h3 id="符號回歸：從數據中發現精確公式"><a href="#符號回歸：從數據中發現精確公式" class="headerlink" title="符號回歸：從數據中發現精確公式"></a>符號回歸：從數據中發現精確公式</h3><p>量化交易和科學建模中有一個核心問題，你有一堆數據，你想找到背後的精確數學公式，這就是符號回歸（Symbolic Regression）的領域</p>
+<p>傳統的符號回歸方法不管是遺傳演算法還是更現代的方法，都面臨一個根本困難：<strong>搜尋空間是異質的</strong>，你需要同時搜尋要用哪些運算子（+, −, ×, sin, log…）以及它們的組合方式，這讓搜尋空間既巨大又不規則</p>
+<p>EML 徹底改變了這個局面</p>
+<p>因為所有基礎函數都可以用同一個運算子表達，搜尋空間變成了一棵<strong>均質的二元樹</strong>，每個節點都是 eml，每個葉子不是 1 就是輸入變數 x，你不需要決定「這裡該放 sin 還是 log」，只需要決定樹的結構和每個葉子的值</p>
+<p>更關鍵的是這棵樹是<strong>可微分的</strong>，論文中展示了一個「master formula」的概念：在樹的每個輸入位置放一個線性組合 αᵢ + βᵢx + γᵢf，其中 α, β, γ 是可訓練的參數，然後用 Adam optimizer 做梯度下降，訓練完之後把權重 snap 到最近的 0 或 1，就能恢復出精確的符號表達式</p>
+<p>論文的實驗結果是在深度 2 的樹上從隨機初始化出發，100% 的實驗都能恢復出正確的公式，深度 3-4 約 25%，深度 5 以上就很難了，但重點是：<strong>當你從正確解附近出發時，即使深度 5 和 6 也能 100% 收斂回去</strong>，這意味著正確的 basin of attraction 是存在的，問題只在於如何找到它</p>
+<h3 id="對量化交易的意義"><a href="#對量化交易的意義" class="headerlink" title="對量化交易的意義"></a>對量化交易的意義</h3><p>在量化交易中我們經常需要從市場數據中挖掘出有預測力的因子或公式，傳統做法要嘛是人工構造因子（依賴領域知識和直覺），要嘛是用機器學習的黑箱模型（有效但不可解釋）</p>
+<p>EML 提供了一個中間路線：<strong>用梯度下降來搜尋精確的數學公式</strong></p>
+<p>想像一下，你把價格序列、成交量、波動率等數據餵進一個 EML tree，訓練後得到的不是一個不可解釋的神經網路權重矩陣，而是一個可以寫成封閉形式的數學公式，你可以直接看到這個因子的數學結構，理解它為什麼有效，判斷它是過擬合還是真的捕捉到了某種市場規律</p>
+<p>這在風險管理和模型審計上的價值是巨大的</p>
+<h3 id="對深度學習的意義"><a href="#對深度學習的意義" class="headerlink" title="對深度學習的意義"></a>對深度學習的意義</h3><p>論文中有一個很妙的觀察：<strong>任何傳統神經網路都是 EML tree 的特例</strong></p>
+<p>因為標準的激活函數（ReLU, sigmoid, tanh…）本身就是基礎函數，所以任何用這些激活函數建構的神經網路理論上都可以用 EML 表達，但反過來不成立，EML tree 能表達的東西比傳統神經網路更多</p>
+<p>更重要的是可解釋性，傳統神經網路訓練完之後你得到的是一堆浮點數權重，沒有人能從中讀出物理意義，但 EML tree 訓練完之後如果權重能 snap 到精確值，你得到的是一個<strong>可讀的數學公式</strong>，這是一種傳統架構根本不可能提供的可解釋性</p>
+<p>論文的原話是：</p>
+<blockquote>
+<p>When this succeeds, the discovered circuits are legible as elementary function expressions — a form of interpretability unavailable to conventional architectures.</p>
+</blockquote>
+<h2 id="開放問題"><a href="#開放問題" class="headerlink" title="開放問題"></a>開放問題</h2><p>這篇論文讓我最興奮的，反而是它還沒解決的問題</p>
+<p>EML 需要一個特定常數 1 作為起點，NAND 閘不需要，它可以從任意輸入生成 0 和 1，那有沒有一個連續的二元運算子不需要任何特定常數就能生成所有基礎函數？Odrzywolek 自己也在找，他已經發現了一個三元版本 T(x, y, z) &#x3D; eˣ&#x2F;ln(x) × ln(z)&#x2F;eʸ，滿足 T(x, x, x) &#x3D; 1，但完整的驗證還在進行中</p>
+<p>另一個問題是有沒有一個一元的 Sheffer，也就是一個激活函數既能像 ReLU 一樣用在神經網路中，又能精確計算所有基礎函數？如果這個東西存在，那深度學習的架構設計可能會被徹底改寫</p>
+<h2 id="最後"><a href="#最後" class="headerlink" title="最後"></a>最後</h2><p>這篇論文讓我想起當初讀到那篇關於十二平均律的文章時的感覺，表面上看是一個純數學的發現，但它觸及的是一個非常根本的結構性問題：<strong>我們以為需要很多不同工具才能描述的世界，其實可能只需要一個</strong></p>
+<p>從 36 個按鈕到 2 個按鈕，這不只是一個數學遊戲，它揭示了基礎函數之間的冗餘程度遠遠超出我們的想像，而這種冗餘一旦被正確利用就能打開全新的計算範式</p>
+<p>論文的 arXiv 編號是 2603.21852，程式碼和驗證工具都開源在 GitHub 上，如果你對符號回歸或數學基礎有興趣，這篇值得從頭到尾讀一遍</p>
+
+      </div>
+    </div>
+  </article>
+  <div class="post__foot">
+    
+    
+<div class="author-bio">
+  <input type="checkbox" id="authorLikeCode" />
+  
+  <div class="author-bio__inner">
+    <div class="author-bio__avatar">
+      <label for="authorLikeCode" class="author-bio__avatar-wrapper" title="點擊切換 QR Code">
+        <div class="author-bio__avatar-face">
+          <img id="author-front-face"
+               src="/images/content/about.webp" 
+               alt="Owen Hsiao (蕭為謙)"
+               loading="lazy"
+               decoding="async" />
+          
+          
+            <img id="author-back-face"
+                 alt="support code"
+                 src="/images/content/reward/bmc_qr.png"
+                 loading="lazy"
+                 decoding="async" />
+          
+        </div>
+      </label>
+    </div>
+
+    <div class="author-bio__content">
+      <div class="author-bio__header">
+        <h3 class="author-bio__name">
+          <a href="/zh-tw/about/">
+            Owen Hsiao (蕭為謙)
+          </a>
+        </h3>
+        <span class="author-bio__title">Writer, Thinker & Developer</span>
+      </div>
+
+      <p class="author-bio__description">
+        
+          一位開發者，透過深度文章探索科技、哲學與個人成長。
+        
+      </p>
+
+      <div class="author-bio__footer">
+        <div class="author-bio__social">
+          
+            <a href="https://github.com/gba3124" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               title="GitHub"
+               class="author-bio__social-link">
+              
+                <img src="/images/logos/logo-github.svg" alt="GitHub" loading="lazy" decoding="async" />
+              
+            </a>
+          
+            <a href="https://www.linkedin.com/in/owen-hsiao-875b50217" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               title="LinkedIn"
+               class="author-bio__social-link">
+              
+                <img src="/images/logos/logo-linkedin.png" alt="LinkedIn" loading="lazy" decoding="async" />
+              
+            </a>
+          
+            <a href="https://web.facebook.com/profile.php?id=100000464468024" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               title="Facebook"
+               class="author-bio__social-link">
+              
+                <img src="/images/logos/logo-facebook.png" alt="Facebook" loading="lazy" decoding="async" />
+              
+            </a>
+          
+            <a href="https://www.taipeifusion.org/zh/members?Owen" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               title="台北創聚扶輪社"
+               class="author-bio__social-link">
+              
+                <img src="/images/logos/logo-rotary.svg" alt="台北創聚扶輪社" loading="lazy" decoding="async" />
+              
+            </a>
+          
+        </div>
+
+        
+          <div class="author-bio__support">
+            <a href="https://buymeacoffee.com/gba3124" target="_blank" class="author-bio__support-btn">
+              <span class="support-icon">
+                <svg viewBox="0 0 1024 1024" width="18px" height="18px">
+                  <path d="M466.88 908.96L113.824 563.296a270.08 270.08 0 0 1 0-387.392c108.8-106.56 284.896-106.56 393.696 0 1.504 1.472 2.976 2.944 4.448 4.48 1.472-1.536 2.944-3.008 4.448-4.48 108.8-106.56 284.896-106.56 393.696 0a269.952 269.952 0 0 1 34.016 347.072l-387.392 385.6a64 64 0 0 1-89.92 0.384z" fill="currentColor" />
+                </svg>
+              </span>
+              <span class="support-text">支持我</span>
+            </a>
+            <span class="author-bio__support-hint">感謝您的支持與鼓勵</span>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+/* --- 基礎設定 --- */
+:root {
+  --bio-bg: rgba(255, 255, 255, 0.85);
+  --bio-border: rgba(0, 0, 0, 0.06);
+  --bio-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+  --bio-accent: #8B0000; /* 你的品牌紅 */
+  --bio-accent-light: rgba(139, 0, 0, 0.06);
+  --bio-text-main: #2c3e50;
+  --bio-text-sub: #7f8c8d;
+  --bio-radius: 16px;
+}
+
+#authorLikeCode {
+  display: none; /* 隱藏 checkbox */
+}
+
+/* --- 主容器 --- */
+.author-bio {
+  margin: 4rem auto;
+  padding: 2.5rem;
+  background: var(--bio-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--bio-border);
+  border-radius: var(--bio-radius);
+  box-shadow: var(--bio-shadow);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.author-bio:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+.author-bio__inner {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+
+/* --- 頭像區域 (翻轉特效) --- */
+.author-bio__avatar {
+  flex-shrink: 0;
+}
+
+.author-bio__avatar-wrapper {
+  width: 100px;
+  height: 100px;
+  perspective: 1000px; /* 為 3D 翻轉做準備 */
+  display: block; /* 讓 label 撐開 */
+  cursor: pointer; /* 顯示手指鼠標，提示可點擊 */
+}
+
+.author-bio__avatar-face {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+#author-front-face,
+#author-back-face {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden; /* 隱藏背面 */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border: 3px solid #fff;
+}
+
+#author-back-face {
+  transform: rotateY(180deg); /* 預設背面是轉過去的 */
+  border-radius: 12px; /* QR Code 方形導圓角 */
+  background: #fff;
+  padding: 6px; /* 留白邊距 */
+  object-fit: contain;
+}
+
+/* Checkbox 觸發翻轉 */
+#authorLikeCode:checked ~ .author-bio__inner .author-bio__avatar-face {
+  transform: rotateY(180deg);
+}
+
+/* --- 內容區域 --- */
+.author-bio__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.author-bio__header {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.author-bio__name {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.author-bio__name a {
+  color: var(--bio-text-main);
+  text-decoration: none;
+  background-image: linear-gradient(var(--bio-accent), var(--bio-accent));
+  background-size: 0% 2px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  transition: background-size 0.3s ease, color 0.3s ease;
+}
+
+.author-bio__name a:hover {
+  color: var(--bio-accent);
+  background-size: 100% 2px;
+}
+
+.author-bio__title {
+  font-size: 0.9rem;
+  color: var(--bio-accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+}
+
+.author-bio__description {
+  margin: 0 0 1.5rem 0;
+  line-height: 1.7;
+  color: #555;
+  font-size: 1rem;
+  max-width: 650px;
+}
+
+/* --- 底部區域 (社交 + 贊助) --- */
+.author-bio__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(0,0,0,0.04);
+}
+
+.author-bio__social {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.author-bio__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f8f9fa;
+  transition: all 0.2s ease;
+  color: var(--bio-text-sub);
+  text-decoration: none;
+}
+
+.author-bio__social-link img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.author-bio__social-link:hover {
+  background: var(--bio-text-main);
+  transform: translateY(-2px);
+  color: #fff;
+}
+
+/* --- 贊助按鈕區 --- */
+.author-bio__support {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.author-bio__support-hint {
+  font-size: 0.85rem;
+  color: #999;
+  font-weight: 500;
+  display: none; /* 預設隱藏提示文字，保持簡潔，Hover 或 Desktop 可顯示 */
+}
+
+.author-bio__support-btn {
+  /* 改為標準連結樣式，移除 label 特性 */
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 24px;
+  background: var(--bio-accent-light);
+  color: var(--bio-accent);
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  text-decoration: none; /* 移除下底線 */
+  user-select: none;
+}
+
+.author-bio__support-btn svg {
+  fill: var(--bio-accent);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.author-bio__support-btn:hover {
+  background: var(--bio-accent);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(139, 0, 0, 0.2);
+}
+
+.author-bio__support-btn:hover svg {
+  fill: #fff;
+  transform: scale(1.2);
+  animation: heartbeat 1s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1.2); }
+  15% { transform: scale(1.4); }
+  30% { transform: scale(1.2); }
+  45% { transform: scale(1.3); }
+  60% { transform: scale(1.2); }
+}
+
+/* --- RWD 手機版 --- */
+@media screen and (max-width: 768px) {
+  .author-bio {
+    padding: 2rem 1.5rem;
+    margin: 2rem auto;
+  }
+
+  .author-bio__inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  
+  .author-bio__header {
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .author-bio__footer {
+    justify-content: center;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .author-bio__support-hint {
+    display: block; /* 手機版可以顯示提示文字，因為空間垂直排列足夠 */
+    margin-top: 0.5rem;
+  }
+}
+
+/* 大螢幕時顯示提示文字 */
+@media screen and (min-width: 992px) {
+  .author-bio__support-hint {
+    display: inline-block;
+  }
+}
+</style>
+    
+    <div class="post-nav">
+  
+    <a class="post-nav-item-left" href="/en/blog/eml-sheffer-operator/">
+      <div class="text-align">
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" />
+        </svg>
+        <span class="text-small">上一篇</span>
+      </div>
+      <div>One Operator to Rule Them All: The EML Operator and the NAND Gate of Continuous Mathematics</div>
+    </a>
+  
+  <div class="vhr"></div>
+  
+    <a class="post-nav-item-right" href="/en/blog/statistical-fallacies-checklist/">
+      <div class="text-align">
+        <span class="text-small">下一篇</span>
+        <svg t="1670570876164"
+             class="icon"
+             viewBox="0 0 1024 1024"
+             transform="scale(-1,-1)"
+             width="16"
+             height="16">
+          <path d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="14596" />
+        </svg>
+      </div>
+      The Complete Statistical Fallacy Checklist: 55 Mental Debug Maps
+    </a>
+  
+</div>
+
+    
+    
+    
+      <!-- Firebase 留言系統組件 -->
+<div class="comment-system" id="comment-system">
+  <!-- 留言將在這裡動態載入 -->
+</div>
+
+<!-- Firebase 配置腳本 -->
+<script>
+  // Firebase 配置 - 從主題配置讀取
+  window.FIREBASE_CONFIG = {
+    apiKey: "AIzaSyAESLWLI-pgJCwJdE51TmUFCFaUlOj5fu8",
+    authDomain: "owenhsiao-blog.firebaseapp.com", 
+    projectId: "owenhsiao-blog",
+    storageBucket: "owenhsiao-blog.firebasestorage.app",
+    messagingSenderId: "844251626767",
+    appId: "1:844251626767:web:480fd052da01f06134527a"
+  };
+</script>
+
+<!-- Firebase SDK (v9 compat mode for better compatibility) -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+<script>
+  // 初始化 Firebase
+  if (window.FIREBASE_CONFIG && window.FIREBASE_CONFIG.apiKey !== "your-api-key") {
+    try {
+      firebase.initializeApp(window.FIREBASE_CONFIG);
+      window.db = firebase.firestore();
+      
+      console.log('[OK] Firebase 初始化成功');
+      
+      // 當頁面載入完成後初始化留言系統
+      document.addEventListener('DOMContentLoaded', function() {
+        if (window.CommentSystemCompat) {
+          // 獲取當前文章的唯一 ID（使用 lang/slug 格式，不受分類路徑變動影響）
+          const pathSegments = window.location.pathname.replace(/\/$/, '').split('/').filter(Boolean);
+          const lang = pathSegments.find(seg => ['zh-tw', 'en'].includes(seg)) || 'zh-tw';
+          const slug = pathSegments.length > 0 ? pathSegments[pathSegments.length - 1] : 'home';
+          const postId = lang + '/' + slug;
+          
+          // 初始化留言系統
+          window.commentSystem = new window.CommentSystemCompat(postId, 'comment-system');
+          console.log('[OK] 留言系統初始化成功，文章 ID:', postId);
+        } else {
+          console.error('[ERR] CommentSystemCompat 未載入');
+        }
+      });
+    } catch (error) {
+      console.error('[ERR] Firebase 初始化失敗:', error);
+      
+      // 顯示設定提示
+      document.addEventListener('DOMContentLoaded', function() {
+        const container = document.getElementById('comment-system');
+        if (container) {
+          container.innerHTML = `
+            <div style="background: rgba(255, 243, 205, 0.9); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 16px; padding: 2rem; margin: 2rem 0; text-align: center; backdrop-filter: blur(10px);">
+              <h3 style="color: #8B0000; margin-bottom: 1rem; font-weight: 600; font-size: 1.25rem;">Comment System Setup</h3>
+              <p style="color: #856404; margin-bottom: 1rem; line-height: 1.6;">請完成 Firebase 配置以啟用留言功能</p>
+              <p style="color: #6c757d; font-size: 0.9rem; margin: 0;">
+                運行 <code style="background: rgba(0, 0, 0, 0.05); padding: 2px 6px; border-radius: 4px;">./setup-comments.sh</code> 查看設定指南
+              </p>
+            </div>
+          `;
+        }
+      });
+    }
+  } else {
+    // Firebase 配置未設定時顯示提示
+    document.addEventListener('DOMContentLoaded', function() {
+      const container = document.getElementById('comment-system');
+      if (container) {
+        container.innerHTML = `
+          <div style="background: rgba(255, 243, 205, 0.9); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 16px; padding: 2rem; margin: 2rem 0; text-align: center; backdrop-filter: blur(10px);">
+            <h3 style="color: #8B0000; margin-bottom: 1rem; font-weight: 600; font-size: 1.25rem;">Comment System Setup</h3>
+            <p style="color: #856404; margin-bottom: 1rem; line-height: 1.6;">請完成 Firebase 配置以啟用留言功能</p>
+            <p style="color: #6c757d; font-size: 0.9rem; margin: 0;">
+              運行 <code style="background: rgba(0, 0, 0, 0.05); padding: 2px 6px; border-radius: 4px;">./setup-comments.sh</code> 查看設定指南
+            </p>
+          </div>
+        `;
+      }
+    });
+  }
+</script>
+
+<!-- 留言系統腳本 -->
+<script src="/js/comments/comment-system-compat.js"></script>
+
+    
+  </div>
+
+    </main>
+    <div class="foot">
+  <div class="footer-bg">
+    <div class="footer-threads" id="footer-threads"></div>
+    <!-- Footer Dock 在 threads 中間 -->
+    <div id="footer-dock-container"></div>
+  </div>
+  <div class="footer-blur-layer"></div>
+</div>
+
+<!-- Copyright 移到最下面，獨立容器 -->
+<div class="footer-copyright-section">
+  <div class="foot-inner">
+    <div class="copyright">
+      <svg width="16" height="16" viewBox="0 0 725 725">
+        <path fill-rule="evenodd" fill="currentColor" d="M145.870,236.632 L396.955,103.578 L431.292,419.44 L156.600,522.53 L145.870,236.632 Z" />
+        <path fill-rule="evenodd" fill="currentColor" d="M396.955,103.578 L564.345,234.486 L611.558,513.469 L431.292,419.44 L396.955,103.578 Z" />
+        <path fill-rule="evenodd" fill="currentColor" d="M431.292,419.44 L611.558,513.469 L358.327,595.18 L156.600,522.53 L431.292,419.44 Z" />
+      </svg>
+      <span>由 <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 驅動 · 主題 <a target="_blank" rel="noopener" href="https://github.com/hooozen/hexo-theme-tranquility">Tranquility</a></span>
+      <span>© 2026 <a href="https://owenhsiao.com">Owen Hsiao</a></span>
+    </div>
+  </div>
+</div>
+
+<!-- 傳遞主題配置數據給 JavaScript -->
+<script>
+  window.themeConfig = {
+    social: [{"name":"GitHub","icon":"/images/logos/logo-github.svg","url":"https://github.com/gba3124"},{"name":"LinkedIn","icon":"/images/logos/logo-linkedin.png","url":"https://www.linkedin.com/in/owen-hsiao-875b50217"},{"name":"Facebook","icon":"/images/logos/logo-facebook.png","url":"https://web.facebook.com/profile.php?id=100000464468024"},{"name":"台北創聚扶輪社","icon":"/images/logos/logo-rotary.svg","url":"https://www.taipeifusion.org/zh/members?Owen"}],
+    contacts: [{"name":"wei-chien.hsiao.tw@member.mensa.org","icon":"/images/icons/ui/icon/icon-email.svg","url":"mailto:wei-chien.hsiao.tw@member.mensa.org"}],
+    links: [{"name":"台灣獨立駭客","url":"https://www.indiehackerstaiwan.com"},{"name":"Frontier","url":"https://frontier-lab.io"}],
+    lang: {
+      social: '帳號',
+      contact: '聯繫',
+      friends: '朋友',
+      gesture: {
+        title: '手勢控制',
+        camera: '攝像頭',
+        tracking: '追蹤',
+        pinch: '捏合',
+        start: '啟動',
+        stop: '停止',
+        starting: '啟動中...',
+        sensitivity: '靈敏度',
+        scroll: '滾動',
+        debug: '除錯模式',
+        tip1: '1. 移動手部控制游標',
+        tip2: '2. 捏合點擊，拖曳滾動',
+        error_camera_denied: '請允許攝像頭權限以使用手勢控制',
+        error_camera_not_found: '找不到攝像頭裝置'
+      }
+    }
+  };
+</script>
+
+    
+    
+    
+      
+        
+      
+    
+    
+      <script defer src="https://unpkg.com/js-polyfills@0.1.43/es6.js"></script>
+      <script defer src="/js/mathjax-config.js"></script>
+      <script id="MathJax-script"
+              async
+              src="https://www.unpkg.com/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+    
+    
+      <script defer src="/js/search.js"></script>
+      <script defer>document.addEventListener('DOMContentLoaded', function() { searchInitialize("/search.json"); });</script>
+    
+    
+      <script defer src="/js/copy-code.js"></script>
+    
+    <script defer src="/js/language-switch.js"></script>
+    <script>
+      window.__TRQLT_PERF = {
+        three: "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js",
+        threadsFooter: "/js/threads-footer.js",
+        footerDock: "/js/footer-dock.js",
+        customCursor: "/js/custom-cursor.js",
+        oneEuroFilter: "/js/one-euro-filter.js",
+        gestureControl: "/js/gesture-control.js",
+        gestureUI: "/js/gesture-ui.js",
+        gestureInit: "/js/gesture-init.js",
+        textPressure: "/js/text-pressure.js",
+        fuzzyText: "/js/fuzzy-text.js",
+        tiltedCard: "/js/tilted-card.js",
+        metallicPaint: "/js/metallic-paint.js",
+        tagcloudInit: "/js/tagcloud-init.js",
+        fancyTagcloud: false
+      };
+    </script>
+    <script defer src="/js/perf-loader.js?v=2"></script>
+    <script defer src="/js/lazy-bg.js"></script>
+    
+    
+  
+  
+    <script defer src="https://unpkg.com/mermaid@11.14.0/dist/mermaid.min.js"></script>
+    <script defer>
+      document.addEventListener('DOMContentLoaded', function() {
+        if (!window.mermaid || !document.querySelector('.mermaid')) return;
+        mermaid.initialize({"startOnload":true});
+      });
+    </script>
+  
+
+  </body>
+</html>

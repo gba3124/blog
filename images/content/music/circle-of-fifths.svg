@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="600" height="600" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>Circle of Fifths</title>
+  
+  <!-- Background circle -->
+  <circle cx="300" cy="300" r="250" fill="white" stroke="#999" stroke-width="2" />
+  <circle cx="300" cy="300" r="180" fill="#f0f0f0" stroke="#999" stroke-width="1" />
+  
+  <!-- Main notes (outer circle) -->
+  <g font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle">
+    <!-- C -->
+    <circle cx="300" cy="50" r="40" fill="#f9d5e5" stroke="#333" stroke-width="2" />
+    <text x="300" y="58" fill="black">C</text>
+    
+    <!-- G -->
+    <circle cx="466" cy="120" r="40" fill="#eeac99" stroke="#333" stroke-width="2" />
+    <text x="466" y="128" fill="black">G</text>
+    
+    <!-- D -->
+    <circle cx="530" cy="300" r="40" fill="#e06377" stroke="#333" stroke-width="2" />
+    <text x="530" y="308" fill="black">D</text>
+    
+    <!-- A -->
+    <circle cx="466" cy="480" r="40" fill="#c83349" stroke="#333" stroke-width="2" />
+    <text x="466" y="488" fill="black">A</text>
+    
+    <!-- E -->
+    <circle cx="300" cy="550" r="40" fill="#5b9aa0" stroke="#333" stroke-width="2" />
+    <text x="300" y="558" fill="black">E</text>
+    
+    <!-- B -->
+    <circle cx="134" cy="480" r="40" fill="#d6e1c7" stroke="#333" stroke-width="2" />
+    <text x="134" y="488" fill="black">B</text>
+    
+    <!-- F# -->
+    <circle cx="70" cy="300" r="40" fill="#8d9440" stroke="#333" stroke-width="2" />
+    <text x="70" y="308" fill="black">F#</text>
+    
+    <!-- C# -->
+    <circle cx="134" cy="120" r="40" fill="#a8d8ea" stroke="#333" stroke-width="2" />
+    <text x="134" y="128" fill="black">C#</text>
+    
+    <!-- G# -->
+    <circle cx="238" cy="136" r="30" fill="#aa96da" stroke="#333" stroke-width="1.5" />
+    <text x="238" y="142" font-size="20" fill="black">G#</text>
+    
+    <!-- D# -->
+    <circle cx="364" cy="136" r="30" fill="#fcbad3" stroke="#333" stroke-width="1.5" />
+    <text x="364" y="142" font-size="20" fill="black">D#</text>
+    
+    <!-- A# -->
+    <circle cx="364" cy="464" r="30" fill="#ffffd2" stroke="#333" stroke-width="1.5" />
+    <text x="364" y="470" font-size="20" fill="black">A#</text>
+    
+    <!-- F -->
+    <circle cx="238" cy="464" r="30" fill="#b5ead7" stroke="#333" stroke-width="1.5" />
+    <text x="238" y="470" font-size="20" fill="black">F</text>
+  </g>
+  
+  <!-- Connection lines -->
+  <g stroke="#888" stroke-width="2" stroke-dasharray="5,5" opacity="0.7">
+    <line x1="300" y1="90" x2="439" y2="140" />
+    <line x1="458" y1="160" x2="500" y2="270" />
+    <line x1="510" y1="335" x2="450" y2="445" />
+    <line x1="425" y1="470" x2="335" y2="520" />
+    <line x1="265" y1="525" x2="170" y2="460" />
+    <line x1="145" y1="440" x2="95" y2="330" />
+    <line x1="100" y1="270" x2="155" y2="155" />
+    <line x1="172" y1="132" x2="260" y2="90" />
+    
+    <!-- Complete the circle -->
+    <line x1="252" y1="158" x2="340" y2="158" />
+    <line x1="238" y1="166" x2="238" y2="434" />
+    <line x1="268" y1="464" x2="334" y2="464" />
+    <line x1="364" y1="434" x2="364" y2="166" />
+  </g>
+  
+  <!-- Title (simplified) -->
+  <text x="300" y="300" font-family="Arial" font-size="28" font-weight="bold" text-anchor="middle" fill="#333">Circle of Fifths</text>
+</svg>
